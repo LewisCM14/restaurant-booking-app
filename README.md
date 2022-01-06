@@ -1,108 +1,188 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Restaurant Booking App
 
-Welcome USER_NAME,
+A booking app built using Django for a fictitious restaurant, built to demonstrate a full stack product with CRUD functionality. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+# Table of Contents <a name='contents'></a>
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+* [User Experience (UX)](#userexperience)
+* [Design](#design)
+* [Development](#development)
+* [Existing Features](#existingfeatures)
+* [Features Left to Implement](#toimplement)
+* [Testing](#testing)
+* [Unfixed Bugs](#bugs)
+* [Deployment](#deployment)
+* [Technologies Used](#tech)
+* [Credits](#credits)
 
-## Gitpod Reminders
+## User Experience (UX) <a name='userexperience'></a>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+[Return to Table of Contents](#contents)
 
-`python3 -m http.server`
+## Design <a name='design'></a>
 
-A blue button should appear to click: _Make Public_,
+- **Colour Scheme**
 
-Another blue button should appear to click: _Open Browser_.
+- **Typography**
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- **Imagery**
 
-A blue button should appear to click: _Make Public_,
+- **Layout**
 
-Another blue button should appear to click: _Open Browser_.
+[Return to Table of Contents](#contents)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Development <a name='development'></a>
 
-To log into the Heroku toolbelt CLI:
+[Return to Table of Contents](#contents)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Existing Features <a name='existingfeatures'></a>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+[Return to Table of Contents](#contents)
 
-------
+## Features Left to Implement <a name ='toimplement'></a>
 
-## Release History
+[Return to Table of Contents](#contents)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## Testing <a name ='testing'></a>  
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- **Validator Testing**
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+    - HTML
+        - No errors were found when passing through the [W3C Validator tool](https://validator.w3.org/#validate_by_uri)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+    - CSS
+        - No errors were found when passing through the [W3C Validator tool](https://jigsaw.w3.org/css-validator/)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+    - JAVASCRIPT
+        - - No errors were found when passing through [JSHint](https://jshint.com/)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+    - Python
+        - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- **Lighthouse**
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+[Return to Table of Contents](#contents)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Unfixed Bugs <a name ='bugs'></a>
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+[Return to Table of Contents](#contents)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Deployment <a name ='deployment'></a>
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- The site is deployed via [Heroku](https://heroku.com/). The steps to deploy are as follows:
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+    *Ensure the requirements for the project are added to the requirements.txt file prior to deployment*
 
-------
+    1: From the dashboard, select New and then Create new app.
+    
+    2: Enter an individual app name into the text box, select a region from the dropdown and then press Create app.
+    
+    3: A Heroku app has now been created and the Deploy tab is opened.
+    
+    4: Select the Settings tab.
+    
+    5: If required, click on the Reveal Config Vars button and add.
+    
+    6: In the Buildpacks section of the settings tab, click on Add Buildpack, select Python and then save changes.
+    
+    7: Click on Add Buildpack again, select node.js and then save changes.
 
-## FAQ about the uptime script
+    *When they are on the dashboard, ensure that python is above node.js on the list*
+    
+    8: Open the Deploy tab.
+    
+    9: In the deployment method section, select GitHub and confirm the connection.
+    
+    10: Enter the repo-name into the text box. When the correct repo appears, click Connect.
+    
+    11: If desired, in the Automatic deploys section, click Enable Automatic Deploys.
 
-**Why have you added this script?**
+    *This then updates the deployment every time GitHub code is pushed.*
+    
+    12: To complete the process click on the Deploy Brach button in the Manual deploy section. 
+        
+    *This will take a few seconds to complete while Heroku builds the app.*
+    
+    13: A message will appear informing you that the app was successfully deployed and a View button will bring you to the live site.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+The live link can be found here - [restaurant-booking-app]()
 
-**How will this affect me?**
+[Return to Table of Contents](#contents)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+## Technologies Used <a name ='tech'></a>
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- **Languages Used**
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+    * HTML
+    * CSS
+    * JAVASCRIPT
+    * PYTHON
+    * MARKDOWN
 
-**So….?**
+- **Frameworks**
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+    * **[Django 3.2](https://www.djangoproject.com/download/).**
+        * Python based web framework, used to build the application.
 
-**Can I opt out?**
+- **DBMS**
+    
+    * **[PostgreSQL](https://www.postgresql.org/).**
+        * The relational database management system used.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- **Cloud Services**
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+    * **[Heroku](https://id.heroku.com/login).**
+        * Used to deploy my project.
 
-**Anything more?**
+    * **[Cloudinary](https://cloudinary.com/).**
+        * A cloud-based image and video management service. Used due to Heroku using an ephemeral file system. 
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- **Server**
 
----
+    * **[Gunicorn](https://gunicorn.org/).**
+        * The server used to run Django on Heroku.
 
-Happy coding!
+- **Version Control**
+    
+    * **Git.**
+        * Git was used for version control by utilizing the GitPod terminal to commit to Git and Push to GitHub.
+
+    * **[GitHub](https://github.com/).**
+        * GitHub is used to store the projects code after being pushed from Git.
+
+- **Libraries**
+
+    * **[dj_database_url](https://pypi.org/project/dj-database-url/).**
+        * A PostgreSQL supporting library. Allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+    
+    * **[pyscopg2](https://www.psycopg.org/docs/).**
+        * PostgreSQL database adapter for the Python programming language.
+    
+    * **[dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/).**
+        * a Django package that facilitates integration with Cloudinary.
+    
+- **Programs**
+
+    * **Slack.**
+        * Specifically the peer-code_review channel on Code Institutes Slack workspace. Used to increase the scope of my testing.
+    
+    * **Balsamiq.** 
+        * Used to create the wire frames during the development process.
+       
+[Return to Table of Contents](#contents)
+
+## Credits <a name = 'credits'></a> 
+
+* A special thank you to my mentor Rohit Sharma. 
+
+* Thanks to the Code Institute tutor support team, who helped me develop my understanding throughout this project.
+
+* Finally thanks to my peers on Slack who responded to my questions.  
+
+- **Content**  
+
+- **Media**
+
+[Return to Table of Contents](#contents)
