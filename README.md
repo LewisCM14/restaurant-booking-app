@@ -2,7 +2,7 @@
 
 A booking app built using Django for a fictitious restaurant, built to demonstrate a full stack product with CRUD functionality. 
 
-# Table of Contents <a name='contents'></a>
+## Table of Contents <a name='contents'></a>
 
 * [User Experience (UX)](#userexperience)
 * [Design](#design)
@@ -15,11 +15,11 @@ A booking app built using Django for a fictitious restaurant, built to demonstra
 * [Technologies Used](#tech)
 * [Credits](#credits)
 
-## User Experience (UX) <a name='userexperience'></a>
+### User Experience (UX) <a name='userexperience'></a>
 
 [Return to Table of Contents](#contents)
 
-## Design <a name='design'></a>
+### Design <a name='design'></a>
 
 - **Colour Scheme**
 
@@ -31,19 +31,19 @@ A booking app built using Django for a fictitious restaurant, built to demonstra
 
 [Return to Table of Contents](#contents)
 
-## Development <a name='development'></a>
+### Development <a name='development'></a>
 
 [Return to Table of Contents](#contents)
 
-## Existing Features <a name='existingfeatures'></a>
+### Existing Features <a name='existingfeatures'></a>
 
 [Return to Table of Contents](#contents)
 
-## Features Left to Implement <a name ='toimplement'></a>
+### Future Features <a name ='toimplement'></a>
 
 [Return to Table of Contents](#contents)
 
-## Testing <a name ='testing'></a>  
+### Testing <a name ='testing'></a>  
 
 - **Validator Testing**
 
@@ -54,7 +54,7 @@ A booking app built using Django for a fictitious restaurant, built to demonstra
         - No errors were found when passing through the [W3C Validator tool](https://jigsaw.w3.org/css-validator/)
 
     - JAVASCRIPT
-        - - No errors were found when passing through [JSHint](https://jshint.com/)
+        - No errors were found when passing through [JSHint](https://jshint.com/)
 
     - Python
         - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/)
@@ -64,50 +64,132 @@ A booking app built using Django for a fictitious restaurant, built to demonstra
 
 [Return to Table of Contents](#contents)
 
-## Unfixed Bugs <a name ='bugs'></a>
+### Unfixed Bugs <a name ='bugs'></a>
 
 
 [Return to Table of Contents](#contents)
 
-## Deployment <a name ='deployment'></a>
+### Deployment <a name ='deployment'></a>
 
 - The site is deployed via [Heroku](https://heroku.com/). The steps to deploy are as follows:
 
-    *Ensure the requirements for the project are added to the requirements.txt file prior to deployment*
+    *Ensure all requirements for the project are added to the requirements.txt file prior to deployment*
 
-    1: From the dashboard, select New and then Create new app.
-    
-    2: Enter an individual app name into the text box, select a region from the dropdown and then press Create app.
-    
-    3: A Heroku app has now been created and the Deploy tab is opened.
-    
-    4: Select the Settings tab.
-    
-    5: If required, click on the Reveal Config Vars button and add.
-    
-    6: In the Buildpacks section of the settings tab, click on Add Buildpack, select Python and then save changes.
-    
-    7: Click on Add Buildpack again, select node.js and then save changes.
+    * STAGE ONE - Create a New App in Heroku
 
-    *When they are on the dashboard, ensure that python is above node.js on the list*
-    
-    8: Open the Deploy tab.
-    
-    9: In the deployment method section, select GitHub and confirm the connection.
-    
-    10: Enter the repo-name into the text box. When the correct repo appears, click Connect.
-    
-    11: If desired, in the Automatic deploys section, click Enable Automatic Deploys.
-
-    *This then updates the deployment every time GitHub code is pushed.*
-    
-    12: To complete the process click on the Deploy Brach button in the Manual deploy section. 
+        1: From the dashboard on Heroku, select New and then Create new app.
         
-    *This will take a few seconds to complete while Heroku builds the app.*
+        2: Enter an individual app name into the text box, select a relevant region from the dropdown and then press Create app.
+        
+        3: A Heroku app has now been created.
     
-    13: A message will appear informing you that the app was successfully deployed and a View button will bring you to the live site.
+    ---
+    
+    * STAGE TWO - Add a Database
 
-The live link can be found here - [restaurant-booking-app]()
+        1: Navigate to the resources tab for the app that has just been created.
+
+        2: In the Add-Ons section, search for the Heroku Postgres add on and submit an order form.
+        
+        3: Select the Settings tab for the app.
+
+        4: Reveal Config Vars and copy the DATABASE_URL string provided.
+
+        5: Create a env.py file within the project and use the copied string to create a DATABASE_URL environment variable.
+
+    ---
+    
+    * STAGE THREE - Create a SECRET_KEY
+
+        1: Within the env.py file, create a SECRET_KEY environment variable.
+
+        2: On the settings tab of the Heroku app, reveal config vars and add the created SECRET_KEY.
+
+    ---
+    
+    * STAGE FOUR - Update the settings.py file
+
+        1: Import dj_database_url and env.py into the settings.py file within the project.
+
+        2: Update the default SECRET_KEY variable provided by Django to the SECRET_KEY environment variable.
+
+        3: Update the DATABASES dictionary to use the DATABASE_URL environment variable, the dj_database_url library is utilised here.
+
+        4: Preform a migration.
+
+        *The Heroku database is now being used as the backend, within the resources tab of the app, the Heroku Postgres link will bring up a window demonstrating this.*
+
+    ---
+
+    * STAGE FIVE - Connect app to Cloudinary
+
+        1: On the Cloudinary website, copy the API environment variable string.
+
+        2: Within the projects env.py file create a CLOUDINARY_URL environment variable using this copied string.
+
+        3: Within the Heroku app, on the settings tab, update the config vars to contain this variable.
+
+        *For initial deployment, a variable called DISABLE_COLLECTSTATIC is also created within the config vars at this point with a value of 1, this is simply to get the skeleton project deployed for testing purposes and removed when deploying the full project*
+
+        4: Within the settings.py file on the project, under INSTALLED_APPS, 'cloudinary_storage' and 'cloudinary' must be added.
+
+        5: Django must then be told to use Cloudinary to store media and static files, this is done by adding the below variables to the relevant section of the settings.py file:
+            
+            STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+            STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+            STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+            MEDIA_URL = '/media/'
+            DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+        
+        *The app is now linked to Cloudinary*
+    
+    ---
+     
+    * STAGE SIX - Tell Django where the templates are stored
+
+        1: Under the BASE_DIR on settings.py, add in the below templates directory. 
+        
+            TEMPLATES_DIR =  os.path.join(BASE_DIR, 'templates')
+        
+        2: Then within the TEMPLATES setting, update the DIRS key to point towards this variable.
+    
+    ---
+    
+    * STAGE SEVEN - Update ALLOWED_HOSTS
+
+        1: Within settings.py on the project update the ALLOWED_HOSTS variable to be the name of your Heroku app with ".herokuapp.com" appended to the end.
+
+        *Add localhost too, so that the project can also be ran locally. This is also a good point to add the Media, Static and Template directories, these folders should be added at the top level.*
+    
+    ---
+    
+    * STAGE EIGHT - Create a Procfile
+
+        1: Create a Procfile at the top level of the directory.
+
+        2: Within this file, declare the below command.
+
+            * web: gunicorn restobook.wsgi
+        
+        *Add, commit and push to the repository at this point*
+    
+    ---
+    
+    * STAGE NINE - Connect the GitHub repository to the Heroku App
+
+        1: Within the Deploy tab on the Heroku app, choose GitHub as the deployment method.
+
+        2: Search for the correct repository and connect.
+
+        3: At the bottom of the deployment section there is an option to chose which branch to deploy. Chose the main branch and allow the build log to complete.
+
+        4: Once complete, chose to allow automatic deployment from here onwards.
+
+        *The app has now been deployed successfully.*
+
+    ---
+
+The live link can be found here - [restaurant-booking-app](https://restaurant-booking-app-lewiscm.herokuapp.com/)
 
 [Return to Table of Contents](#contents)
 
