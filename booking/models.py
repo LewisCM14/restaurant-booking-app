@@ -21,8 +21,8 @@ class Booking(models.Model):
     str returns the reservation date and time to be used as booking title.
     """
     lead = models.ForeignKey(User, on_delete=models.CASCADE, related_name="table_booking")
-    date = models.DateTimeField()
-    time = models.DateTimeField()
+    date = models.DateField()
+    time = models.TimeField()
     note = models.TextField(max_length=200)
     guests = models.PositiveIntegerField()
     status = models.IntegerField(choices=STATUS, default=0)
