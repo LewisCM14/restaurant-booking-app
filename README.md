@@ -207,6 +207,9 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
 
     * **[Django 3.2](https://www.djangoproject.com/download/).**
         * Python based web framework, used to build the application.
+    
+    * **[Bootstrap](https://getbootstrap.com/).**
+        * A front-end open source toolkit, used across the application.
 
 - **DBMS**
     
