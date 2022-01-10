@@ -263,7 +263,9 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
 
 * Finally thanks to my peers on Slack who responded to my questions.  
 
-- **Content**  
+- **Content**
+
+    * I used this YouTube [tutorial](https://www.youtube.com/watch?v=AuNjaMLwuug/) to help me wire up my views.
 
 - **Media**
 
