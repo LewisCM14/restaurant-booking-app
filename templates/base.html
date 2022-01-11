@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,19 +20,40 @@
     <!-- title, adjust later -->
     <title>Restaurant Name</title>
 </head>
+
 <body>
     <!-- header to include navigation and website name -->
-    <nav>
-
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Restaurant Name</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Account</a>
+                </ul>
+            </div>
+        </div>
     </nav>
     <main>
+        <h1 class="test">base</h1>
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
     </main>
     <!-- footer to include contact details, address, opening hours and social media links -->
     <footer>
-        
+
     </footer>
 </body>
+
 </html>
