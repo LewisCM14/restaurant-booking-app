@@ -270,6 +270,8 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
 
     * I used this YouTube [tutorial](https://www.youtube.com/watch?v=AuNjaMLwuug/) to help me wire up my views.
 
+    * The footer is developed from a template on [MDBootstrap](https://mdbootstrap.com/docs/standard/navigation/footer/).
+
 - **Media**
 
 [Return to Table of Contents](#contents)
