@@ -248,6 +248,9 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
     * **[dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/).**
         * a Django package that facilitates integration with Cloudinary.
     
+    * **[allauth](https://django-allauth.readthedocs.io/en/latest/installation.html).**
+        * Used for creation and maintenance of user accounts.
+    
 - **Programs**
 
     * **Slack.**
