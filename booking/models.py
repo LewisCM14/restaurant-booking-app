@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+
 # A tuple to hold the status of the booking
 # 0 - pending
 # 1 - accepted
@@ -22,9 +23,10 @@ class Booking(models.Model):
     The meta class orders each booking by reservation date in descending order.
     str returns the reservation date and time to be used as booking title.
     """
-    lead = models.ForeignKey(User, on_delete=models.CASCADE, related_name="table_booking")
-    email = models.EmailField()  # needs to be taken from user account
-    mobile = models.IntegerField(max_length=11)  # needs to be taken from user account, max length is ignored remove later
+    lead = models.ForeignKey(User, on_delete=models.CASCADE, related_name="table_booking")  # needs to be taken from user account
+    email = models.ForeignKey(User, on_delete=models.CASCADE)  # needs to be taken from user account
+    primary_Mobile = models.CharField(max_length=11)
+    second_Mobile = models.CharField(max_length=11)
     date = models.DateField()
     time = models.TimeField()
     notes = models.TextField(max_length=200)

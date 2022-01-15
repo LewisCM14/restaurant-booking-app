@@ -8,14 +8,10 @@ class CustomSignupForm(SignupForm):
     adds custom sign up fields.
     """
 
-    first_name = forms.CharField(max_length=30, label='First Name')
-    last_name = forms.CharField(max_length=30, label='Last Name')
-    mobile_number = forms.CharField(max_length=11, label='Mobile Number')
+    full_name = forms.CharField(max_length=50, label='Full Name')
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
-        user.mobile_number = self.cleaned_data['mobile_number']
+        user.full_name = self.cleaned_data['full_name']
         user.save()
         return user
