@@ -7,6 +7,7 @@ class BookingList(generic.ListView):
     model = Booking
     queryset = Booking.objects.order_by('-date')
     template_name = 'booking.html'
+    paginate_by = 6
 
 
 def index(request):

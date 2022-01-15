@@ -24,15 +24,14 @@ class Booking(models.Model):
     str returns the reservation date and time to be used as booking title.
     """
     lead = models.ForeignKey(User, on_delete=models.CASCADE, related_name="table_booking")  # needs to be taken from user account
-    email = models.ForeignKey(User, on_delete=models.CASCADE)  # needs to be taken from user account
-    primary_Mobile = models.CharField(max_length=11)
-    second_Mobile = models.CharField(max_length=11)
+    email = models.ForeignKey(User, on_delete=models.CASCADE)
+    mobile = models.IntegerField()
     date = models.DateField()
     time = models.TimeField()
     notes = models.TextField(max_length=200)
     guests = models.PositiveIntegerField()
     status = models.IntegerField(choices=STATUS, default=0)
-    # slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
 
     class Meta:
         ordering = ['-date']
