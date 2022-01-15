@@ -237,7 +237,7 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
     * **[GitHub](https://github.com/).**
         * GitHub is used to store the projects code after being pushed from Git.
 
-- **Libraries**
+- **Libraries, Packages and Applications**
 
     * **[dj_database_url](https://pypi.org/project/dj-database-url/).**
         * A PostgreSQL supporting library. Allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
@@ -250,6 +250,9 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
     
     * **[allauth](https://django-allauth.readthedocs.io/en/latest/installation.html).**
         * Used for creation and maintenance of user accounts.
+    
+    * **[crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/index.html).**
+        * Used for rendering the booking form in the browser.
     
 - **Programs**
 
