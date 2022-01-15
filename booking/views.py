@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views import generic
-from .models import Booking
+#  from django.views import generic
+#  from .models import Booking
+from .forms import BookingForm
 
 
 # class BookingList(generic.ListView):
@@ -15,4 +16,6 @@ def index(request):
 
 
 def booking(request):
-    return render(request, 'booking.html', {})
+    return render(request, 'booking.html', {
+        "booking_form": BookingForm()
+    })
