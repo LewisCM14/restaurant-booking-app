@@ -4,4 +4,4 @@ from .models import Booking
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('date', 'time',)}
+    prepopulated_fields = {'slug': ('email', 'date', 'time',)}
