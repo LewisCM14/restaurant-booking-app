@@ -236,6 +236,9 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
 
     * **[GitHub](https://github.com/).**
         * GitHub is used to store the projects code after being pushed from Git.
+    
+    * **[Gitpod](https://www.gitpod.io/docs/).**
+        * The IDE used to build the project.
 
 - **Libraries, Packages and Applications**
 
