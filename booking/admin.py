@@ -1,7 +1,4 @@
 from django.contrib import admin
 from .models import Booking
 
-
-@admin.register(Booking)
-class BookingAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('email', 'date', 'time',)}
+admin.site.register(Booking)
