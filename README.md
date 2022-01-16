@@ -257,6 +257,9 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
     * **[crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/index.html).**
         * Used for rendering the booking form in the browser.
     
+    * **[autoslug](https://pypi.org/project/django-autoslug/).**
+        * Used on the Booking model to generate the slug field.
+    
 - **Programs**
 
     * **Slack.**
