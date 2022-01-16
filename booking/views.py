@@ -16,7 +16,14 @@ def index(request):
 
 
 def booking(request):
+    """
+    Renders the BookingForm in the browser.
 
+    On a POST request, gets the data from the form and places in an instance.
+    Checks that the instance is valid and if so saves to the database,
+    then redirects to the reservations page. If form is invalid, reloads
+    booking page.
+    """
     if request.method == 'POST':
         form_data = {
             "lead": request.POST.get('lead'),
@@ -30,16 +37,11 @@ def booking(request):
 
         booking_form = BookingForm(form_data)
         if booking_form.is_valid():
-            print("form is valid")
             booking_form.save()
-        else:
-            print("form invalid")
-            print(booking_form.errors)
 
         return render(request, 'index.html', {})  # temp
 
     else:
-        print("form is NOT valid")
         return render(request, 'booking.html', {
             "booking_form": BookingForm()
         })
@@ -47,11 +49,3 @@ def booking(request):
     return render(request, 'booking.html', {
         "booking_form": BookingForm()
     })
-
-
-# def createbooking(request):
-#     """
-#     On a POST request, gets the data from the form and places in an instance.
-#     Checks that the instance is valid and if so saves to the database.
-#     """
-    
