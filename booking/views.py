@@ -1,17 +1,11 @@
 from django.shortcuts import render
-#  from django.views import generic
+from django.views import generic
 from .models import Booking
 from .forms import BookingForm
 
 
-# class BookingList(generic.ListView):
-#     model = Booking
-#     queryset = Booking.objects.order_by('-date')
-#     template_name = 'booking.html'
-#     paginate_by = 6
-
-
 def index(request):
+    """ Renders the index page in the browser """
     return render(request, 'index.html', {})
 
 
@@ -44,7 +38,7 @@ def booking(request):
     else:
         return render(request, 'booking.html', {
             "booking_form": BookingForm()
-        })
+        })  # alter to booking page that says previous was invalid
 
     return render(request, 'booking.html', {
         "booking_form": BookingForm()
@@ -52,4 +46,20 @@ def booking(request):
 
 
 def reservations(request):
+    """ Renders the reservations page in the browser """
     return render(request, 'reservations.html', {})
+
+
+class ReservationList(generic.ListView):
+    """
+    Class based view to display the reservations of a user.
+    Inherits from the Booking model.
+    Filters bookings so only ones made by the singed in user are dispayed,
+    orders them by date asscending.
+    Renders to the 'reservations.html' template.
+    Paginates the bookings to 6 per page.
+    """
+    model = Booking
+    # queryset = need to figure out
+    template_name = 'reservations.html'
+    paginate_by = 6
