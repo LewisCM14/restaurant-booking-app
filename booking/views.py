@@ -39,7 +39,7 @@ def booking(request):
         if booking_form.is_valid():
             booking_form.save()
 
-        return render(request, 'index.html', {})  # temp
+        return render(request, 'reservations.html', {})
 
     else:
         return render(request, 'booking.html', {
