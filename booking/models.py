@@ -35,6 +35,7 @@ class Booking(models.Model):
     slug = AutoSlugField(populate_from='email')
 
     class Meta:
+        """ Orders individual bookings by date """
         ordering = ['-date']
 
     def __str__(self):
