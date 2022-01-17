@@ -49,3 +49,7 @@ def booking(request):
     return render(request, 'booking.html', {
         "booking_form": BookingForm()
     })
+
+
+def reservations(request):
+    return render(request, 'reservations.html', {})
