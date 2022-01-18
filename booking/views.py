@@ -45,9 +45,9 @@ def booking(request):
     })
 
 
-def reservations(request):
-    """ Renders the reservations page in the browser """
-    return render(request, 'reservations.html', {})
+# def reservations(request):
+#     """ Renders the reservations page in the browser """
+#     return render(request, 'reservations.html', {})
 
 
 class ReservationList(generic.ListView):
@@ -60,6 +60,6 @@ class ReservationList(generic.ListView):
     Paginates the bookings to 6 per page.
     """
     model = Booking
-    # queryset = need to figure out
+    # queryset = needs to filter only bookings of logged in user
     template_name = 'reservations.html'
     paginate_by = 6
