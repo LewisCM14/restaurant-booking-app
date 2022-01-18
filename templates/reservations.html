@@ -12,6 +12,13 @@
                                 <h3 class='card-title'>{{ reservation.date }} at {{ reservation.time }}</h3>
                                 <div>
                                     <p>Number of Guests: {{ reservation.guests }}</p>
+                                    {% if reservation.status == 1 %}
+                                    <p>Reservation Accepted</p>
+                                    {% elif reservation.status == 2 %}
+                                    <p>Reservation Declined</p>
+                                    {% else %}
+                                    <p>Request Pending</p>
+                                    {% endif %}
                                 </div>
                                 <div>
                                     <a href="#">Cancel</a>
