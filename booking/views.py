@@ -45,11 +45,6 @@ def booking(request):
     })
 
 
-# def reservations(request):
-#     """ Renders the reservations page in the browser """
-#     return render(request, 'reservations.html', {})
-
-
 class ReservationList(generic.ListView):
     """
     Class based view to display the reservations of a user.
