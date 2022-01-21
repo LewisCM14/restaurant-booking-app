@@ -57,12 +57,14 @@ def booking(request):
 
 class ReservationList(generic.ListView):
     """
-    Class based view to display the reservations of a user.
-    Inherits from the Booking model.
-    Filters bookings so only ones made by the singed in user are dispayed,
-    orders them by date asscending.
-    Renders to the 'reservations.html' template.
+    Class based view that inherits from the Booking model.
     Paginates the bookings to 6 per page.
+
+    Uses the inbuilt get method to filter bookings,
+    so only ones made by the authorized user are dispayed,
+    orders them by date asscending.
+
+    Renders to the 'reservations.html' template.
     """
     model = Booking
     paginate_by = 6
