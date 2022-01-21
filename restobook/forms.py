@@ -4,8 +4,9 @@ from django import forms
 
 class CustomSignupForm(SignupForm):
     """
-    Extends from allauth base signup form,
-    adds custom sign up fields.
+    Extends from allauth base signup form.
+
+    Adds the custom sign up fields first and last name.
     """
 
     first_name = forms.CharField(max_length=30, label='First Name')
