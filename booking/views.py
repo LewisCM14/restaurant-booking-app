@@ -61,6 +61,15 @@ class ReservationList(generic.ListView):
     Paginates the bookings to 6 per page.
     """
     model = Booking
-    template_name = 'reservations.html'
     paginate_by = 6
-    # reservations = Booking.objects.filter(user=request.user)
+
+    def get(self, request, *args, **kwargs):
+
+        reservations = Booking.objects.filter(user=request.user)
+
+        return render(
+            request, 'reservations.html',
+            {
+                'reservations': reservations,
+            },
+        )
