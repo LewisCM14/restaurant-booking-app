@@ -24,6 +24,7 @@ class Booking(models.Model):
     The meta class orders each booking by reservation date in descending order.
     str returns the reservation date and time to be used as booking title.
     """
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     lead = models.CharField(max_length=200, blank=False)  # needs to be taken from user account
     email = models.CharField(max_length=200, blank=False)  # needs to be taken from user account
     mobile = models.IntegerField(blank=False)

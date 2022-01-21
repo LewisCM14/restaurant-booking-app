@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.contrib.auth.models import User
 from .models import Booking
 from .forms import BookingForm
 
@@ -30,19 +31,24 @@ def booking(request):
         }
 
         booking_form = BookingForm(form_data)
-        if booking_form.is_valid():
-            booking_form.save()
 
-        return render(request, 'reservations.html', {})
+        if booking_form.is_valid():
+            print('booking valid')
+            current_booking = booking_form.save(commit=False)
+            current_booking.user = request.user
+            current_booking.save()
+            return render(request, 'reservations.html', {})
+
+        else:
+            print('booking invalid')
+            return render(request, 'booking.html', {
+                "booking_form": BookingForm()
+            })  # alter to booking page that says previous was invalid
 
     else:
         return render(request, 'booking.html', {
             "booking_form": BookingForm()
-        })  # alter to booking page that says previous was invalid
-
-    return render(request, 'booking.html', {
-        "booking_form": BookingForm()
-    })
+        })
 
 
 class ReservationList(generic.ListView):
@@ -55,6 +61,6 @@ class ReservationList(generic.ListView):
     Paginates the bookings to 6 per page.
     """
     model = Booking
-    # queryset = needs to filter only bookings of logged in user
     template_name = 'reservations.html'
     paginate_by = 6
+    # reservations = Booking.objects.filter(user=request.user)
