@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.views import generic
 from django.contrib.auth.models import User
 from .models import Booking
@@ -37,7 +37,7 @@ def booking(request):
             current_booking = booking_form.save(commit=False)
             current_booking.user = request.user
             current_booking.save()
-            return render(request, 'reservations.html', {})
+            return redirect(reverse("reservations"))
 
         else:
             print('booking invalid')
