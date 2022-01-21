@@ -6,18 +6,24 @@ from .forms import BookingForm
 
 
 def index(request):
-    """ Renders the index page in the browser """
+    """ Renders the index page in the browser. """
     return render(request, 'index.html', {})
 
 
 def booking(request):
     """
-    Renders the BookingForm in the browser.
+    Renders the BookingForm on the booking.html template.
 
-    On a POST request, gets the data from the form and places in an instance.
-    Checks that the instance is valid and if so saves to the database,
-    then redirects to the reservations page. If form is invalid, reloads
-    booking page.
+    On a POST request, gets the data from the BookingForm,
+    places the data in an instance. Checks that the instance is valid.
+    If valid saves the form without commiting,
+    The valid booking then has the authorized users id applied to it.
+    The booking is then saved to the database.
+    The user is then redirected to the reservations page.
+
+    If the booking is invalid the BookingForm is reloaded.
+
+    The logic for these actions is employed via a if/else loop.
     """
     if request.method == 'POST':
         form_data = {
@@ -33,17 +39,15 @@ def booking(request):
         booking_form = BookingForm(form_data)
 
         if booking_form.is_valid():
-            print('booking valid')
             current_booking = booking_form.save(commit=False)
             current_booking.user = request.user
             current_booking.save()
             return redirect(reverse("reservations"))
 
         else:
-            print('booking invalid')
             return render(request, 'booking.html', {
                 "booking_form": BookingForm()
-            })  # alter to booking page that says previous was invalid
+            })
 
     else:
         return render(request, 'booking.html', {
