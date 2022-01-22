@@ -57,10 +57,13 @@ def booking(request):
 
 class ReservationList(generic.ListView):
     """
+    Each individual booking within the Booking model,
+    is now referred to as a reservation for clarity.
+
     Class based view that inherits from the Booking model.
     Paginates the bookings to 6 per page.
 
-    Uses the inbuilt get method to filter bookings,
+    Uses the inbuilt get method to filter reservations,
     so only ones made by the authorized user are dispayed,
     orders them by date asscending.
 
