@@ -11,9 +11,13 @@
                     <div class="col-md-4">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <!-- Displays the reservations date and time as title. -->
-                                <h3 class='card-title'>{{ reservation.date }} at {{ reservation.time }}</h3>
+                                <!-- Displays the reservations date and time as title.
+                                Displays the booking lead as text. -->
+                                <h2 class='card-title'>{{ reservation.date }} at {{ reservation.time }}</h2>
+                                <h3 class="card-text">{{ reservation.lead }}</h3>
                                 <div>
+                                     <!-- Displays the provided mobile and emaill. -->
+                                    <p class="card-text">{{ reservation.mobile }} {{ reservation.email }}</p>
                                     <!-- Displays the number of guests for the specific reservation. -->
                                     <p>Number of Guests: {{ reservation.guests }}</p>
                                     <!-- if/else loop for dispalying the current status of the reservation. -->
