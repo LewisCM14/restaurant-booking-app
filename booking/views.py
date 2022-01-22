@@ -85,12 +85,24 @@ class ReservationList(generic.ListView):
 
 
 def amend_reservation(request, reservation_id):
-    # reservation = get_object_or_404(Booking, id=reservation_id)
-    # form = BookingForm(instance=reservation)
-    # context = {
-    #     'form': form
-    # }
-    pass
+    """
+    Creates a copy of the reservation from the Booking Model database.
+    Then creates an instance of the BookingForm with the reservation id.
+    This instance is then returned to the amend_booking template in context.
+    """
+    reservation = get_object_or_404(Booking, id=reservation_id)
+    context = {
+        "lead": reservation.lead,
+        "email": reservation.email,
+        "mobile": reservation.mobile,
+        "date": reservation.date,
+        "time": reservation.time,
+        "notes": reservation.notes,
+        "guests": reservation.guests
+    }
+    return render(request, 'amend_booking.html', {
+            "booking_form": BookingForm(context)
+        })
 
 
 def cancel_reservation(request, reservation_id):
