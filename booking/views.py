@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views import generic
 from django.contrib.auth.models import User
 from .models import Booking
@@ -82,3 +82,17 @@ class ReservationList(generic.ListView):
                 'reservations': reservations,
             },
         )
+
+
+def amend_reservation(request, reservation_id):
+    # reservation = get_object_or_404(Booking, id=reservation_id)
+    # form = BookingForm(instance=reservation)
+    # context = {
+    #     'form': form
+    # }
+    pass
+
+
+def cancel_reservation(request, reservation_id):
+    # reservation = get_object_or_404(Booking, id=reservation_id)
+    pass
