@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
+<!-- The container for each individual reservation card. -->
 <div class="container-fluid">
     <div class="row">
             <div class="col-12 mt-3 left">
                 <div class="row">
+                    <!-- Iterates over the reservations variable within the ReservationList on views. -->
                     {% for reservation in reservations %}
                     <div class="col-md-4">
                         <div class="card mb-4">
                             <div class="card-body">
+                                <!-- Displays the reservations date and time as title. -->
                                 <h3 class='card-title'>{{ reservation.date }} at {{ reservation.time }}</h3>
                                 <div>
+                                    <!-- Displays the number of guests for the specific reservation. -->
                                     <p>Number of Guests: {{ reservation.guests }}</p>
+                                    <!-- if/else loop for dispalying the current status of the reservation. -->
                                     {% if reservation.status == 1 %}
                                     <p>Reservation Accepted</p>
                                     {% elif reservation.status == 2 %}
@@ -20,6 +25,12 @@
                                     <p>Request Pending</p>
                                     {% endif %}
                                 </div>
+                                <!-- Contains the button for the modal that details any special requirments made. 
+                                Stored within notes on the Booking modal. -->
+                                <div>
+                                    <button data-bs-toggle='modal' data-bs-target='#notes'>Special Requirements</button>
+                                </div>
+                                <!-- Contains the buttons that allows the user to cancel or amend the reservation. -->
                                 <div>
                                     <a href="#">Cancel</a>
                                     <a href="#">Amend</a>
@@ -27,6 +38,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Counter for placing three bookings per row. -->
                     {% if forloop.counter|divisibleby:3  %}
                 </div>
                 <div class="row">
@@ -36,6 +48,7 @@
             </div>
         </div>
     </div>
+    <!-- Djangos generic view inbuilt pagination code. -->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
