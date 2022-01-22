@@ -286,6 +286,8 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
 
     * To adjust the base allauth sign up form i used this [post](https://www.geeksforgeeks.org/python-extending-and-customizing-django-allauth/) to write my custom class and this [post](https://stackoverflow.com/questions/55786710/using-multiple-login-fields-email-or-phone-number-in-django-all-auth) to further develop it. I then used this [post](https://stackoverflow.com/questions/23956288/django-all-auth-email-required) on stack overflow to adjust my allauth configuration.
 
+    * I used this [tutorial](https://www.youtube.com/watch?v=4sosXZsdy-s) to further my understanding of Bootstrap5, particularly when developing my Special Requirements modal. 
+
 - **Media**
 
 [Return to Table of Contents](#contents)
