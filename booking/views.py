@@ -106,5 +106,7 @@ def amend_reservation(request, reservation_id):
 
 
 def cancel_reservation(request, reservation_id):
-    # reservation = get_object_or_404(Booking, id=reservation_id)
-    pass
+    reservation = get_object_or_404(Booking, id=reservation_id)
+    reservation.delete()
+    return redirect(reverse("reservations"))
+    
