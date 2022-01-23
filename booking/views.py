@@ -89,6 +89,17 @@ def amend_reservation(request, reservation_id):
     Creates a copy of the reservation from the Booking Model database.
     Then creates an instance of the BookingForm with the reservation id.
     This instance is then returned to the amend_booking template in context.
+
+    On a POST request, gets the amended data from the BookingForm,
+    places the data in an instance. Checks that the instance is valid.
+    If valid, the previous reservation is deleted from the database.
+    The new reservation is then saved without commiting,
+    The instance then has the authorized users id applied to it.
+    The reservation is then saved to the database.
+    The user is then redirected to the reservations page.
+
+    If the booking is invalid the BookingForm is reloaded,
+    It is populated with the context instance.
     """
     reservation = get_object_or_404(Booking, id=reservation_id)
     context = {
@@ -100,13 +111,39 @@ def amend_reservation(request, reservation_id):
         "notes": reservation.notes,
         "guests": reservation.guests
     }
-    return render(request, 'amend_booking.html', {
-            "booking_form": BookingForm(context)
-        })
+
+    if request.method == 'POST':
+        form_data = {
+            "lead": request.POST.get('lead'),
+            "email": request.POST.get('email'),
+            "mobile": request.POST.get('mobile'),
+            "date": request.POST.get('date'),
+            "time": request.POST.get('time'),
+            "notes": request.POST.get('notes'),
+            "guests": request.POST.get('guests')
+        }
+
+        booking_form = BookingForm(form_data)
+
+        if booking_form.is_valid():
+            reservation.delete()
+            current_booking = booking_form.save(commit=False)
+            current_booking.user = request.user
+            current_booking.save()
+            return redirect(reverse("reservations"))
+
+        else:
+            return render(request, 'amend_booking.html', {
+                "booking_form": BookingForm(context)
+            })
+
+    else:
+        return render(request, 'amend_booking.html', {
+                "booking_form": BookingForm(context)
+            })
 
 
 def cancel_reservation(request, reservation_id):
     reservation = get_object_or_404(Booking, id=reservation_id)
     reservation.delete()
     return redirect(reverse("reservations"))
-    
