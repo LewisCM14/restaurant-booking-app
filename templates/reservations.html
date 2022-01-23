@@ -4,23 +4,30 @@
 <!-- The container for each individual reservation card. -->
 <div class="container-fluid">
     <div class="row">
-            <div class="col-12 mt-3 left">
-                <div class="row">
-                    <!-- Iterates over the reservations variable within the ReservationList on views. -->
-                    {% for reservation in reservations %}
-                    <div class="col-md-4">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <!-- Displays the reservations date and time as title.
-                                Displays the booking lead as text. -->
-                                <h2 class='card-title'>{{ reservation.date }} at {{ reservation.time }}</h2>
-                                <h3 class="card-text">{{ reservation.lead }}</h3>
-                                <div>
-                                     <!-- Displays the provided mobile and emaill. -->
-                                    <p class="card-text">{{ reservation.mobile }} {{ reservation.email }}</p>
-                                    <!-- Displays the number of guests for the specific reservation. -->
-                                    <p>Number of Guests: {{ reservation.guests }}</p>
-                                    <!-- if/else loop for dispalying the current status of the reservation. -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                <!-- Iterates over the reservations variable within the ReservationList on views. -->
+                {% for reservation in reservations %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <!-- Displays the reservations date and time as title. -->
+                            <h4 class='card-title text-uppercase text-center'>{{ reservation.date }} at
+                                {{ reservation.time }}</h4>
+                            <!-- Displays the booking lead -->
+                            <h6 class="text-uppercase">{{ reservation.lead }}</h6>
+                            <div class='card-text'>
+                                <!-- Displays the provided mobile. -->
+                                <p><i class="fas fa-phone"></i> {{ reservation.mobile }}</p>
+                                <!-- Displays the provided email. -->
+                                <p><i class="far fa-envelope"></i> {{ reservation.email }}</p>
+                                <!-- Displays the number of guests for the specific reservation. -->
+                                <p>Number of Guests: {{ reservation.guests }}</p>
+                                <!-- Contains the button for the modal that details any special requirements made. Stored within notes on the Booking modal. -->
+                                <button data-bs-toggle='modal' data-bs-target='#notes' class="btn btn-secondary">Special
+                                    Requirements <i class="fas fa-location-arrow"></i></button>
+                                <!-- if/else loop for displaying the current status of the reservation. -->
+                                <div class='text-center h6'>
                                     {% if reservation.status == 1 %}
                                     <p>Reservation Accepted</p>
                                     {% elif reservation.status == 2 %}
@@ -29,60 +36,56 @@
                                     <p>Request Pending</p>
                                     {% endif %}
                                 </div>
-                                <!-- Contains the button for the modal that details any special requirments made. 
-                                Stored within notes on the Booking modal. -->
-                                <div>
-                                    <button data-bs-toggle='modal' data-bs-target='#notes'>Special Requirements</button>
-                                </div>
-                                <!-- Contains the buttons that allows the user to cancel or amend the reservation. -->
-                                <div>
-                                    <a href="/cancel/{{ reservation.id }}"><button>Cancel</button></a>
-                                    <a href="/amend/{{ reservation.id }}" ><button>Amend</button></a>
-                                </div>
+                            </div>
+                            <!-- Contains the buttons that allows the user to cancel or amend the reservation. -->
+                            <div class='text-center'>
+                                <a href="/cancel/{{ reservation.id }}"><button class="btn btn-dark">Cancel</button></a>
+                                <a href="/amend/{{ reservation.id }}"><button class="btn btn-dark">Amend</button></a>
                             </div>
                         </div>
                     </div>
-                    <!-- Counter for placing three bookings per row. -->
-                    {% if forloop.counter|divisibleby:3  %}
                 </div>
-                    <!-- Special Requirements Modal -->
-                    <div class="modal fade" id="notes" tabindex="-1" aria-labelledby="special requirements modal" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="notes">Special Requirements</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>
-                                        {{ reservation.notes }}
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                </div>
+                <!-- Special Requirements Modal -->
+                <div class="modal fade" id="notes" tabindex="-1" aria-labelledby="special requirements modal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="notes">Special Requirements</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    {{ reservation.notes }}
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
+                </div>
+                <!-- Counter for placing three bookings per row. -->
+                {% if forloop.counter|divisibleby:3  %}
+                </div>
                 <div class="row">
                     {% endif %}
                     {% endfor %}
                 </div>
-            </div>
         </div>
     </div>
-    <!-- Django's generic view inbuilt pagination code. -->
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+</div>
+<!-- Django's generic view inbuilt pagination code. -->
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
 </div>
 {%endblock%}
