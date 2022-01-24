@@ -48,6 +48,15 @@ class TestBookingForm(TestCase):
         self.assertIn('date', form.errors.keys())
         self.assertEqual(form.errors['date'][0], 'This field is required.')
 
+    def test_time_is_required(self):
+        """
+        Follows same logic for test_lead_is_required
+        """
+        form = BookingForm({'time': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('time', form.errors.keys())
+        self.assertEqual(form.errors['time'][0], 'This field is required.')
+
     def test_fields_are_explicit_in_form_metaclass(self):
         """
         Creates an empty instance of the BookingForm,
