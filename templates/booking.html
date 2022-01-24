@@ -11,7 +11,7 @@
             <form method="POST" action="{% url 'booking' %}">
                 {{ booking_form | crispy }}
                 {% csrf_token %}
-                <button type="submit" value="Post">Request a Booking</button>
+                <button type="submit" class="btn btn-dark" value="Post">Request a Booking</button>
             </form>
         </div>
     </div>
