@@ -12,4 +12,4 @@ class TestBookingForm(TestCase):
 
     def test_fields_are_explicit_in_form_metaclass(self):
         form = BookingForm()
-        self.assertEqual(form.Meta.fields, ['lead', 'email', 'mobile', 'date', 'time', 'notes', 'guests'])
+        self.assertEqual(form.Meta.fields, ('lead', 'email', 'mobile', 'date', 'time', 'notes', 'guests'))
