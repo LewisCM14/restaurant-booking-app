@@ -46,7 +46,7 @@ class TestViews(TestCase):
             lead='Test Lead',
             email='test@email.com',
             mobile='01509',
-            date='JAN. 25, 2022',
+            date='2022-01-25',
             time='4:30 P.M.',
             notes='test',
             guests='2'
@@ -57,7 +57,16 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'amend_booking.html', 'base.html')
 
     def test_get_reservations_page(self):
-        pass
+        """
+        Uses Django's in-built HTTP client to get /reservations URL.
+        Asserts equal to status code 200, a successful HTTP response.
+
+        Then uses assert Template Used to ensure the reservations.html page,
+        plus the base.html it is extended from, is being used.
+        """
+        response = self.client.get('/reservations')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'reservations.html', 'base.html')
 
     def test_create_booking_request(self):
         pass
