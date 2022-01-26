@@ -1,12 +1,35 @@
 from django.test import TestCase
 from .models import Booking
+from django.contrib.auth.models import User
 
 
 class TestViews(TestCase):
     """
     Contains the tests for the views.
-    Located in the booking app in vies.py.
+    Located in the booking app in views.py.
     """
+
+    def setUp(self):
+        """
+        Creates a reservation instance using the Booking model,
+        for use within the test case.
+        """
+        test_user = User.objects.create(
+            username='Test',
+            password='Password',
+            email='test@email.com'
+        )
+
+        Booking.objects.create(
+            user=test_user,
+            lead='Test Lead',
+            email='test@email.com',
+            mobile='01509',
+            date='2022-01-25',
+            time='4:30 P.M.',
+            notes='test',
+            guests='2'
+        )
 
     def test_get_index_page(self):
         """
@@ -32,29 +55,21 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'booking.html', 'base.html')
 
-    # def test_get_amend_booking_page(self):
-    #     """
-    #     Uses the Booking Model import to create a reservation instance.
-    #     Then uses Django's in-built HTTP client,
-    #     to get /amend/reservation.id URL. Asserts equal to status code 200,
-    #     a successful HTTP response.
+    def test_get_amend_booking_page(self):
+        """
+        Uses Django's in-built HTTP client,
+        to get /amend/1 in the URL. Asserts equal to status code 200,
+        a successful HTTP response.
 
-    #     Then uses assert Template Used to ensure the booking.html page,
-    #     plus the base.html it is extended from, is being used.
-    #     """
-    #     reservation = Booking.objects.create(
-    #         lead='Test Lead',
-    #         email='test@email.com',
-    #         mobile='01509',
-    #         date='2022-01-25',
-    #         time='4:30 P.M.',
-    #         notes='test',
-    #         guests='2'
-    #         )
+        There is only 1 reservation in the database, which is why the URL is,
+        /amend/1
 
-    #     response = self.client.get(f'/amend/{reservation.id}')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'amend_booking.html', 'base.html')
+        Then uses assert Template Used to ensure the amend_booking.html page,
+        plus the base.html it is extended from, is being used.
+        """
+        response = self.client.get('/amend/1')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'amend_booking.html', 'base.html')
 
     # def test_get_reservations_page(self):
     #     """
