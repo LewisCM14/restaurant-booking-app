@@ -83,49 +83,27 @@ class TestViews(TestCase):
     #     self.assertEqual(response.status_code, 200)
     #     self.assertTemplateUsed(response, 'reservations.html', 'base.html')
 
-    # def test_create_booking_request(self):
-    #     """
-    #     Creates a reservation instance.
-    #     Sets the response to post, then checks to see instance
-    #     was posted to the Booking database.
+    def test_create_booking_request(self):
+        """
+        Uses the count method to return
+        the total number of reservations in the Booking database.
+        Then assets equal to 1,
+        as there should only be the reservation made in the setUp method.
+        """
+        count = Booking.objects.count()
+        self.assertEqual(count, 1)
 
-    #     Then checks the user is redirected to the reservations template.
-    #     """
-    #     reservation = Booking.objects.create(
-    #         lead='Test Lead',
-    #         email='test@email.com',
-    #         mobile='01509',
-    #         date='2022-01-25',
-    #         time='4:30 P.M.',
-    #         notes='test',
-    #         guests='2'
-    #         )
+    def test_cancel_booking_request(self):
+        """
+        Removes the reservation created in the setUp method
+        using the cancel URL with id 1.
 
-    #     response = self.client.post('/booking', reservation)
-    #     self.assertRedirects(response, 'reservations.html')
+        Then filters the Booking database by this id.
+        asserts the length of the variable this is stored in
+        is equal to 0, meaning the reservation has been removed
+        from the database.
+        """
 
-    # def test_cancel_booking_request(self):
-    #     """
-    #     Creates a reservation instance.
-    #     Sets the response to get, then checks to see instance
-    #     was removed from the Booking database.
-
-    #     Then checks the user is redirected to the reservations template.
-
-    #     To confirm reservation deleted, filters the Booking database
-    #     by the instance id, before asserting the variable length is 0.
-    #     """
-    #     reservation = Booking.objects.create(
-    #         lead='Test Lead',
-    #         email='test@email.com',
-    #         mobile='01509',
-    #         date='2022-01-25',
-    #         time='4:30 P.M.',
-    #         notes='test',
-    #         guests='2'
-    #         )
-
-    #     response = self.client.get(f'/cancel/{reservation.id}')
-    #     self.assertRedirects(response, 'reservations.html')
-    #     existing_reservation = Booking.objects.filter(id=reservation.id)
-    #     self.assertEqual(len(existing_reservation), 0)
+        self.client.get('/cancel/1')
+        existing_reservation = Booking.objects.filter(id=1)
+        self.assertEqual(len(existing_reservation), 0)
