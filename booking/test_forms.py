@@ -71,24 +71,24 @@ class TestBookingForm(TestCase):
         self.assertIn('guests', form.errors.keys())
         self.assertEqual(form.errors['guests'][0], 'This field is required.')
 
-    def test_notes_is_not_required(self):
-        """
-        Creates an instance of the BookingForm,
-        with only the 'notes' field blank.
-        Then uses assert true to make sure the form is valid.
-        This confirms that even with notes left blank, the form is still valid,
-        meaning notes isn't required on the BookingForm.
-        """
-        form = BookingForm({
-            'lead': 'Booking Lead',
-            'email': 'test@email.com',
-            'mobile': '01509',
-            'date': 'JAN. 24, 2022',
-            'time': '8 P.M.',
-            'notes': '',
-            'guests': '2'
-        })
-        self.assertTrue(form.is_valid())
+    # def test_notes_is_not_required(self):
+    #     """
+    #     Creates an instance of the BookingForm,
+    #     with only the 'notes' field blank.
+    #     Then uses assert true to make sure the form is valid.
+    #     This confirms that even with notes left blank, the form is still valid,
+    #     meaning notes isn't required on the BookingForm.
+    #     """
+    #     form = BookingForm({
+    #         'lead': 'Booking Lead',
+    #         'email': 'test@email.com',
+    #         'mobile': '01509',
+    #         'date': 'JAN. 24, 2022',
+    #         'time': '8 P.M.',
+    #         'notes': '',
+    #         'guests': '2'
+    #     })
+    #     self.assertTrue(form.is_valid())
 
     def test_fields_are_explicit_in_form_metaclass(self):
         """
