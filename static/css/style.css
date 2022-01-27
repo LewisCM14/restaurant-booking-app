@@ -9,3 +9,7 @@ body {
 #div_id_guests {
     padding-bottom: 5px;
 }
+
+.asteriskField {
+    color: red;
+}
