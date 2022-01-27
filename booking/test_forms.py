@@ -83,8 +83,8 @@ class TestBookingForm(TestCase):
     #         'lead': 'Booking Lead',
     #         'email': 'test@email.com',
     #         'mobile': '01509',
-    #         'date': 'JAN. 24, 2022',
-    #         'time': '8 P.M.',
+    #         'date': '2022-01-25',
+    #         'time': '4:30 P.M.',
     #         'notes': '',
     #         'guests': '2'
     #     })
