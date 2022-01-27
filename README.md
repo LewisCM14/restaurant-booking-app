@@ -211,7 +211,7 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
     * **[Bootstrap](https://getbootstrap.com/).**
         * A front-end open source toolkit, used across the application.
     
-    * **[Font Awsome](https://fontawesome.com/).**
+    * **[Font Awesome](https://fontawesome.com/).**
         * Icon set and toolkit used across the application.
 
 - **DBMS**
