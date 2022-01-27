@@ -14,6 +14,9 @@ class TestModel(TestCase):
         Creates a reservation instance.
         Then uses assert status is equal to 0,
         which is pending, as defined in the model file.
+
+        This method also tests the str method of the model
+        returns the corret value.
         """
         test_user = User.objects.create(
             username='Test',
@@ -33,3 +36,4 @@ class TestModel(TestCase):
         )
 
         self.assertEqual(reservation.status, 0)
+        self.assertEqual(str(reservation), '2022-01-25 4:30 P.M.')
