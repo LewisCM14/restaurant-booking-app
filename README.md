@@ -263,6 +263,9 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
     * **[autoslug](https://pypi.org/project/django-autoslug/).**
         * Used on the Booking model to generate the slug field.
     
+    * **[coverage](https://coverage.readthedocs.io/en/6.3/).**
+        * Used to access the coverage of my automated tests for the python code i've wrote.
+    
 - **Programs**
 
     * **Slack.**
