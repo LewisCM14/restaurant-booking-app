@@ -40,7 +40,9 @@ class BookingForm(forms.ModelForm):
     notes = forms.CharField(
         label='Special Requirements',
         required=False,
-        widget=forms.Textarea(attrs={'placeholder': 'Any special requirements the restaurant should be aware of?'}),
+        widget=forms.Textarea(attrs={
+            'placeholder': 'Any special requirements we should be aware of?'
+        }),
         max_length=300
     )
 
