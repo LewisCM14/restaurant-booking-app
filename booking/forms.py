@@ -8,41 +8,47 @@ class BookingForm(forms.ModelForm):
     """
 
     lead = forms.CharField(
-        label='Name of Booking Lead',
+        label='Booking Lead',
         required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Full Name'})
     )
 
     email = forms.EmailField(
         label='Email Address',
         required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Email'})
     )
 
     mobile = forms.IntegerField(
-        label='Best Contact Number (Mobile)',
+        label='Contact Number',
         required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Mobile'})
     )
 
     date = forms.DateField(
         label='Date of Booking',
         required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Date'})
     )
 
     time = forms.TimeField(
         label='Arrival Time',
         required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Time'})
     )
 
     notes = forms.CharField(
         label='Special Requirements',
         required=False,
-        widget=forms.Textarea,
+        widget=forms.Textarea(attrs={'placeholder': 'Any special requirements the restaurant should be aware of?'}),
         max_length=300
     )
 
     guests = forms.IntegerField(
         label='Number of Guests',
         required=True,
-        min_value=1
+        min_value=1,
+        widget=forms.TextInput(attrs={'placeholder': 'Guests'})
     )
 
     class Meta:
