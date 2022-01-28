@@ -294,6 +294,8 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
 
     * I used this [tutorial](https://www.youtube.com/watch?v=4sosXZsdy-s) to further my understanding of Bootstrap5, particularly when developing my Special Requirements modal. 
 
+    * I used this [post](https://stackoverflow.com/questions/4101258/how-do-i-add-a-placeholder-on-a-charfield-in-django) on StackOverflow to help me add placeholder text to my BookingForm.
+
 - **Media**
 
 [Return to Table of Contents](#contents)
