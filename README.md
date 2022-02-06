@@ -298,6 +298,8 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
 
     * I used this [post](https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/) by [Philip Walton](https://philipwalton.com/) to make my footer stick to to bottom of the browser view.
 
+    * I used this [post](https://www.culturefoundry.com/cultivate/technology/bottom-align-an-element-with-flexbox/) by Josh Coast to refresh my knowledge on flex-box, for then styling my hero image on the index page. 
+
 - **Media**
 
 [Return to Table of Contents](#contents)

@@ -14,7 +14,7 @@
       <h4 class="signin_heading">{% trans "Sign In" %}</h4>
 
       <p>{% blocktrans %}If you have not created an account yet, then please
-        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+      <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
