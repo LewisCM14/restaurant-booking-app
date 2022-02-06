@@ -296,6 +296,8 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
 
     * I used this [post](https://stackoverflow.com/questions/4101258/how-do-i-add-a-placeholder-on-a-charfield-in-django) on StackOverflow to help me add placeholder text to my BookingForm.
 
+    * I used this [post](https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/) by [Philip Walton](https://philipwalton.com/) to make my footer stick to to bottom of the browser view.
+
 - **Media**
 
 [Return to Table of Contents](#contents)
