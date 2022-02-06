@@ -20,51 +20,53 @@
 
 <body>
     <!-- Responsive Navbar. -->
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
-        <!-- Navbar items container. -->
-        <div class="container-fluid">
-            <!-- Contains the restaurant name (brand). -->
-            <a class="navbar-brand text-uppercase" href="{% url 'index' %}">The White Horse</a>
-            <!-- Contains the hamburger menu toggle button. -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Contains the navigation links, uses if/else loop for authorization access. -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                    </li>
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'booking' %}">Make a Booking</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'reservations' %}">My Reservations</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Make a Booking</a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                </ul>
+    <header>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+            <!-- Navbar items container. -->
+            <div class="container-fluid">
+                <!-- Contains the restaurant name (brand). -->
+                <a class="navbar-brand text-uppercase" href="{% url 'index' %}">The White Horse</a>
+                <!-- Contains the hamburger menu toggle button. -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Contains the navigation links, uses if/else loop for authorization access. -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        </li>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'booking' %}">Make a Booking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'reservations' %}">My Reservations</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_signup' %}">Make a Booking</a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Menu</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <main class="flex-shrink-0 main-bg">
+        </nav>
+    </header>
+    <main>
         {% block content %}
 
         {% endblock content %}
