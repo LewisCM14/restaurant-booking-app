@@ -14,7 +14,7 @@ body {
     color: red;
 }
 
-/* Accounnt SignUp Styling */
+/* Account SignUp Styling */
 
 .signup_heading {
     text-transform: uppercase;
@@ -23,4 +23,11 @@ body {
 
 #signup_form label {
     display: none;
+}
+
+/* Account Login Styling */
+
+.signin_heading {
+    text-transform: uppercase;
+    text-decoration: underline;
 }
