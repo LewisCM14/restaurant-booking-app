@@ -32,7 +32,7 @@ header {
     color: red;
 }
 
-/* Account SignUp Styling */
+/* Account Sign-Up Styling */
 
 .signup_heading {
     text-transform: uppercase;
@@ -62,6 +62,13 @@ header {
 /* Account Login Styling */
 
 .signin_heading {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+/* Account Sign-Out Styling */
+
+.signout_heading {
     text-transform: uppercase;
     text-decoration: underline;
 }
