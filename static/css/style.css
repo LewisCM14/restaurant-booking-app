@@ -13,3 +13,14 @@ body {
 .asteriskField {
     color: red;
 }
+
+/* Accounnt SignUp Styling */
+
+.signup_heading {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+#signup_form label {
+    display: none;
+}
