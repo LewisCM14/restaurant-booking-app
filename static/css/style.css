@@ -1,7 +1,25 @@
-/* All Content Styling */
+/* All content styling */
 
 body {
     background-color: white;
+}
+
+/* Header Styling */
+
+header {
+    background-color: white;
+}
+
+/* Footer Styling  */
+
+.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+  
+.site-content {
+    flex: 1;
 }
 
 /* Booking Form Styling */
