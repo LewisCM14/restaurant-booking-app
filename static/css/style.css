@@ -25,6 +25,22 @@ body {
     display: none;
 }
 
+#signup_form input {
+    width: 30%;
+}
+
+@media screen and (max-width: 992px) {
+    #signup_form input {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #signup_form input {
+        width: 90%;
+    }
+}
+
 /* Account Login Styling */
 
 .signin_heading {
