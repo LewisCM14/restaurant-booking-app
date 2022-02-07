@@ -81,3 +81,8 @@ header {
     width: 100%;
     height: 580px;
 }
+
+.logo {
+    color: black;
+    font-size: 80px;
+}
