@@ -2,8 +2,11 @@
 
 {% block content %}
 <!-- Container for the hero image. -->
+{% for image in images %}
 <div class="jumbotron jumbotron-fluid hero">
+    <img src="{{ image.image.url }}" alt="food" class="hero-content">
 </div>
+{% endfor %}
 <!-- Contains the about us, facilities and access content. -->
 <div class="container p-2">
     <div class="row">

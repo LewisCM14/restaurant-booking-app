@@ -7,7 +7,11 @@ from .forms import BookingForm
 
 def index(request):
     """ Renders the index page in the browser. """
-    return render(request, 'index.html', {})
+    images = Image.objects.all()
+    context = {
+        'images': images
+    }
+    return render(request, 'index.html', context)
 
 
 def booking(request):
