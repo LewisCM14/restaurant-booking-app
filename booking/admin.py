@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Booking, Photo
+from .models import Booking, Image
 
 
 @admin.register(Booking)
@@ -30,4 +30,4 @@ class BookingAdmin(admin.ModelAdmin):
         queryset.update(status=2)
 
 
-admin.site.register(Photo)
+admin.site.register(Image)

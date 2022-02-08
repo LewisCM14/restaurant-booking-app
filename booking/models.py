@@ -49,5 +49,8 @@ class Booking(models.Model):
         return f'{self.date} {self.time}'
 
 
-class Photo(models.Model):
+class Image(models.Model):
+    """
+    The model for all images used in the Booking app.
+    """
     image = CloudinaryField('image')
