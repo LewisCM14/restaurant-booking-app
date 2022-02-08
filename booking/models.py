@@ -47,3 +47,7 @@ class Booking(models.Model):
         Returns the reservation date and time to be used as booking title.
         """
         return f'{self.date} {self.time}'
+
+
+class Photo(models.Model):
+    image = CloudinaryField('image')

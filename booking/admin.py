@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Booking
+from .models import Booking, Photo
 
 
 @admin.register(Booking)
@@ -28,3 +28,6 @@ class BookingAdmin(admin.ModelAdmin):
         Allows bookings to be declined from the dropdown menu in admin.
         """
         queryset.update(status=2)
+
+
+admin.site.register(Photo)
