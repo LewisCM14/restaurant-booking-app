@@ -4,7 +4,9 @@
 <!-- Container for the hero image. -->
 {% for image in images %}
 <div class="jumbotron jumbotron-fluid hero">
-    <img src="{{ image.image.url }}" alt="food" class="hero-content">
+    <div class="container-fluid hero-content">
+        <img src="{{ image.image.url }}" alt="food">
+    </div>
 </div>
 {% endfor %}
 <!-- Contains the about us, facilities and access content. -->
