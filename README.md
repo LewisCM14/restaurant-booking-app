@@ -44,9 +44,17 @@ A booking app built using Django for a fictitious restaurant, built to demonstra
 [Return to Table of Contents](#contents)
 
 ### Future Features <a name ='toimplement'></a>
+___
+- **Write a Review**
+
+    *An option for a user to write a review, which is then displayed on the site for other users to see. Due to the nature of the business this could potentially be handled through Trip Advisor or Yelp.*
+
+- **Hero Image Carousel**
+
+    *Developing the hero image on the landing page to make use of a carousel highlighting the restaurants dishes is another future feature to also implement, i feel this would be a more elegant and professional way of advertising the business at a glance.*
 
 [Return to Table of Contents](#contents)
-
+___
 ### Testing <a name ='testing'></a>  
 
 - **Validator Testing**
