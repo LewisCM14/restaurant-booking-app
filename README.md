@@ -23,11 +23,15 @@ A booking app built using Django for a fictitious restaurant, built to demonstra
 
 - **Colour Scheme**
 
+    *A contrasting color scheme of predominantly black and white is used across the site, this scheme is chosen to represent the name of the restaurant.*
+
 - **Typography**
 
 - **Imagery**
 
 - **Layout**
+
+    *The app is built using a multi-page layout, with the navigation bar and footer, which contains key contact and business details, present on every page.*
 
 [Return to Table of Contents](#contents)
 
