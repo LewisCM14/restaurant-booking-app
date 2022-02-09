@@ -41,6 +41,20 @@ ___
 ___
 ### Existing Features <a name='existingfeatures'></a>
 
+- **Landing Page**
+
+- **Navigation**
+
+- **Footer**
+
+- **User Creation**
+
+- **Booking Form**
+
+- **Reservation List**
+
+- **Menu**
+
 [Return to Table of Contents](#contents)
 ___
 ### Future Features <a name ='toimplement'></a>
