@@ -1,7 +1,7 @@
 # Restaurant Booking App
 
 A booking app built using Django for a fictitious restaurant, built to demonstrate a full stack product with CRUD functionality. 
-
+___
 ## Table of Contents <a name='contents'></a>
 
 * [User Experience (UX)](#userexperience)
@@ -14,11 +14,11 @@ A booking app built using Django for a fictitious restaurant, built to demonstra
 * [Deployment](#deployment)
 * [Technologies Used](#tech)
 * [Credits](#credits)
-
+___
 ### User Experience (UX) <a name='userexperience'></a>
 
 [Return to Table of Contents](#contents)
-
+___
 ### Design <a name='design'></a>
 
 - **Colour Scheme**
@@ -34,17 +34,17 @@ A booking app built using Django for a fictitious restaurant, built to demonstra
     *The app is built using a multi-page layout, with the navigation bar and footer, which contains key contact and business details, present on every page.*
 
 [Return to Table of Contents](#contents)
-
+___
 ### Development <a name='development'></a>
 
 [Return to Table of Contents](#contents)
-
+___
 ### Existing Features <a name='existingfeatures'></a>
 
 [Return to Table of Contents](#contents)
-
-### Future Features <a name ='toimplement'></a>
 ___
+### Future Features <a name ='toimplement'></a>
+
 - **Write a Review**
 
     *An option for a user to write a review, which is then displayed on the site for other users to see. Due to the nature of the business this could potentially be handled through Trip Advisor or Yelp.*
@@ -75,10 +75,10 @@ ___
 
 
 [Return to Table of Contents](#contents)
-
+___
 ### Unfixed Bugs <a name ='bugs'></a>
 
-
+___
 [Return to Table of Contents](#contents)
 
 ### Deployment <a name ='deployment'></a>
@@ -197,14 +197,11 @@ ___
 
         4: Once complete, chose to allow automatic deployment from here onwards.
 
-        *The app has now been deployed successfully.*
+        *The app has now been deployed successfully. The live link can be found here - [restaurant-booking-app](https://restaurant-booking-app-lewiscm.herokuapp.com/)*
 
     ---
-
-The live link can be found here - [restaurant-booking-app](https://restaurant-booking-app-lewiscm.herokuapp.com/)
-
 [Return to Table of Contents](#contents)
-
+___
 ## Technologies Used <a name ='tech'></a>
 
 - **Languages Used**
@@ -287,7 +284,7 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
         * Used to create the wire frames during the development process.
        
 [Return to Table of Contents](#contents)
-
+___
 ## Credits <a name = 'credits'></a> 
 
 * A special thank you to my mentor Rohit Sharma. 
@@ -319,3 +316,4 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
     * The hero image used on the index page is a free to use stock photo found [here](https://unsplash.com/photos/-YHSwy6uqvk) on [unsplash](https://unsplash.com/). The photo was taken by [Lily Banse](https://unsplash.com/@lvnatikk).
 
 [Return to Table of Contents](#contents)
+___
