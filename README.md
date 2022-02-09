@@ -304,4 +304,6 @@ The live link can be found here - [restaurant-booking-app](https://restaurant-bo
 
 - **Media**
 
+    * The hero image used on the index page is a free to use stock photo found [here](https://unsplash.com/photos/-YHSwy6uqvk) on [unsplash](https://unsplash.com/). The photo was taken by [Lily Banse](https://unsplash.com/@lvnatikk).
+
 [Return to Table of Contents](#contents)
