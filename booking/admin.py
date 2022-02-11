@@ -32,5 +32,7 @@ class BookingAdmin(admin.ModelAdmin):
 
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
-
+    """
+    The Admin panel for the Images model.
+    """
     list_display = ('name',)
