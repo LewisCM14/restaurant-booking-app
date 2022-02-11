@@ -52,6 +52,10 @@ class Booking(models.Model):
 class Image(models.Model):
     """
     The model for all images used in the Booking app.
+
+    Stores the name of the image for ease of coding.
+    Also allows admins to store the URL of where the image is hosted
+    on Cloudinary.
     """
     image = CloudinaryField('image')
     name = models.CharField(max_length=200, blank=False)
