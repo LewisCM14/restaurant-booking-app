@@ -1,5 +1,5 @@
-from .models import Booking
 from django import forms
+from .models import Booking
 
 
 class BookingForm(forms.ModelForm):
@@ -37,6 +37,13 @@ class BookingForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'placeholder': 'Time'})
     )
 
+    arrival = forms.DateTimeField(
+        label='Reservation',
+        required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Reservation'}),
+        input_formats=['%d/%m/%Y %H:%M']
+    )
+
     notes = forms.CharField(
         label='Special Requirements',
         required=False,
@@ -60,5 +67,5 @@ class BookingForm(forms.ModelForm):
         """
         model = Booking
         fields = (
-            'lead', 'email', 'mobile', 'date', 'time', 'notes', 'guests'
+            'lead', 'email', 'mobile', 'date', 'time', 'arrival', 'notes', 'guests'
         )

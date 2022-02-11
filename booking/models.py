@@ -21,8 +21,6 @@ class Booking(models.Model):
     Plus any special requirement notes.
 
     Defaults the booking status to 'pending' using the above tuple.
-
-    Slug field is generated using autoslug.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -31,6 +29,7 @@ class Booking(models.Model):
     mobile = models.IntegerField(blank=False)
     date = models.DateField(blank=False)
     time = models.TimeField(blank=False)
+    # arrival = models.DateTimeField()
     notes = models.TextField(max_length=200)
     guests = models.PositiveIntegerField(blank=False)
     status = models.IntegerField(choices=STATUS, default=0)
