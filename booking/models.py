@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from autoslug import AutoSlugField
 from cloudinary.models import CloudinaryField
 
 
@@ -34,9 +33,7 @@ class Booking(models.Model):
     time = models.TimeField(blank=False)
     notes = models.TextField(max_length=200)
     guests = models.PositiveIntegerField(blank=False)
-
     status = models.IntegerField(choices=STATUS, default=0)
-    slug = AutoSlugField(populate_from='email')
 
     class Meta:
         """ Orders individual bookings by date in descending order. """
