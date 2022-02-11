@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 from pathlib import Path
 import os
-# import cloudinary
-# import cloudinary.uploader
-# import cloudinary.api
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
@@ -38,7 +35,6 @@ DEBUG = development
 if development:
     ALLOWED_HOSTS = [
         'localhost',
-        'restaurant-booking-app-lewiscm.herokuapp.com'
     ]
 else:
     ALLOWED_HOSTS = ['restaurant-booking-app-lewiscm.herokuapp.com']
@@ -157,14 +153,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-# Cloudinary Config
-
-# cloudinary.config(
-#     cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
-#     api_key=os.environ.get('CLOUDINARY_API_KEY'),
-#     api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
-# )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
