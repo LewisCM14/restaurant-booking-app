@@ -6,7 +6,11 @@ from .forms import BookingForm
 
 
 def index(request):
-    """ Renders the index page in the browser. """
+    """
+    Renders the index page in the browser.
+    Collects the image used for the hero space from the DB,
+    stores it within context to be used in index.html.
+    """
     hero = Image.objects.get(name='hero')
     context = {
         'hero': hero
