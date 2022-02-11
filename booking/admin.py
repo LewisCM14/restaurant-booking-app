@@ -30,4 +30,7 @@ class BookingAdmin(admin.ModelAdmin):
         queryset.update(status=2)
 
 
-admin.site.register(Image)
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+
+    list_display = ('name',)
