@@ -34,17 +34,7 @@ def booking(request):
     The logic for these actions is employed via a if/else loop.
     """
     if request.method == 'POST':
-        form_data = {
-            "lead": request.POST.get('lead'),
-            "email": request.POST.get('email'),
-            "mobile": request.POST.get('mobile'),
-            "date": request.POST.get('date'),
-            "time": request.POST.get('time'),
-            "notes": request.POST.get('notes'),
-            "guests": request.POST.get('guests')
-        }
-
-        booking_form = BookingForm(form_data)
+        booking_form = BookingForm(request.POST)
 
         if booking_form.is_valid():
             current_booking = booking_form.save(commit=False)
@@ -121,17 +111,7 @@ def amend_reservation(request, reservation_id):
     }
 
     if request.method == 'POST':
-        form_data = {
-            "lead": request.POST.get('lead'),
-            "email": request.POST.get('email'),
-            "mobile": request.POST.get('mobile'),
-            "date": request.POST.get('date'),
-            "time": request.POST.get('time'),
-            "notes": request.POST.get('notes'),
-            "guests": request.POST.get('guests')
-        }
-
-        booking_form = BookingForm(form_data)
+        booking_form = BookingForm(request.POST)
 
         if booking_form.is_valid():
             reservation.delete()

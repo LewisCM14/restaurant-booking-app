@@ -41,7 +41,7 @@ class BookingForm(forms.ModelForm):
         label='Reservation',
         required=False,
         widget=forms.TextInput(attrs={'placeholder': 'Reservation'}),
-        input_formats=['%d/%m/%Y %H:%M']
+        input_formats=['Y%/%m/%d %H:%M']
     )
 
     notes = forms.CharField(

@@ -29,7 +29,7 @@ class Booking(models.Model):
     mobile = models.IntegerField(blank=False)
     date = models.DateField(blank=False)
     time = models.TimeField(blank=False)
-    arrival = models.DateTimeField(blank=True, null=True)
+    arrival = models.DateTimeField(null=True)
     notes = models.TextField(max_length=200)
     guests = models.PositiveIntegerField(blank=False)
     status = models.IntegerField(choices=STATUS, default=0)
