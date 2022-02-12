@@ -12,6 +12,7 @@ ___
 * [Testing](#testing)
 * [Unfixed Bugs](#bugs)
 * [Deployment](#deployment)
+* [Create a Clone](#clone)
 * [Technologies Used](#tech)
 * [Credits](#credits)
 ___
@@ -107,7 +108,11 @@ ___
 
 - The site is deployed via [Heroku](https://heroku.com/). The steps to deploy are as follows:
 
-    *It is assumed the GitHub repository for the project is setup correctly as this point. Ensure all requirements for the project are added to the requirements.txt file prior to deployment. It is also assumed that the Django project is setup as intended, necessary dependencies installed with all apps required added to the INSTALLED_APPS variable within settings.py. For this project the booking app is all that is required.*
+    *It is assumed the GitHub repository for the project is setup correctly as this point.*
+     
+    *Ensure all requirements for the project are added to the requirements.txt file prior to deployment. The command **pip3 freeze --local > requirements.txt** can be ran in the terminal to do this.*
+
+    *It is also assumed that the Django project is setup as intended, necessary dependencies installed with all apps required added to the INSTALLED_APPS variable within settings.py. For this project the booking app is all that is required.*
 
     * STAGE ONE - Create a New App in Heroku
 
@@ -261,6 +266,25 @@ ___
         **Be aware, from this point onwards, all changes made to the database in development will have to be migrated to the deployed database separately in order to take effect. This can be done by changing the DATABASES dictionary in the settings.py file to point directly at the heroku database, DO NOT commit to GitHub with this setting saved.**
 
     ---
+[Return to Table of Contents](#contents)
+___
+
+## Create a Local Clone <a name ='clone'></a>
+
+- Follow the steps below in order to create a local clone using HTTPS.
+
+    * STEP ONE - Navigate to the GitHub repository for the project. Located [here](https://github.com/LewisCM14/restaurant-booking-app).
+    
+    * STEP TWO - From the tabs displayed, click the **Code** tab. This presents a drop down menu.
+
+    * STEP THREE - On your chosen IDE open Git Bash, Change the current working directory to the location where you want the cloned directory.
+    
+    * STEP FOUR - Type git clone, and then paste the URL you copied earlier.
+
+            $ git clone https://github.com/LewisCM14/restaurant-booking-app.git
+    
+    * STEP FIVE - Press Enter to create your local clone.
+
 [Return to Table of Contents](#contents)
 ___
 ## Technologies Used <a name ='tech'></a>
