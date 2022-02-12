@@ -85,6 +85,8 @@ ___
 ___
 ### Testing <a name ='testing'></a> 
 
+- **Bugs found in Development**
+
 - **Validator Testing**
 
     - HTML
@@ -101,6 +103,7 @@ ___
 
 - **Lighthouse**
 
+- **Automated Tests**
 
 [Return to Table of Contents](#contents)
 ___
