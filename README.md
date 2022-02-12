@@ -7,6 +7,7 @@ ___
 * [User Experience (UX)](#userexperience)
 * [Design](#design)
 * [Development](#development)
+* [Database Schema](#database)
 * [Existing Features](#existingfeatures)
 * [Features Left to Implement](#toimplement)
 * [Testing](#testing)
@@ -50,6 +51,11 @@ ___
 - **Iteration 2**
 
 - **Iteration 3**
+
+[Return to Table of Contents](#contents)
+___
+
+### Database Schema <a name='database'></a>
 
 [Return to Table of Contents](#contents)
 ___
