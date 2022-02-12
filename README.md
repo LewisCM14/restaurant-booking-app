@@ -18,6 +18,11 @@ ___
 ___
 ### User Experience (UX) <a name='userexperience'></a>
 
+* reason for site
+* target audience
+* purpose owner/user goals needs addressed
+* data required, security features
+
 [Return to Table of Contents](#contents)
 ___
 ### Design <a name='design'></a>
@@ -78,7 +83,7 @@ ___
 
 [Return to Table of Contents](#contents)
 ___
-### Testing <a name ='testing'></a>  
+### Testing <a name ='testing'></a> 
 
 - **Validator Testing**
 
@@ -245,7 +250,7 @@ ___
 
         2: Within this file, declare the below command. This command ensures gunicorn is used as the web server.
 
-            * web: gunicorn restobook.wsgi
+            web: gunicorn restobook.wsgi
         
         *Add, commit and push to the repository at this point*
     
@@ -277,13 +282,15 @@ ___
     
     * STEP TWO - From the tabs displayed, click the **Code** tab. This presents a drop down menu.
 
-    * STEP THREE - On your chosen IDE open Git Bash, Change the current working directory to the location where you want the cloned directory.
+    * STEP THREE - Ensure this menu is on the **HTTPS** tab and copy the URL.
+
+    * STEP FOUR - On your chosen IDE open Git Bash, Change the current working directory to the location where you want the cloned directory.
     
-    * STEP FOUR - Type git clone, and then paste the URL you copied earlier.
+    * STEP FIVE - Type git clone, and then paste the URL you copied earlier.
 
             $ git clone https://github.com/LewisCM14/restaurant-booking-app.git
     
-    * STEP FIVE - Press Enter to create your local clone.
+    * STEP SIX - Press Enter to create your local clone.
 
 [Return to Table of Contents](#contents)
 ___
