@@ -59,7 +59,6 @@ class ReservationList(generic.ListView):
     is now referred to as a reservation for clarity.
 
     Class based view that inherits from the Booking model.
-    Paginates the bookings to 6 per page.
 
     Uses the inbuilt get method to filter reservations,
     so only ones made by the authorized user are dispayed,
@@ -68,7 +67,6 @@ class ReservationList(generic.ListView):
     Renders to the 'reservations.html' template.
     """
     model = Booking
-    paginate_by = 6
 
     def get(self, request, *args, **kwargs):
 
