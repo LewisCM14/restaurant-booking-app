@@ -330,6 +330,8 @@ ___
 
     * I used this [post](https://www.section.io/engineering-education/uploading-images-to-cloudinary-from-django-application/) by [Shuaib Oseni](https://www.section.io/engineering-education/authors/shuaib-oseni/) in order to setup the methods of storing the images used for my project on cloudinary.
 
+    * I used this [post](https://simpleisbetterthancomplex.com/tutorial/2019/01/03/how-to-use-date-picker-with-django.html#xdsoft-datetimepicker) by Vitor Freitas to add the XDSoft date picker tool to my booking form.
+
 - **Media**
 
     * The hero image used on the index page is a free to use stock photo found [here](https://unsplash.com/photos/-YHSwy6uqvk) on [unsplash](https://unsplash.com/). The photo was taken by [Lily Banse](https://unsplash.com/@lvnatikk).
