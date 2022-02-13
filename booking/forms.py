@@ -11,33 +11,31 @@ class BookingForm(forms.ModelForm):
     lead = forms.CharField(
         label='Booking Lead',
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'Full Name'})
+        widget=forms.TextInput(attrs={'placeholder': 'Full Name'}),
     )
 
     email = forms.EmailField(
         label='Email Address',
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'Email'})
+        widget=forms.TextInput(attrs={'placeholder': 'Email'}),
     )
 
     mobile = forms.IntegerField(
         label='Contact Number',
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'Mobile'})
+        widget=forms.TextInput(attrs={'placeholder': 'Mobile'}),
     )
 
     date = forms.DateField(
         label='Date of Booking',
         required=True,
-        widget=DatePickerInput
-        # forms.TextInput(attrs={'placeholder': 'Date'},)
+        widget=DatePickerInput(),
     )
 
     time = forms.TimeField(
         label='Arrival Time',
         required=True,
-        widget=TimePickerInput
-        # forms.TextInput(attrs={'placeholder': 'Time'})
+        widget=TimePickerInput(),
     )
 
     notes = forms.CharField(
@@ -46,14 +44,14 @@ class BookingForm(forms.ModelForm):
         widget=forms.Textarea(attrs={
             'placeholder': 'Any special requirements we should be aware of?'
         }),
-        max_length=300
+        max_length=300,
     )
 
     guests = forms.IntegerField(
         label='Number of Guests',
         required=True,
         min_value=1,
-        widget=forms.TextInput(attrs={'placeholder': 'Guests'})
+        widget=forms.TextInput(attrs={'placeholder': 'Guests'}),
     )
 
     class Meta:
@@ -67,6 +65,6 @@ class BookingForm(forms.ModelForm):
         )
 
         widgets = {
-            'date': DatePickerInput(),
-            'time': TimePickerInput(),
+            'date': DatePickerInput,
+            'time': TimePickerInput,
         }
