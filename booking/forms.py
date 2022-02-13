@@ -40,13 +40,6 @@ class BookingForm(forms.ModelForm):
         # forms.TextInput(attrs={'placeholder': 'Time'})
     )
 
-    # arrival = forms.DateTimeField(
-    #     label='Reservation',
-    #     required=False,
-    #     widget=forms.TextInput(attrs={'placeholder': 'Reservation'}),
-    #     input_formats=['Y%/%m/%d %H:%M']
-    # )
-
     notes = forms.CharField(
         label='Special Requirements',
         required=False,
