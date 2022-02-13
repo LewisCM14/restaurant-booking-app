@@ -43,6 +43,7 @@ def booking(request):
             return redirect(reverse("reservations"))
 
         else:
+            print(booking_form.errors)
             return render(request, 'booking.html', {
                 "booking_form": BookingForm()
             })

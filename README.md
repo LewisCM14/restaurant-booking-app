@@ -115,9 +115,8 @@ ___
 ___
 ### Unfixed Bugs <a name ='bugs'></a>
 
-___
 [Return to Table of Contents](#contents)
-
+___
 ### Deployment <a name ='deployment'></a>
 
 - The site is deployed via [Heroku](https://heroku.com/). The steps to deploy are as follows:
