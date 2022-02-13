@@ -410,6 +410,8 @@ ___
 
     * I used this [post](https://simpleisbetterthancomplex.com/tutorial/2019/01/03/how-to-use-date-picker-with-django.html#xdsoft-datetimepicker) by Vitor Freitas to add the XDSoft date picker tool to my booking form.
 
+    * I used this [post](https://nancylin.xyz/how-to-implement-date-time-picker-in-django-without-javascript/) by [Nancy Lin](https://nancylin.xyz/) to alter my datetime picker to the inbuilt Django one.
+
 - **Media**
 
     * The hero image used on the index page is a free to use stock photo found [here](https://unsplash.com/photos/-YHSwy6uqvk) on [unsplash](https://unsplash.com/). The photo was taken by [Lily Banse](https://unsplash.com/@lvnatikk).

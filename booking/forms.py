@@ -59,6 +59,8 @@ class BookingForm(forms.ModelForm):
         """
         The booking form inherits from the Booking model.
         Takes the required fields needed for a user to make a new booking.
+
+        Defines the widgets for the date and time fields.
         """
         model = Booking
         fields = (
