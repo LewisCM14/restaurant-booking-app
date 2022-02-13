@@ -76,6 +76,7 @@ class BookingForm(forms.ModelForm):
         Defines the widgets for the date and time fields.
         """
         model = Booking
+
         fields = (
             'lead', 'email', 'mobile', 'date', 'time', 'notes', 'guests'
         )
