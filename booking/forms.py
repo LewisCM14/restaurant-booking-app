@@ -6,10 +6,11 @@ from .widget import DatePickerInput, TimePickerInput
 
 def validate_opening_hour(value):
     """
-    Validates the time field is within opening hours.
+    A custom validation function. intended for use on 'time' fields.
+    Ensures the input value is between 11AM and 9PM.
+    If validation is failed the custom error message is returned.
     """
     if not 11 < int(value.hour) < 21:  # do i need value.hour or just value
-        print(value)
         raise ValidationError(
             'We only take reservations on the hour between 11AM & 9PM',
             params={'value': value},
