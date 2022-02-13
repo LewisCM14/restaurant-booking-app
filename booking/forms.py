@@ -72,3 +72,8 @@ class BookingForm(forms.ModelForm):
         fields = (
             'lead', 'email', 'mobile', 'date', 'time', 'notes', 'guests'
         )
+
+        widgets = {
+            'date': DatePickerInput(),
+            'time': TimePickerInput(),
+        }

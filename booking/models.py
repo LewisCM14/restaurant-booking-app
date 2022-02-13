@@ -33,7 +33,6 @@ class Booking(models.Model):
     notes = models.TextField(max_length=200)
     guests = models.PositiveIntegerField(blank=False)
     status = models.IntegerField(choices=STATUS, default=0)
-
     class Meta:
         """ Orders individual bookings by date in descending order. """
         ordering = ['-date']
