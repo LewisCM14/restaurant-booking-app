@@ -29,7 +29,9 @@ def booking(request):
     The booking is then saved to the database.
     The user is then redirected to the reservations page.
 
-    If the booking is invalid the BookingForm is reloaded.
+    If the booking is invalid the BookingForm will not post,
+    The fields remain populated with the POST data.
+    Field validation is handled in the Booking model and BookingForm.
 
     The logic for these actions is employed via a if/else loop.
     """
