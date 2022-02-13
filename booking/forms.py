@@ -1,6 +1,19 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from .models import Booking
 from .widget import DatePickerInput, TimePickerInput
+
+
+def validate_opening_hour(value):
+    """
+    Validates the time field is within opening hours.
+    """
+    if not 11 < int(value.hour) < 21:  # do i need value.hour or just value
+        print(value)
+        raise ValidationError(
+            'We only take reservations on the hour between 11AM & 9PM',
+            params={'value': value},
+        )
 
 
 class BookingForm(forms.ModelForm):
@@ -36,7 +49,7 @@ class BookingForm(forms.ModelForm):
         label='Arrival Time',
         required=True,
         widget=TimePickerInput(),
-        # validators=Booking.validate_opening_hour()
+        validators=[validate_opening_hour]
     )
 
     notes = forms.CharField(
