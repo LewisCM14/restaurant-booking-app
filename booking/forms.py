@@ -1,5 +1,6 @@
 from django import forms
 from .models import Booking
+from .widget import DatePickerInput, TimePickerInput
 
 
 class BookingForm(forms.ModelForm):
@@ -28,21 +29,23 @@ class BookingForm(forms.ModelForm):
     date = forms.DateField(
         label='Date of Booking',
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'Date'})
+        widget=DatePickerInput
+        # forms.TextInput(attrs={'placeholder': 'Date'},)
     )
 
     time = forms.TimeField(
         label='Arrival Time',
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'Time'})
+        widget=TimePickerInput
+        # forms.TextInput(attrs={'placeholder': 'Time'})
     )
 
-    arrival = forms.DateTimeField(
-        label='Reservation',
-        required=False,
-        widget=forms.TextInput(attrs={'placeholder': 'Reservation'}),
-        input_formats=['Y%/%m/%d %H:%M']
-    )
+    # arrival = forms.DateTimeField(
+    #     label='Reservation',
+    #     required=False,
+    #     widget=forms.TextInput(attrs={'placeholder': 'Reservation'}),
+    #     input_formats=['Y%/%m/%d %H:%M']
+    # )
 
     notes = forms.CharField(
         label='Special Requirements',
@@ -67,5 +70,5 @@ class BookingForm(forms.ModelForm):
         """
         model = Booking
         fields = (
-            'lead', 'email', 'mobile', 'date', 'time', 'arrival', 'notes', 'guests'
+            'lead', 'email', 'mobile', 'date', 'time', 'notes', 'guests'
         )
