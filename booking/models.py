@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.core.exceptions import ValidationError
 
 
 # A tuple to hold the status of the booking
@@ -42,6 +43,17 @@ class Booking(models.Model):
         Returns the reservation date and time to be used as booking title.
         """
         return f'{self.date} {self.time}'
+
+    def validate_opening_hour(self, value):
+        """
+        Validates the time field is within opening hours.
+        """
+        if not 11 < int(value.hour) < 21:  # do i need value.hour or just value
+            print(value)
+            raise ValidationError(
+                'We only take reservations on the hour between 11AM & 9PM',
+                params={'value': value},
+            )
 
 
 class Image(models.Model):

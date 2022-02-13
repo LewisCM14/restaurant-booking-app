@@ -36,6 +36,7 @@ class BookingForm(forms.ModelForm):
         label='Arrival Time',
         required=True,
         widget=TimePickerInput(),
+        # validators=Booking.validate_opening_hour()
     )
 
     notes = forms.CharField(
