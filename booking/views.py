@@ -109,10 +109,11 @@ def amend_reservation(request, reservation_id):
     }
 
     if request.method == 'POST':
+        reservation.delete()
         booking_form = BookingForm(request.POST)
 
         if booking_form.is_valid():
-            reservation.delete()
+            # reservation.delete()
             current_booking = booking_form.save(commit=False)
             current_booking.user = request.user
             current_booking.save()
@@ -120,7 +121,7 @@ def amend_reservation(request, reservation_id):
 
         else:
             return render(request, 'amend_booking.html', {
-                "booking_form": BookingForm(context)
+                "booking_form": BookingForm(request.POST)
             })
 
     else:
@@ -130,6 +131,9 @@ def amend_reservation(request, reservation_id):
 
 
 def cancel_reservation(request, reservation_id):
+    """
+    Delete the reservation via its unique id from the database.
+    """
     reservation = get_object_or_404(Booking, id=reservation_id)
     reservation.delete()
     return redirect(reverse("reservations"))
