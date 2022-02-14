@@ -2,8 +2,6 @@ from django import forms
 from django.core.exceptions import ValidationError
 from .models import Booking
 from .widget import DatePickerInput, TimePickerInput
-# from phonenumber_field.formfields import PhoneNumberField
-# from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 
 def validate_opening_hour(value):
@@ -41,12 +39,6 @@ class BookingForm(forms.ModelForm):
         required=True,
         widget=forms.TextInput(attrs={'placeholder': 'Mobile'}),
     )
-
-    # phone_number = PhoneNumberField(
-    #     label='Contact Number',
-    #     required=True,
-    #     widget=PhoneNumberPrefixWidget(initial='+44'),
-    # )
 
     date = forms.DateField(
         label='Date of Booking',

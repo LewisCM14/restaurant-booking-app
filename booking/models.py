@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
-from phonenumber_field.modelfields import PhoneNumberField
 from cloudinary.models import CloudinaryField
 
 
@@ -28,8 +27,7 @@ class Booking(models.Model):
     lead = models.CharField(max_length=200, blank=False)
     email = models.CharField(max_length=200, blank=False)
     phoneNumberRegex = RegexValidator(regex=r'^\+?1?\d{9,15}$')
-    mobile = models.CharField(validators=[phoneNumberRegex], max_length=16)
-    phone_number = PhoneNumberField()  # needs wiring up proper
+    mobile = models.CharField(validators=[phoneNumberRegex], max_length=16, blank=False)
     date = models.DateField(blank=False)
     time = models.TimeField(blank=False)
     notes = models.TextField(max_length=200)
