@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'phonenumber_field',  # delete if cant get working
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
