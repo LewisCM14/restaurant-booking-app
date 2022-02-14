@@ -412,6 +412,8 @@ ___
 
     * I used this [post](https://nancylin.xyz/how-to-implement-date-time-picker-in-django-without-javascript/) by [Nancy Lin](https://nancylin.xyz/) to alter my datetime picker to the inbuilt Django one.
 
+    * I used this [post](https://www.delftstack.com/howto/django/django-phone-number-field/) on [delftstack](https://www.delftstack.com/) to setup the RegexValidator for my mobile field on the Booking model.
+
 - **Media**
 
     * The hero image used on the index page is a free to use stock photo found [here](https://unsplash.com/photos/-YHSwy6uqvk) on [unsplash](https://unsplash.com/). The photo was taken by [Lily Banse](https://unsplash.com/@lvnatikk).
