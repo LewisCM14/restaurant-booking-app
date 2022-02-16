@@ -2,7 +2,6 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
 {% load crispy_forms_tags %}
 
 <div class="container mb-3">
@@ -17,15 +16,5 @@
         </div>
     </div>
 </div>
-
-{% else %}
-<div class="container mb-3">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <h6>You must be a registered user to make a reservation.</h6>
-        </div>
-    </div>
-</div>
-{% endif %}
 
 {% endblock %}

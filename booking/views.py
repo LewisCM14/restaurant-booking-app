@@ -20,7 +20,10 @@ def index(request):
 
 def booking(request):
     """
-    Renders the BookingForm on the booking.html template.
+    Uses an if/else statement to assert the user attempting
+    to access the booking feature is an authenticated user,
+    if not redirects to the sign in page. Otherwise
+    renders the BookingForm on the booking.html template.
 
     On a POST request, gets the data from the BookingForm,
     places the data in an instance. Checks that the instance is valid.
@@ -35,24 +38,29 @@ def booking(request):
 
     The logic for these actions is employed via a if/else loop.
     """
-    if request.method == 'POST':
-        booking_form = BookingForm(request.POST)
+    if request.user.is_authenticated:
 
-        if booking_form.is_valid():
-            current_booking = booking_form.save(commit=False)
-            current_booking.user = request.user
-            current_booking.save()
-            return redirect(reverse("reservations"))
+        if request.method == 'POST':
+            booking_form = BookingForm(request.POST)
+
+            if booking_form.is_valid():
+                current_booking = booking_form.save(commit=False)
+                current_booking.user = request.user
+                current_booking.save()
+                return redirect(reverse("reservations"))
+
+            else:
+                return render(request, 'booking.html', {
+                    "booking_form": BookingForm(request.POST)
+                })
 
         else:
             return render(request, 'booking.html', {
-                "booking_form": BookingForm(request.POST)
+                "booking_form": BookingForm()
             })
 
     else:
-        return render(request, 'booking.html', {
-            "booking_form": BookingForm()
-        })
+        return redirect(reverse("account_login"))
 
 
 class ReservationList(generic.ListView):
@@ -138,7 +146,7 @@ def amend_reservation(request, reservation_id):
                     })
 
         else:
-            return redirect(reverse("account_login"))
+            return redirect(reverse("account_login"))  # redirects to index not login, why ?
 
     else:
         return redirect(reverse("account_login"))
