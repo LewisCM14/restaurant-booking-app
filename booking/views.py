@@ -90,14 +90,13 @@ def amend_reservation(request, reservation_id):
 
     On a POST request, gets the amended data from the BookingForm,
     places the data in an instance. Checks that the instance is valid.
-    If valid, the previous reservation is deleted from the database.
-    The new reservation is then saved without commiting,
-    The instance then has the authorized users id applied to it.
-    The reservation is then saved to the database.
+    If valid, the reservation is updated with the new information
+    provided in the POST request and saved to the database.
     The user is then redirected to the reservations page.
 
     If the booking is invalid the BookingForm is reloaded,
-    It is populated with the context instance.
+    It is populated with the information 
+    from the failed POST request.
     """
     reservation = get_object_or_404(Booking, id=reservation_id)
     context = {
