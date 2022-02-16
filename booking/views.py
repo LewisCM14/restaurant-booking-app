@@ -84,50 +84,65 @@ class ReservationList(generic.ListView):
 
 def amend_reservation(request, reservation_id):
     """
-    Creates a copy of the reservation from the Booking Model database.
-    Then creates an instance of the BookingForm with the reservation id.
+    Uses an if/else statement to assert the user attempting
+    to access the amend feature is an authenticated user,
+    if not redirects to the sign in page.
+
+    If the signed in user is authenticated
+    a copy of the reservation from the Booking database is created.
+    The signed in users ID is then compared to the reservations user ID.
+    If not equal they are redirected to the sign in page.
+
+    If equal an instance of the BookingForm with the reservation id is created.
     This instance is then returned to the amend_booking template in context.
 
     On a POST request, gets the amended data from the BookingForm,
     places the data in an instance. Checks that the instance is valid.
-    If valid, the reservation is updated with the new information
+    If valid, the existing reservation is updated with the new information
     provided in the POST request and saved to the database.
     The user is then redirected to the reservations page.
 
     If the booking is invalid the BookingForm is reloaded,
-    It is populated with the information 
-    from the failed POST request.
+    It is populated with the information from the failed POST request.
     """
     if request.user.is_authenticated:
         reservation = get_object_or_404(Booking, id=reservation_id)
-        context = {
-            "lead": reservation.lead,
-            "email": reservation.email,
-            "mobile": reservation.mobile,
-            "date": reservation.date,
-            "time": reservation.time,
-            "notes": reservation.notes,
-            "guests": reservation.guests
-        }
+        current_user = request.user
 
-        if request.method == 'POST':
-            booking_form = BookingForm(request.POST, instance=reservation)
+        if current_user == reservation.user:
+            context = {
+                "lead": reservation.lead,
+                "email": reservation.email,
+                "mobile": reservation.mobile,
+                "date": reservation.date,
+                "time": reservation.time,
+                "notes": reservation.notes,
+                "guests": reservation.guests
+            }
 
-            if booking_form.is_valid():
-                booking_form.save()
-                return redirect(reverse("reservations"))
-            
+            if request.method == 'POST':
+                booking_form = BookingForm(request.POST, instance=reservation)
+
+                if booking_form.is_valid():
+                    booking_form.save()
+                    return redirect(reverse("reservations"))
+
+                else:
+                    return render(request, 'amend_booking.html', {
+                        "booking_form": BookingForm(request.POST)
+                    })
+
             else:
                 return render(request, 'amend_booking.html', {
-                    "booking_form": BookingForm(request.POST)
-                })
+                        "booking_form": BookingForm(context)
+                    })
 
         else:
-            return render(request, 'amend_booking.html', {
-                    "booking_form": BookingForm(context)
-                })
+            return redirect(reverse("account_login"))
+
     else:
-         return redirect(reverse("account_login"))
+        return redirect(reverse("account_login"))
+
 
 def cancel_reservation(request, reservation_id):
     """
