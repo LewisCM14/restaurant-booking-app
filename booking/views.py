@@ -154,8 +154,25 @@ def amend_reservation(request, reservation_id):
 
 def cancel_reservation(request, reservation_id):
     """
-    Delete the reservation via its unique id from the database.
+    Uses an if/else statement to assert the user attempting
+    to access the cancel feature is an authenticated user,
+    if not redirects to the sign in page.
+
+    If the signed in user is authenticated
+    a copy of the reservation from the Booking database is created.
+    The signed in users ID is then compared to the reservations user ID.
+    If not equal they are redirected to the sign in page.
+
+    If equal the reservation is deleted from the database via its unique id,
+    the user is then redirected back to the reservations.html page.
     """
-    reservation = get_object_or_404(Booking, id=reservation_id)
-    reservation.delete()
-    return redirect(reverse("reservations"))
+    if request.user.is_authenticated:
+        reservation = get_object_or_404(Booking, id=reservation_id)
+        current_user = request.user
+
+        if current_user == reservation.user:
+            reservation.delete()
+            return redirect(reverse("reservations"))
+
+    else:
+        return redirect(reverse("account_login"))
