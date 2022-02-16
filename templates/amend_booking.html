@@ -9,10 +9,10 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <h2>Amend A Reservation</h2>
-            <form method="POST" action="{% url 'booking' %}">
+            <form method="POST">
                 {{ booking_form | crispy }}
                 {% csrf_token %}
-                <button type="submit" class="btn btn-dark" value="Post">Request a Booking</button>
+                <button type="submit" class="btn btn-dark">Request a Booking</button>
             </form>
         </div>
     </div>
