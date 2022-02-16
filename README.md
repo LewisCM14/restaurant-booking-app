@@ -79,6 +79,8 @@ ___
 ___
 ### Future Features <a name ='toimplement'></a>
 
+*The product backlog can be viewed [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/1).*
+
 - **Write a Review**
 
     *An option for a user to write a review, which is then displayed on the site for other users to see. Due to the nature of the business this could potentially be handled through Trip Advisor or Yelp.*
