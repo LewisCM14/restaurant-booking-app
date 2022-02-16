@@ -98,34 +98,36 @@ def amend_reservation(request, reservation_id):
     It is populated with the information 
     from the failed POST request.
     """
-    reservation = get_object_or_404(Booking, id=reservation_id)
-    context = {
-        "lead": reservation.lead,
-        "email": reservation.email,
-        "mobile": reservation.mobile,
-        "date": reservation.date,
-        "time": reservation.time,
-        "notes": reservation.notes,
-        "guests": reservation.guests
-    }
+    if request.user.is_authenticated:
+        reservation = get_object_or_404(Booking, id=reservation_id)
+        context = {
+            "lead": reservation.lead,
+            "email": reservation.email,
+            "mobile": reservation.mobile,
+            "date": reservation.date,
+            "time": reservation.time,
+            "notes": reservation.notes,
+            "guests": reservation.guests
+        }
 
-    if request.method == 'POST':
-        booking_form = BookingForm(request.POST, instance=reservation)
+        if request.method == 'POST':
+            booking_form = BookingForm(request.POST, instance=reservation)
 
-        if booking_form.is_valid():
-            booking_form.save()
-            return redirect(reverse("reservations"))
-        
+            if booking_form.is_valid():
+                booking_form.save()
+                return redirect(reverse("reservations"))
+            
+            else:
+                return render(request, 'amend_booking.html', {
+                    "booking_form": BookingForm(request.POST)
+                })
+
         else:
             return render(request, 'amend_booking.html', {
-                "booking_form": BookingForm(request.POST)
-            })
-
+                    "booking_form": BookingForm(context)
+                })
     else:
-        return render(request, 'amend_booking.html', {
-                "booking_form": BookingForm(context)
-            })
-
+         return redirect(reverse("account_login"))
 
 def cancel_reservation(request, reservation_id):
     """
