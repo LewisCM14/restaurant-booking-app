@@ -34,7 +34,29 @@ def validate_future_date(value):
 
     elif value == datetime.date.today():
         raise ValidationError(
-            'Please call to make same day bookings',
+            'Please call to make same day reservations',
+            params={'value': value},
+        )
+
+
+def validate_guest_size(value):
+    """
+    A custom validation function.
+    intended for use on the 'guests' field of the BookingForm.
+    If input integer is greater than 8,
+    validation is failed and the custom error message is returned.
+
+    Ensures input integer is also grater than 1.
+    """
+    if value > 8:
+        raise ValidationError(
+            'For reservations of more than 8 guests, please call and arrange',
+            params={'value': value},
+        )
+
+    elif value < 1:
+        raise ValidationError(
+            'Please state how many guests will be attending',
             params={'value': value},
         )
 
@@ -88,8 +110,8 @@ class BookingForm(forms.ModelForm):
     guests = forms.IntegerField(
         label='Number of Guests',
         required=True,
-        min_value=1,
         widget=forms.TextInput(attrs={'placeholder': 'Guests'}),
+        validators=[validate_guest_size],
     )
 
     class Meta:
