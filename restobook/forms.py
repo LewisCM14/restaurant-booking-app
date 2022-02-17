@@ -1,3 +1,5 @@
+""" This module contains logic used in account creation. """
+
 from allauth.account.forms import SignupForm
 from django import forms
 

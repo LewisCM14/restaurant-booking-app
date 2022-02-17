@@ -1,3 +1,5 @@
+""" This module contains the tests for admin.py in the booking directory. """
+
 # from django.test import TestCase
 # from django.contrib.auth.models import User
 # from .models import Booking

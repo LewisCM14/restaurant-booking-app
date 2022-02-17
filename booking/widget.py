@@ -1,3 +1,5 @@
+""" This module contains widgets used on the booking form. """
+
 from django import forms
 
 

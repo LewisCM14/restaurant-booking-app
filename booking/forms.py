@@ -1,3 +1,5 @@
+""" This module contains the form logic for making a booking. """
+
 from django import forms
 from .models import Booking
 from .widget import DatePickerInput, TimePickerInput

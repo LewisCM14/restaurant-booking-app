@@ -1,3 +1,5 @@
+""" This module contains the database model for the booking app. """
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator

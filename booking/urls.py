@@ -1,3 +1,5 @@
+""" This module contains the URL patterns for the booking app. """
+
 from django.urls import path
 from . import views
 

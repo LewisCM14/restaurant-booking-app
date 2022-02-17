@@ -1,3 +1,5 @@
+""" This module contains the tests for forms.py in the booking directory. """
+
 from django.test import TestCase
 from . forms import BookingForm
 

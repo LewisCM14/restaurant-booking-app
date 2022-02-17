@@ -1,3 +1,5 @@
+""" This module contains the views for the booking app. """
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views import generic
 from django.contrib.auth.models import User

@@ -1,3 +1,5 @@
+""" This module contains custom functions used for form validation. """
+
 import datetime
 from django.core.exceptions import ValidationError
 
