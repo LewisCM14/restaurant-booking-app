@@ -65,7 +65,7 @@ def validate_guest_size(value):
     If input integer is greater than 8,
     validation is failed and the custom error message is returned.
 
-    Ensures input integer is also grater than 1.
+    Ensures input integer is also greater than 0.
     """
     if value > 8:
         raise ValidationError(
