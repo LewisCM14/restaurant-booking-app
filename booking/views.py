@@ -70,8 +70,11 @@ class ReservationList(generic.ListView):
 
     Class based view that inherits from the Booking model.
 
-    Uses the inbuilt get method to filter reservations,
-    so only ones made by the authorized user are dispayed,
+    Uses an if/else statement to assert user authentication,
+    if failed redirects to the login page.
+
+    If passes uses the inbuilt get method to filter reservations,
+    so only ones with the authorized users ID are dispayed,
     orders them by date asscending.
 
     Renders to the 'reservations.html' template.
@@ -80,14 +83,17 @@ class ReservationList(generic.ListView):
 
     def get(self, request, *args, **kwargs):
 
-        reservations = Booking.objects.filter(user=request.user)
+        if request.user.is_authenticated:
+            reservations = Booking.objects.filter(user=request.user)
+            return render(
+                request, 'reservations.html',
+                {
+                    'reservations': reservations,
+                },
+            )
 
-        return render(
-            request, 'reservations.html',
-            {
-                'reservations': reservations,
-            },
-        )
+        else:
+            return redirect(reverse("account_login"))
 
 
 def amend_reservation(request, reservation_id):
