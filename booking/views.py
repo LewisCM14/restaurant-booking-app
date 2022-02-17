@@ -29,6 +29,9 @@ def booking(request):
     places the data in an instance. Checks that the instance is valid.
     If valid saves the form without commiting,
     The valid booking then has the authorized users id applied to it.
+    Plus there first & last name as the lead field
+    and the email address registered to their account as the email field.
+
     The booking is then saved to the database.
     The user is then redirected to the reservations page.
 
@@ -44,9 +47,15 @@ def booking(request):
             booking_form = BookingForm(request.POST)
 
             if booking_form.is_valid():
+                # Stores the user in a variable for use in logic below.
+                user = request.user
+
                 current_booking = booking_form.save(commit=False)
-                current_booking.user = request.user
+                current_booking.user = user
+                current_booking.lead = f'{user.first_name} {user.last_name}'
+                current_booking.email = user.email
                 current_booking.save()
+
                 return redirect(reverse("reservations"))
 
             else:
@@ -125,8 +134,6 @@ def amend_reservation(request, reservation_id):
 
         if current_user == reservation.user:
             context = {
-                "lead": reservation.lead,
-                "email": reservation.email,
                 "mobile": reservation.mobile,
                 "date": reservation.date,
                 "time": reservation.time,

@@ -9,18 +9,6 @@ class BookingForm(forms.ModelForm):
     Creates the BookingForm class that inherits from the base form.
     """
 
-    lead = forms.CharField(
-        label='Booking Lead',
-        required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'Full Name'}),
-    )
-
-    email = forms.EmailField(
-        label='Email Address',
-        required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'Email'}),
-    )
-
     mobile = forms.CharField(
         label='Contact Number',
         required=True,
@@ -67,7 +55,7 @@ class BookingForm(forms.ModelForm):
         model = Booking
 
         fields = (
-            'lead', 'email', 'mobile', 'date', 'time', 'notes', 'guests'
+            'mobile', 'date', 'time', 'notes', 'guests'
         )
 
         widgets = {
