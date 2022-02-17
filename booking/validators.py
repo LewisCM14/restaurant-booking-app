@@ -4,7 +4,8 @@ from django.core.exceptions import ValidationError
 
 def validate_opening_hour(value):
     """
-    A custom validation function. intended for use on 'time' fields.
+    A custom validation function.
+    Intended for use on the time field of the BookingForm.
     Ensures the input value is between 11AM and 9PM.
     If validation is failed the custom error message is returned.
     """
@@ -17,7 +18,8 @@ def validate_opening_hour(value):
 
 def validate_future_date(value):
     """
-    A custom validation function. intended for use on 'date' fields.
+    A custom validation function.
+    Intended for use on date field of the BookingForm.
     Ensures the input value is a future date.
     If validation is failed the custom error message is returned.
 
@@ -32,6 +34,26 @@ def validate_future_date(value):
     elif value == datetime.date.today():
         raise ValidationError(
             'Please call to make same day reservations',
+            params={'value': value},
+        )
+
+
+def validate_open_day(value):
+    """
+    A custom validation function.
+    Intended for use on date field of the BookingForm.
+    Uses the Weekday method of the datetime library
+    Ensures the input value is not a Monday or a Sunday.
+    If validation is failed the custom error message is returned.
+    """
+    if value.weekday() == 0:
+        raise ValidationError(
+            'We are closed on a Monday, please choose a differant date',
+            params={'value': value},
+        )
+    elif value.weekday() == 6:
+        raise ValidationError(
+            'We are closed on a Sunday, please choose a differant date',
             params={'value': value},
         )
 

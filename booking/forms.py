@@ -19,7 +19,9 @@ class BookingForm(forms.ModelForm):
         label='Date of Booking',
         required=True,
         widget=DatePickerInput(),
-        validators=[validators.validate_future_date],
+        validators=[
+            validators.validate_future_date, validators.validate_open_day
+            ],
     )
 
     time = forms.TimeField(
