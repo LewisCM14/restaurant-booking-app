@@ -1,3 +1,4 @@
+import datetime
 from django import forms
 from django.core.exceptions import ValidationError
 from .models import Booking
@@ -13,6 +14,27 @@ def validate_opening_hour(value):
     if not 11 <= int(value.hour) <= 21:
         raise ValidationError(
             'We only take reservations between 11AM & 9PM',
+            params={'value': value},
+        )
+
+
+def validate_future_date(value):
+    """
+    A custom validation function. intended for use on 'date' fields.
+    Ensures the input value is a future date.
+    If validation is failed the custom error message is returned.
+
+    If value is equal to current day provdes an alternate error message.
+    """
+    if value < datetime.date.today():
+        raise ValidationError(
+            'Please select a future date',
+            params={'value': value},
+        )
+
+    elif value == datetime.date.today():
+        raise ValidationError(
+            'Please call to make same day bookings',
             params={'value': value},
         )
 
@@ -44,13 +66,14 @@ class BookingForm(forms.ModelForm):
         label='Date of Booking',
         required=True,
         widget=DatePickerInput(),
+        validators=[validate_future_date],
     )
 
     time = forms.TimeField(
         label='Arrival Time',
         required=True,
         widget=TimePickerInput(),
-        validators=[validate_opening_hour]
+        validators=[validate_opening_hour],
     )
 
     notes = forms.CharField(

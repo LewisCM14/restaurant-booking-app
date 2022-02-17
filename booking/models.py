@@ -4,11 +4,7 @@ from django.core.validators import RegexValidator
 from cloudinary.models import CloudinaryField
 
 
-# A tuple to hold the status of the booking
-# 0 - pending
-# 1 - accepted
-# 2 - declined
-
+# A tuple to hold the status key for the booking
 STATUS = ((0, "pending"), (1, "accepted"), (2, "declined"))
 
 
@@ -23,15 +19,25 @@ class Booking(models.Model):
 
     Defaults the booking status to 'pending' using the above tuple.
     """
+    # Foreign Key from the User model
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # User Info needed for Booking
     lead = models.CharField(max_length=200, blank=False)
     email = models.CharField(max_length=200, blank=False)
+    # Contact Number for Booking & Validator
     phoneNumberRegex = RegexValidator(regex=r'^\+?1?\d{9,15}$')
-    mobile = models.CharField(validators=[phoneNumberRegex], max_length=16, blank=False)
+    mobile = models.CharField(
+        validators=[phoneNumberRegex], max_length=16, blank=False
+        )
+    # Date of Booking
     date = models.DateField(blank=False)
+    # Time of Booking
     time = models.TimeField(blank=False)
+    # Special Requests for Booking
     notes = models.TextField(max_length=200)
+    # Number of Guests on Booking
     guests = models.PositiveIntegerField(blank=False)
+    # Booking Status - status updates handled in admin
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
@@ -40,7 +46,7 @@ class Booking(models.Model):
 
     def __str__(self):
         """
-        Returns the reservation date and time to be used as booking title.
+        Returns the booking date and time to be used as booking title.
         """
         return f'{self.date} {self.time}'
 
