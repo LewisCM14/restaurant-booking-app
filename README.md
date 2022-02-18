@@ -394,27 +394,29 @@ ___
 
 - **Content**
 
-    * I used this YouTube [tutorial](https://www.youtube.com/watch?v=AuNjaMLwuug/) to help me wire up my views.
+    * I used this [video](https://www.youtube.com/watch?v=AuNjaMLwuug/) to help me wire up my views.
 
     * The footer is developed from a template on [MDBootstrap](https://mdbootstrap.com/docs/standard/navigation/footer/).
 
-    * To adjust the base allauth sign up form i used this [post](https://www.geeksforgeeks.org/python-extending-and-customizing-django-allauth/) to write my custom class and this [post](https://stackoverflow.com/questions/55786710/using-multiple-login-fields-email-or-phone-number-in-django-all-auth) to further develop it. I then used this [post](https://stackoverflow.com/questions/23956288/django-all-auth-email-required) on stack overflow to adjust my allauth configuration.
+    * To adjust the base allauth sign up form i used this [post](https://www.geeksforgeeks.org/python-extending-and-customizing-django-allauth/) to write my custom class and this [post](https://stackoverflow.com/questions/55786710/using-multiple-login-fields-email-or-phone-number-in-django-all-auth) to further develop it. I then used this [post](https://stackoverflow.com/questions/23956288/django-all-auth-email-required) on StackOverflow to adjust my allauth configuration.
 
-    * I used this [tutorial](https://www.youtube.com/watch?v=4sosXZsdy-s) to further my understanding of Bootstrap5, particularly when developing my Special Requirements modal. 
+    * I used this [video](https://www.youtube.com/watch?v=4sosXZsdy-s) to further my understanding of Bootstrap5, particularly when developing my Special Requirements modal. 
 
     * I used this [post](https://stackoverflow.com/questions/4101258/how-do-i-add-a-placeholder-on-a-charfield-in-django) on StackOverflow to help me add placeholder text to my BookingForm.
 
     * I used this [post](https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/) by [Philip Walton](https://philipwalton.com/) to make my footer stick to to bottom of the browser view.
 
-    * I used this [post](https://www.culturefoundry.com/cultivate/technology/bottom-align-an-element-with-flexbox/) by Josh Coast to refresh my knowledge on flex-box, for then styling my hero image on the index page.
+    * I used this [post](https://www.culturefoundry.com/cultivate/technology/bottom-align-an-element-with-flexbox/) by Josh Coast to refresh my knowledge on flex-box when styling my hero image on the index page.
 
-    * I used this [post](https://www.section.io/engineering-education/uploading-images-to-cloudinary-from-django-application/) by [Shuaib Oseni](https://www.section.io/engineering-education/authors/shuaib-oseni/) in order to setup the methods of storing the images used for my project on cloudinary.
+    * I used this [post](https://www.section.io/engineering-education/uploading-images-to-cloudinary-from-django-application/) by [Shuaib Oseni](https://www.section.io/engineering-education/authors/shuaib-oseni/) in order to setup the methods for storing the images used for my project on cloudinary.
 
-    * I used this [post](https://simpleisbetterthancomplex.com/tutorial/2019/01/03/how-to-use-date-picker-with-django.html#xdsoft-datetimepicker) by Vitor Freitas to add the XDSoft date picker tool to my booking form.
+    * I used this [post](https://simpleisbetterthancomplex.com/tutorial/2019/01/03/how-to-use-date-picker-with-django.html#xdsoft-datetimepicker) by Vitor Freitas to add the XDSoft datetime picker tool to my booking form. **Later Removed**
 
     * I used this [post](https://nancylin.xyz/how-to-implement-date-time-picker-in-django-without-javascript/) by [Nancy Lin](https://nancylin.xyz/) to alter my datetime picker to the inbuilt Django one.
 
-    * I used this [post](https://www.delftstack.com/howto/django/django-phone-number-field/) on [delftstack](https://www.delftstack.com/) to setup the RegexValidator for my mobile field on the Booking model.
+    * I used this [post](https://www.delftstack.com/howto/django/django-phone-number-field/) on delftstack to setup the RegexValidator for my mobile field on the Booking model.
+
+    * I followed this [video](https://www.youtube.com/watch?v=J0E-1eYeLlM) for adding the MapBox API to my footer, i then followed the steps listed on this [post](https://stackoverflow.com/questions/52030957/how-to-hide-google-map-api-key-in-django-before-pushing-it-on-github) from StackOverflow to prevent my unique MapBox access token being public.
 
 - **Media**
 
