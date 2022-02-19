@@ -25,6 +25,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+# API Keys
+MAPBOX_TOKEN = os.environ.get('MAPBOX_TOKEN')
+
 # Development Variables
 development = os.environ.get('DEVELOPMENT', False)
 
@@ -87,6 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'booking.mapbox_context_processor.mapbox_renderer',
             ],
         },
     },
@@ -103,10 +107,6 @@ AUTHENTICATION_BACKENDS = [
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 WSGI_APPLICATION = 'restobook.wsgi.application'
-
-# API Keys
-
-MAPBOX_TOKEN = os.environ.get('MAPBOX_TOKEN')
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
