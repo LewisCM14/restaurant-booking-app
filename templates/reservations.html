@@ -3,7 +3,15 @@
 {% block content %}
 <!-- Handles the display if the user has no reservations. -->
 {% if not reservations %}
-<h1>none</h1>
+<div class="container mb-3">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2>Reservations</h2>
+            <p>It looks like you have no upcoming reservations.</p>
+            <a href="{% url 'booking' %}"><button class="btn btn-dark">Make a Booking</button></a>
+        </div>
+    </div>
+</div>
 <!-- Handles the display if the user has reservations. -->
 {% else %}
 <!-- The container for each individual reservation card. -->
