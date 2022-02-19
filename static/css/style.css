@@ -30,6 +30,20 @@ header {
     border-radius: 25px;
 }
 
+.hours-outer {
+    height: 100%;
+}
+
+.hours-inner ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hours-inner li {
+    flex: 1;
+}
+
 /* Booking Form Styling */
 
 #div_id_guests {
