@@ -418,6 +418,8 @@ ___
 
     * I followed this [video](https://www.youtube.com/watch?v=J0E-1eYeLlM) for adding the MapBox API to my footer, i then followed the steps listed on this [post](https://stackoverflow.com/questions/52030957/how-to-hide-google-map-api-key-in-django-before-pushing-it-on-github) from StackOverflow to prevent my unique MapBox access token being public.
 
+    * I used this [post](https://betterprogramming.pub/django-quick-tips-context-processors-da74f887f1fc) by [Farel Ellely](https://edy-ellely.medium.com/) to develop the logic for wiring up my mapbox_context_processor.
+
 - **Media**
 
     * The hero image used on the index page is a free to use stock photo found [here](https://unsplash.com/photos/-YHSwy6uqvk) on [unsplash](https://unsplash.com/). The photo was taken by [Lily Banse](https://unsplash.com/@lvnatikk).

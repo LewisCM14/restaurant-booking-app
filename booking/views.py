@@ -3,7 +3,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views import generic
 from django.contrib.auth.models import User
-# from django.conf import settings
 from .models import Booking, Image
 from .forms import BookingForm
 
@@ -17,7 +16,6 @@ def index(request):
     hero = Image.objects.get(name='hero')
     context = {
         'hero': hero,
-        # 'mapbox_token': settings.MAPBOX_TOKEN
     }
     return render(request, 'index.html', context)
 
