@@ -1,5 +1,6 @@
 """ This module contains the views for the booking app. """
 
+import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views import generic
 from django.contrib.auth.models import User
@@ -80,22 +81,38 @@ class ReservationList(generic.ListView):
     is now referred to as a reservation for clarity.
 
     Class based view that inherits from the Booking model.
-
-    Uses an if/else statement to assert user authentication,
-    if failed redirects to the login page.
-
-    If passes uses the inbuilt get method to filter reservations,
-    so only ones with the authorized users ID are dispayed,
-    orders them by date asscending.
-
-    Renders to the 'reservations.html' template.
     """
     model = Booking
 
-    def get(self, request, *args, **kwargs):
+    def sort(self, reservations):
+        """
+        Takes the reservations variable created in the get method.
+        Each individual reservation from this vairable is iterated over,
+        all instances are checked to ensure the date field is a
+        future date, done with the datetime today method.
+        Instances that have passed are deleted from the Booking database.
 
+        The remaining reservations are returned back to the get method.
+        """
+        for reservation in reservations:
+            if reservation.date < datetime.date.today():
+                reservation.delete()
+                return reservations
+
+    def get(self, request, *args, **kwargs):
+        """
+        Uses an if/else statement to assert user authentication,
+        if failed redirects to the login page.
+
+        If passes uses the inbuilt get method to filter reservations,
+        by ones with the authorized users ID. Then calls the sort method.
+
+        Only upcoming reservations are dispayed, ordered by date asscending.
+        Renders to the 'reservations.html' template.
+        """
         if request.user.is_authenticated:
             reservations = Booking.objects.filter(user=request.user)
+            self.sort(reservations)
             return render(
                 request, 'reservations.html',
                 {
