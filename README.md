@@ -381,6 +381,9 @@ ___
     
     * **Balsamiq.** 
         * Used to create the wire frames during the development process.
+
+    * **[Iconifier](https://iconifier.net/).**
+        * Used to convert the favicon image to the correct size and file type.
        
 [Return to Table of Contents](#contents)
 ___
