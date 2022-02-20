@@ -4,6 +4,11 @@ body {
     background-color: white;
 }
 
+.page-heading {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
 /* Header Styling */
 
 header {
