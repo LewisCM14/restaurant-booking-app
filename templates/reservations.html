@@ -85,16 +85,16 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="cancel">Cancel this Reservation ?</h5>
+                                <h5 class="modal-title" id="cancel">Would you like to cancel this reservation ?</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
-                                <p>
-                                    Cancel
-                                </p>
+                            <div class="modal-body text-center">
+                                <h5 class='card-title text-uppercase'>{{ reservation.date }} at {{ reservation.time }}</h5>
+                                <p>Number of Guests: {{ reservation.guests }}</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="/cancel/{{ reservation.id }}"><button class="btn btn-dark">Cancel</button></a>
+                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                                <a href="/cancel/{{ reservation.id }}"><button class="btn btn-danger">Cancel</button></a>
                             </div>
                         </div>
                     </div>
