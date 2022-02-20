@@ -422,7 +422,9 @@ ___
 
     * I used this [post](https://stackoverflow.com/questions/53533990/bootstrap-2-modals-on-1-page) on StackOverflow to help me add a second modal to my reservations.html template.
 
-    * I used this [post](https://stackoverflow.com/questions/11293380/django-catching-integrity-error-and-showing-a-customized-message-using-template) on StackOverflow for help handling the IntegrityError raised when the unique_booking constraint fails in the Booking model. 
+    * I used this [post](https://stackoverflow.com/questions/11293380/django-catching-integrity-error-and-showing-a-customized-message-using-template) on StackOverflow for help handling the IntegrityError raised when the unique_booking constraint fails in the Booking model.
+
+    * I used this [post](https://stackoverflow.com/questions/21938028/how-can-i-get-a-favicon-to-show-up-in-my-django-app) on StackOverflow to guide me in linking up the favicon on my project.
 
 - **Media**
 
