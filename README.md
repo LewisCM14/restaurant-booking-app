@@ -420,6 +420,8 @@ ___
 
     * I used this [post](https://betterprogramming.pub/django-quick-tips-context-processors-da74f887f1fc) by [Farel Ellely](https://edy-ellely.medium.com/) to develop the logic for wiring up my mapbox_context_processor.
 
+    * I used this [post](https://stackoverflow.com/questions/53533990/bootstrap-2-modals-on-1-page) on StackOverflow to help me add a second modal to my reservations.html template.
+
 - **Media**
 
     * The hero image used on the index page is a free to use stock photo found [here](https://unsplash.com/photos/-YHSwy6uqvk) on [unsplash](https://unsplash.com/). The photo was taken by [Lily Banse](https://unsplash.com/@lvnatikk).
