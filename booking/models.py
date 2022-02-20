@@ -43,8 +43,19 @@ class Booking(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
-        """ Orders individual bookings by date in descending order. """
+        """
+        Orders individual bookings by date in descending order.
+
+        Uses Django's inbuilt UniqueConstraint method to ensure
+        a user cannot make a duplicate booking for the same
+        date & time as one they already have stored in the Booking database.
+        """
         ordering = ['-date']
+
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'date', 'time'], name='unique_booking'
+            ), ]
 
     def __str__(self):
         """
