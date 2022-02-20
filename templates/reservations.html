@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Handles the display if the user has no reservations. -->
+<!-- Handles the display if the user has NO reservations. -->
 {% if not reservations %}
 <div class="container mb-3">
     <div class="row">
@@ -12,8 +12,8 @@
         </div>
     </div>
 </div>
-<!-- Handles the display if the user has reservations. -->
 {% else %}
+<!-- Handles the display if the user HAS reservations. -->
 <!-- The container for each individual reservation card. -->
 <div class="container-fluid mb-3">
     <div class="row">
@@ -28,7 +28,7 @@
                             <!-- Displays the reservations date and time as title. -->
                             <h4 class='card-title text-uppercase text-center'>{{ reservation.date }} at
                                 {{ reservation.time }}</h4>
-                            <!-- Displays the booking lead -->
+                            <!-- Displays the booking lead. -->
                             <h6 class="text-uppercase">{{ reservation.lead }}</h6>
                             <div class='card-text'>
                                 <!-- Displays the provided mobile. -->
@@ -53,13 +53,15 @@
                             </div>
                             <!-- Contains the buttons that allows the user to cancel or amend the reservation. -->
                             <div class='text-center'>
-                                <a href="/cancel/{{ reservation.id }}"><button class="btn btn-dark">Cancel</button></a>
+                                <!-- Triggers 'cancel' modal. -->
+                                <button data-bs-toggle='modal' data-bs-target='#cancel' class="btn btn-dark">Cancel</button>
+                                <!-- Redirects to the amend reservation page. -->
                                 <a href="/amend/{{ reservation.id }}"><button class="btn btn-dark">Amend</button></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Special Requirements Modal -->
+                <!-- Special Requirements Modal. -->
                 <div class="modal fade" id="notes" tabindex="-1" aria-labelledby="special requirements modal" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -74,6 +76,25 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cancel Reservation Modal. -->
+                <div class="modal fade" id="cancel" tabindex="-1" aria-labelledby="cancel reservation modal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="cancel">Cancel this Reservation ?</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Cancel
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="/cancel/{{ reservation.id }}"><button class="btn btn-dark">Cancel</button></a>
                             </div>
                         </div>
                     </div>
