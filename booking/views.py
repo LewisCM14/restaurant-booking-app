@@ -3,6 +3,7 @@
 import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views import generic
+from django.db import IntegrityError
 from django.contrib.auth.models import User
 from .models import Booking, Image
 from .forms import BookingForm
@@ -30,17 +31,23 @@ def booking(request):
 
     On a POST request, gets the data from the BookingForm,
     places the data in an instance. Checks that the instance is valid.
-    If valid saves the form without commiting,
-    The valid booking then has the authorized users id applied to it.
-    Plus there first & last name as the lead field
-    and the email address registered to their account as the email field.
-
-    The booking is then saved to the database.
-    The user is then redirected to the reservations page.
 
     If the booking is invalid the BookingForm will not post,
     The fields remain populated with the POST data.
     Field validation is handled in the Booking model and BookingForm.
+
+    If valid saves the form without commiting,
+    The valid booking then has the authorized users ID applied to it.
+    Plus their first & last name as the lead field
+    and the email address registered to their account as the email field.
+
+    A try/except statement is then used to ensure the booking
+    meets the Booking models unique_booking constraint.
+    If it passes the booking is saved to the database.
+    The user is then redirected to the reservations page.
+
+    If it fails the error message is returned as context
+    along with the POST data and displayed to the user.
 
     The logic for these actions is employed via a if/else loop.
     """
@@ -50,14 +57,22 @@ def booking(request):
             booking_form = BookingForm(request.POST)
 
             if booking_form.is_valid():
-                # Stores the user in a variable for use in logic below.
-                user = request.user
-
+                user = request.user  # For use in logic below.
                 current_booking = booking_form.save(commit=False)
                 current_booking.user = user
                 current_booking.lead = f'{user.first_name} {user.last_name}'
                 current_booking.email = user.email
-                current_booking.save()
+
+                try:
+                    current_booking.save()
+                except IntegrityError as error:
+                    error = (
+                        'You have already requested this reservation'
+                    )
+                    return render(request, 'booking.html', {
+                        "booking_form": BookingForm(request.POST),
+                        'error': error,
+                    })
 
                 return redirect(reverse("reservations"))
 

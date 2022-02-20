@@ -59,6 +59,11 @@ header {
     color: red;
 }
 
+.double-booking {
+    text-transform: uppercase;
+    color: red;
+}
+
 /* Account Sign-Up Styling */
 
 .signup_heading {
