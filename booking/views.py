@@ -148,7 +148,7 @@ def amend_reservation(request, reservation_id):
     If the signed in user is authenticated
     a copy of the reservation from the Booking database is created.
     The signed in users ID is then compared to the reservations user ID.
-    If not equal they are redirected to the sign in page.
+    If not equal they are redirected to the their own reservations.
 
     If equal an instance of the BookingForm with the reservation ID is created.
     This instance is then returned to the amend_booking template in context.
@@ -210,7 +210,7 @@ def amend_reservation(request, reservation_id):
                     })
 
         else:
-            return redirect(reverse("account_login"))  # redirects to index not login, why ?
+            return redirect(reverse("reservations"))
 
     else:
         return redirect(reverse("account_login"))
