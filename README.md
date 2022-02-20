@@ -428,5 +428,7 @@ ___
 
     * The hero image used on the index page is a free to use stock photo found [here](https://unsplash.com/photos/-YHSwy6uqvk) on [unsplash](https://unsplash.com/). The photo was taken by [Lily Banse](https://unsplash.com/@lvnatikk).
 
+    * The image used as the favicon was taken from [here](https://www.seekpng.com/ipng/u2q8e6a9q8a9w7y3_dancing-black-horse-shape-of-side-view-comments/) on [Seekpng](https://www.seekpng.com/).
+
 [Return to Table of Contents](#contents)
 ___
