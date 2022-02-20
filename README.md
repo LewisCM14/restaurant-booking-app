@@ -422,6 +422,8 @@ ___
 
     * I used this [post](https://stackoverflow.com/questions/53533990/bootstrap-2-modals-on-1-page) on StackOverflow to help me add a second modal to my reservations.html template.
 
+    * I used this [post](https://stackoverflow.com/questions/11293380/django-catching-integrity-error-and-showing-a-customized-message-using-template) on StackOverflow for help handling the IntegrityError raised when the unique_booking constraint fails in the Booking model. 
+
 - **Media**
 
     * The hero image used on the index page is a free to use stock photo found [here](https://unsplash.com/photos/-YHSwy6uqvk) on [unsplash](https://unsplash.com/). The photo was taken by [Lily Banse](https://unsplash.com/@lvnatikk).
