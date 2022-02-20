@@ -8,6 +8,9 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <h4 class="page-heading">Amend A Reservation</h4>
+            <!-- Container for the error message if a double booking is made. -->
+            <h6 class="double-booking">{{ error }}</h6>
+            <!-- The booking form can be found in the booking app in forms.py. -->
             <form method="POST">
                 {{ booking_form | crispy }}
                 {% csrf_token %}

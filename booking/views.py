@@ -150,17 +150,24 @@ def amend_reservation(request, reservation_id):
     The signed in users ID is then compared to the reservations user ID.
     If not equal they are redirected to the sign in page.
 
-    If equal an instance of the BookingForm with the reservation id is created.
+    If equal an instance of the BookingForm with the reservation ID is created.
     This instance is then returned to the amend_booking template in context.
 
     On a POST request, gets the amended data from the BookingForm,
     places the data in an instance. Checks that the instance is valid.
-    If valid, the existing reservation is updated with the new information
+
+    If the instance is invalid the BookingForm is reloaded,
+    It is populated with the information from the failed POST request.
+
+    If valid, a try/except statement is then used to ensure the booking
+    meets the Booking models unique_booking constraint.
+
+    If it fails the error message is returned as context
+    along with the POST data and displayed to the user.
+
+    If it passes the existing reservation is updated with the new information
     provided in the POST request and saved to the database.
     The user is then redirected to the reservations page.
-
-    If the booking is invalid the BookingForm is reloaded,
-    It is populated with the information from the failed POST request.
     """
     if request.user.is_authenticated:
         reservation = get_object_or_404(Booking, id=reservation_id)
@@ -179,7 +186,17 @@ def amend_reservation(request, reservation_id):
                 booking_form = BookingForm(request.POST, instance=reservation)
 
                 if booking_form.is_valid():
-                    booking_form.save()
+                    try:
+                        booking_form.save()
+                    except IntegrityError as error:
+                        error = (
+                            'You have already requested this reservation'
+                        )
+                        return render(request, 'amend_booking.html', {
+                            "booking_form": BookingForm(request.POST),
+                            'error': error,
+                        })
+
                     return redirect(reverse("reservations"))
 
                 else:
