@@ -19,7 +19,7 @@ class TestViews(TestCase):
 
         Also sets up the hero img used on the index page with the Image model.
         """
-        test_user = User.objects.create(
+        test_user = User.objects.create_user(
             username='John',
             first_name='John',
             last_name='Doe',
@@ -44,29 +44,36 @@ class TestViews(TestCase):
             url='https://res.cloudinary.com/lewiscm/image/upload/v1644361126/q3d3inlmmrfdk8onwc3t.jpg',
         )
 
-    def test_get_index_page(self):
-        """
-        Uses Django's in-built HTTP client to get the index page URL slash.
-        Asserts equal to status code 200, a successful HTTP response.
-
-        Then uses assert Template Used to ensure the index.html page,
-        plus the base.html it is extended from, is being used.
-        """
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'index.html', 'base.html')
-
-    # def test_get_booking_page(self):
+    # def test_get_index_page(self):
     #     """
-    #     Uses Django's in-built HTTP client to get /makebooking URL.
+    #     Uses Django's in-built HTTP client to get the index page URL slash.
     #     Asserts equal to status code 200, a successful HTTP response.
 
-    #     Then uses assert Template Used to ensure the booking.html page,
+    #     Then uses assert Template Used to ensure the index.html page,
     #     plus the base.html it is extended from, is being used.
     #     """
-    #     response = self.client.get('/makebooking')
+    #     response = self.client.get('/')
     #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'booking.html', 'base.html')
+    #     self.assertTemplateUsed(response, 'index.html', 'base.html')
+
+    def test_get_booking_page(self):
+        """
+        Uses Django's in-built HTTP client to get /makebooking URL.
+        Asserts equal to status code 200, a successful HTTP response.
+
+        Then uses assert Template Used to ensure the booking.html page,
+        plus the base.html it is extended from, is being used.
+        """
+
+        self.client.login(
+            username='John',
+            password='Password',
+            email='johndoe@email.com'
+        )
+
+        response = self.client.get('/makebooking')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'booking.html', 'base.html')
 
     # def test_get_amend_booking_page(self):
     #     """
