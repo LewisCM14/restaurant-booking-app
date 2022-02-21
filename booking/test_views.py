@@ -44,6 +44,17 @@ class TestViews(TestCase):
             url='https://res.cloudinary.com/lewiscm/image/upload/v1644361126/q3d3inlmmrfdk8onwc3t.jpg',
         )
 
+    def login(self):
+        """
+        Logs into the user created in the setUp method.
+        Called in the below tests to pass user authentication conditions.
+        """
+        self.client.login(
+            username='John',
+            password='Password',
+            email='johndoe@email.com'
+        )
+
     # def test_get_index_page(self):
     #     """
     #     Uses Django's in-built HTTP client to get the index page URL slash.
