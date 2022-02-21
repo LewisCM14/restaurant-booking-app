@@ -78,19 +78,40 @@ class TestViews(TestCase):
     #     self.assertEqual(response.status_code, 200)
     #     self.assertTemplateUsed(response, 'booking.html', 'base.html')
 
-    def test_get_amend_booking_page(self):
+    # def test_get_amend_booking_page(self):
+    #     """
+    #     Logins into the user created in the setUp method,
+    #     passing user authentication conditions on the view.
+
+    #     Uses Django's in-built HTTP client,
+    #     to get /amend/1 in the URL. Asserts equal to status code 200,
+    #     a successful HTTP response.
+
+    #     There is only 1 reservation in the database, which is why the URL is,
+    #     /amend/1
+
+    #     Then uses assert Template Used to ensure the amend_booking.html page,
+    #     plus the base.html it is extended from, is being used.
+    #     """
+    #     self.client.login(
+    #         username='John',
+    #         password='Password',
+    #         email='johndoe@email.com'
+    #     )
+
+    #     response = self.client.get('/amend/1')
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'amend_booking.html', 'base.html')
+
+    def test_get_reservations_page(self):
         """
         Logins into the user created in the setUp method,
         passing user authentication conditions on the view.
 
-        Uses Django's in-built HTTP client,
-        to get /amend/1 in the URL. Asserts equal to status code 200,
-        a successful HTTP response.
+        Uses Django's in-built HTTP client to get /reservations URL.
+        Asserts equal to status code 200, a successful HTTP response.
 
-        There is only 1 reservation in the database, which is why the URL is,
-        /amend/1
-
-        Then uses assert Template Used to ensure the amend_booking.html page,
+        Then uses assert Template Used to ensure the reservations.html page,
         plus the base.html it is extended from, is being used.
         """
         self.client.login(
@@ -99,36 +120,9 @@ class TestViews(TestCase):
             email='johndoe@email.com'
         )
 
-        response = self.client.get('/amend/1')
+        response = self.client.get('/reservations')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'amend_booking.html', 'base.html')
-
-    # def test_get_reservations_page(self):
-    #     """
-    #     Creates a new user and logs in,
-    #     allowing access to the reservations page.
-
-    #     Uses Django's in-built HTTP client to get /reservations URL.
-    #     Asserts equal to status code 200, a successful HTTP response.
-
-    #     Then uses assert Template Used to ensure the reservations.html page,
-    #     plus the base.html it is extended from, is being used.
-    #     """
-    #     User.objects.create_user(
-    #         username='Test2',
-    #         password='Password',
-    #         email='test2@email.com'
-    #     )
-
-    #     self.client.login(
-    #         username='Test2',
-    #         password='Password',
-    #         email='test2@email.com'
-    #     )
-
-    #     response = self.client.get('/reservations')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'reservations.html', 'base.html')
+        self.assertTemplateUsed(response, 'reservations.html', 'base.html')
 
     # def test_create_booking_request(self):
     #     """
