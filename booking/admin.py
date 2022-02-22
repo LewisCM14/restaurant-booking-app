@@ -23,13 +23,17 @@ class BookingAdmin(admin.ModelAdmin):
         """
         Allows bookings to be accepted from the dropdown menu in admin.
         """
-        queryset.update(status=1)
+        for reservation in queryset:
+            reservation.status = 1
+            reservation.save()
 
     def decline_booking(self, request, queryset):
         """
         Allows bookings to be declined from the dropdown menu in admin.
         """
-        queryset.update(status=2)
+        for reservation in queryset:
+            reservation.status = 2
+            reservation.save()
 
 
 @admin.register(Image)

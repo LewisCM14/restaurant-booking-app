@@ -11,6 +11,7 @@ def validate_opening_hour(value):
     Ensures the input value is between 11AM and 9PM.
     If validation is failed the custom error message is returned.
     """
+    print(value)
     if not 11 <= int(value.hour) <= 21:
         raise ValidationError(
             'We only take reservations between 11AM & 9PM',
