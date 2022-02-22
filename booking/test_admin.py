@@ -1,50 +1,85 @@
-# """ This module contains the tests for admin.py in the booking directory. """
+""" This module contains the tests for admin.py in the booking directory. """
 
-# from django.test import TestCase
-# from django.contrib.auth.models import User
-# from .models import Booking
-# from .admin import BookingAdmin
+from django.test import TestCase
+from django.contrib.auth.models import User
+from .models import Booking
+from .admin import BookingAdmin
 
 
-# class TestAdmin(TestCase):
-#     """
-#     Contains the tests for the admin methods.
-#     Located in the booking app in admin.py.
-#     """
-#     def test_admin_funcs(self):
-#         """
-#         Sets up an instance within the Booking model database
-#         for use when testing. Creates a User stored in test_user.
-#         Then creates an instance using the Booking model with this user.
+class TestAdmin(TestCase):
+    """
+    Contains the tests for the admin methods.
+    Located in the booking app in admin.py.
+    """
+    def test_admin_methods(self):
+        """
+        Sets up a User instance for use when testing.
+        Stored in test_user, then uses them to create two reservations
+        using the Booking model.
 
-#         Then creates a second User stored in alt_user. This user is
-#         for testing the redirect responses of certain views.
+        Asserts both reservations default to pending.
 
-#         Also sets up the hero img used on the index page with the Image model.
-#         """
-#         test_user = User.objects.create(
-#             username='John',
-#             first_name='John',
-#             last_name='Doe',
-#             password='Password',
-#             email='johndoe@email.com',
-#         )
+        Then calls the accept_booking method from the BookingAdmin class.
+        asserts this sets reservation1 status to 1 which is 'accepted'.
 
-#         reservation = Booking.objects.create(
-#             user=test_user,
-#             lead='John Doe',
-#             email='johndoe@email.com',
-#             mobile='1509507006',
-#             date='2022-01-25',
-#             time='4:30 P.M.',
-#             notes='none',
-#             guests='2',
-#         )
+        Then calls the decline_booking method from the BookingAdmin class.
+        asserts this sets reservation1 status to 2 which is 'declined'.
 
-#         self.assertEqual(reservation.status, 0)
-#         BookingAdmin.accept_booking(self, 'POST', [reservation,])
-#         self.assertEqual(reservation.status, 1)
+        Then follows the same logic on both reservations to ensure multiple
+        instances can be accepted or declined at once by the admin.
+        """
+        test_user = User.objects.create(
+            username='John',
+            first_name='John',
+            last_name='Doe',
+            password='Password',
+            email='johndoe@email.com',
+        )
 
-#     # def test_admin_funcs(self):
-#     #     reservation = Booking.objects.filter(id=1)
-#     #     self.assertEqual(reservation.status, 0)
+        reservation1 = Booking.objects.create(
+            user=test_user,
+            lead='John Doe',
+            email='johndoe@email.com',
+            mobile='1509507006',
+            date='2022-01-25',
+            time='4:30 P.M.',
+            notes='none',
+            guests='2',
+        )
+
+        reservation2 = Booking.objects.create(
+            user=test_user,
+            lead='John Doe',
+            email='johndoe@email.com',
+            mobile='1509507006',
+            date='2022-01-26',
+            time='4:30 P.M.',
+            notes='none',
+            guests='2',
+        )
+
+        # Asserts both start with status pending.
+        self.assertEqual(reservation1.status, 0)
+        self.assertEqual(reservation2.status, 0)
+
+        # Passes the 1st reservation to the method, asserts status accepted.
+        BookingAdmin.accept_booking(self, 'POST', [reservation1, ])
+        self.assertEqual(reservation1.status, 1)
+
+        # Passes the 1st reservation to the method, asserts status declined.
+        BookingAdmin.decline_booking(self, 'POST', [reservation1, ])
+        self.assertEqual(reservation1.status, 2)
+
+        # Passes both reservations to the method, asserts status accepted.
+        BookingAdmin.accept_booking(
+            self, 'POST', [reservation1, reservation2, ]
+        )
+        self.assertEqual(reservation1.status, 1)
+        self.assertEqual(reservation2.status, 1)
+
+        # Passes both reservations to the method, asserts status declined.
+        BookingAdmin.decline_booking(
+            self, 'POST', [reservation1, reservation2, ]
+        )
+        self.assertEqual(reservation1.status, 2)
+        self.assertEqual(reservation2.status, 2)
