@@ -166,7 +166,8 @@ def amend_reservation(request, reservation_id):
     along with the POST data and displayed to the user.
 
     If it passes the existing reservation is updated with the new information
-    provided in the POST request and saved to the database.
+    provided in the POST request and has it's status set to 'pending' or 0
+    before it is saved to the database.
     The user is then redirected to the reservations page.
     """
     if request.user.is_authenticated:
@@ -186,8 +187,10 @@ def amend_reservation(request, reservation_id):
                 booking_form = BookingForm(request.POST, instance=reservation)
 
                 if booking_form.is_valid():
+                    updated_booking = booking_form.save(commit=False)
+                    updated_booking.status = 0
                     try:
-                        booking_form.save()
+                        updated_booking.save()
                     except IntegrityError as error:
                         error = (
                             'You have already requested this reservation'
