@@ -42,7 +42,7 @@ class TestAdmin(TestCase):
             email='johndoe@email.com',
             mobile='1509507006',
             date='2022-01-25',
-            time='4:30 P.M.',
+            time='11:00:00',
             notes='none',
             guests='2',
         )
@@ -53,7 +53,7 @@ class TestAdmin(TestCase):
             email='johndoe@email.com',
             mobile='1509507006',
             date='2022-01-26',
-            time='4:30 P.M.',
+            time='11:00:00',
             notes='none',
             guests='2',
         )
