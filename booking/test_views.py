@@ -202,15 +202,33 @@ class TestViews(TestCase):
         """
         Calls the login method,
         passing user authentication conditions on the view.
-        Removes the reservation created in the setUp method
-        using the cancel URL with id 1.
+        Uses Django's in-built HTTP client, to get /cancel/1 in the URL.
+        Asserts response is equal to status code 302, a redirect response.
 
-        Then filters the Booking database by this id.
+        This response removes the reservation created in the setUp method.
+        Then asserts the response redirects to the /reservations URL.
+        Which is the correct redirect.
+
+        Then filters the Booking database by ID 1.
         asserts the length of the variable this is stored in
         is equal to 0, meaning the reservation has been removed
         from the database.
         """
         self.login()
-        self.client.get('/cancel/1')
+        response = self.client.get('/cancel/1')
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/reservations')
         existing_reservation = Booking.objects.filter(id=1)
         self.assertEqual(len(existing_reservation), 0)
+
+    # def test_cancel_booking_redirects(self):
+    #     """ """
+    #     self.client.login(
+    #         username='Jane',
+    #         password='Password',
+    #         email='janedoe@email.com'
+    #     )
+
+    #     response = self.client.get('/cancel/1')
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertRedirects(response, '/accounts/login/')
