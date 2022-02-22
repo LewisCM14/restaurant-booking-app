@@ -175,6 +175,19 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'reservations.html', 'base.html')
 
+    def test_reservations_redirects(self):
+        """
+        With no user signed in.
+        Uses Django's in-built HTTP client, to get /reservations in the URL.
+        Asserts equal to status code 302, a redirect response.
+
+        Then asserts the redirect URL is the account login page, the correct
+        redirect location if a authorized user is not logged in.
+        """
+        response = self.client.get('/reservations')
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/accounts/login/')
+
     def test_create_booking_request(self):
         """
         Uses the count method to return
