@@ -17,6 +17,9 @@ class TestViews(TestCase):
         for use when testing. Creates a User stored in test_user.
         Then creates an instance using the Booking model with this user.
 
+        Then creates a second User stored in alt_user. This user is
+        for testing the redirect responses of certain views.
+
         Also sets up the hero img used on the index page with the Image model.
         """
         test_user = User.objects.create_user(
@@ -38,6 +41,14 @@ class TestViews(TestCase):
             guests='2',
         )
 
+        alt_user = User.objects.create_user(
+            username='Jane',
+            first_name='Jane',
+            last_name='Doe',
+            password='Password',
+            email='janedoe@email.com',
+        )
+
         Image.objects.create(
             image='ycvivnzimwll8gsswsqj',
             name='hero',
@@ -46,7 +57,8 @@ class TestViews(TestCase):
 
     def login(self):
         """
-        Logs into the user created in the setUp method.
+        Logs into the user stored in the test_user variable.
+        Created in the setUp method.
         Called in the below tests to pass user authentication conditions.
         """
         self.client.login(
@@ -102,6 +114,37 @@ class TestViews(TestCase):
         response = self.client.get('/amend/1')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'amend_booking.html', 'base.html')
+
+    def test_amend_booking_redirects(self):
+        """
+        With no user signed in.
+        Uses Django's in-built HTTP client, to get /amend/1 in the URL.
+        Asserts equal to status code 302, a redirect response.
+
+        Then asserts the redirect URL is the account login page, the correct
+        redirect location if a authorized user is not logged in.
+
+        Then signs into the alt_user, 'Jane Doe' created in the setUp method.
+        Uses Django's in-built HTTP client, to get /amend/1 in the URL.
+        Asserts equal to status code 302, a redirect response.
+
+        Then asserts the redirect URL is the reservation page, the correct
+        redirect location as /amend/1 is the URL of a reservation for
+        the test_user or 'John Doe' and not Jane.
+        """
+        response = self.client.get('/amend/1')
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/accounts/login/')
+
+        self.client.login(
+            username='Jane',
+            password='Password',
+            email='janedoe@email.com'
+        )
+
+        response = self.client.get('/amend/1')
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/reservations')
 
     def test_get_reservations_page(self):
         """
