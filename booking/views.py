@@ -238,5 +238,8 @@ def cancel_reservation(request, reservation_id):
             reservation.delete()
             return redirect(reverse("reservations"))
 
+        else:
+            return redirect(reverse("reservations"))
+
     else:
         return redirect(reverse("account_login"))

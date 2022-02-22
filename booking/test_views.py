@@ -244,6 +244,6 @@ class TestViews(TestCase):
 
         response = self.client.get('/cancel/1')
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/accounts/login/')
+        self.assertRedirects(response, '/reservations')
         existing_reservation = Booking.objects.filter(id=1)
         self.assertEqual(len(existing_reservation), 1)
