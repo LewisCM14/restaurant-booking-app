@@ -62,8 +62,14 @@
                             <a class="nav-link" href="{% url 'account_signup' %}">Make a Booking</a>
                         </li>
                         {% endif %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'menu' %}">Menu</a>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Menu</a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Starters</a>
+                                <a href="#" class="dropdown-item">Mains</a>
+                                <a href="#" class="dropdown-item">Desserts</a>
+                                <a href="#" class="dropdown-item">Drinks</a>
+                            </div>
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
