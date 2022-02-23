@@ -1,5 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Drinks</h1>
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h4 class="page-heading">Drinks</h4>
+            <div class="container-fluid mb-3">
+                <div class="row">
+                    <div class="col-12 mt-3 left">
+                        <div class="row">
+                            <!-- Iterates over the content in the Drink model collected in the DrinkList view. -->
+                            {% for drink in starter_list %}
+                            <!-- Container for the display card. -->
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <!-- Contains the info displayed on the card for each item. -->
+                                    <div class="card-body text-center">
+                                        <!-- Displays the title of the item as the card heading. -->
+                                        <h5 class="card-title text-uppercase">{{ drink.title }}</h5>
+                                        <!-- Displays the item description, with the summernotes required safe tag. -->
+                                        <p class="card-text">{{ drink.description | safe }}</p>
+                                        <!-- Displays the price of the item. -->
+                                        <h6 class="text-uppercase">£{{ drink.price }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Counter for placing three items per row. -->
+                            {% if forloop.counter|divisibleby:3  %}
+                        </div>
+                            <div class="row">
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="{% url 'starters' %}"><button class="btn btn-dark">Starters</button></a>
+                <a href="{% url 'mains' %}"><button class="btn btn-dark">Mains</button></a>
+                <a href="{% url 'desserts' %}"><button class="btn btn-dark">Desserts</button></a>
+            </div>
+        </div>
+    </div>
+</div>>
 {%endblock%}
