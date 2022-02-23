@@ -1,7 +1,7 @@
 """ This module contains the views for the menu app. """
 
 from django.views import generic
-from .models import Starter, Main
+from .models import Starter, Main, Dessert
 
 
 class Starters(generic.ListView):
@@ -24,3 +24,14 @@ class Mains(generic.ListView):
     """
     model = Main
     template_name = 'mains.html'
+
+
+class Desserts(generic.ListView):
+    """
+    Class based view using generic for the Dessert model
+    found in models.py on the menu app.
+
+    Renders on the dessert.html template.
+    """
+    model = Dessert
+    template_name = 'desserts.html'
