@@ -2,13 +2,21 @@
 
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Starter
+from .models import Starter, Main
 
 
 @admin.register(Starter)
 class StarterAdmin(SummernoteModelAdmin):
     """
     The Admin panel for the starters on the menu model.
+    """
+    summernote_fields = ('description')
+    list_display = ('title',)
+
+@admin.register(Main)
+class MainAdmin(SummernoteModelAdmin):
+    """
+    The Admin panel for the mains on the menu model.
     """
     summernote_fields = ('description')
     list_display = ('title',)
