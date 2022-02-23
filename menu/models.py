@@ -92,3 +92,31 @@ class Dessert(models.Model):
         Returns the dessert items title as a string.
         """
         return f'{self.title}'
+
+
+class Drink(models.Model):
+    """
+    The model for the drinks on the menu app.
+
+    Stores the title of each item plus the price.
+    Gives the option for a brief description
+
+    The title must be unique to prevent the same item being
+    added multiple times. The price field uses a decimal field
+    to ensure a valid price format can be added.
+    """
+    title = models.CharField(max_length=100, blank=False, unique=True)
+    description = models.TextField(max_length=200)
+    price = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
+
+    class Meta:
+        """
+        Orders the drinks items alphabetically by title.
+        """
+        ordering = ['title']
+
+    def __str__(self):
+        """
+        Returns the drink items title as a string.
+        """
+        return f'{self.title}'
