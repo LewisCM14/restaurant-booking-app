@@ -16,7 +16,7 @@ class StarterList(generic.ListView):
     template_name = 'starters.html'
 
 
-class Mains(generic.ListView):
+class MainList(generic.ListView):
     """
     Class based view using generic for the Main model
     found in models.py on the menu app.
@@ -27,7 +27,7 @@ class Mains(generic.ListView):
     template_name = 'mains.html'
 
 
-class Desserts(generic.ListView):
+class DessertList(generic.ListView):
     """
     Class based view using generic for the Dessert model
     found in models.py on the menu app.
@@ -38,7 +38,7 @@ class Desserts(generic.ListView):
     template_name = 'desserts.html'
 
 
-class Drinks(generic.ListView):
+class DrinkList(generic.ListView):
     """
     Class based view using generic for the Drinks model
     found in models.py on the menu app.

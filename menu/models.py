@@ -52,6 +52,9 @@ class Main(models.Model):
     The title must be unique to prevent the same item being
     added multiple times. The price field uses a decimal field
     to ensure a valid price format can be added.
+
+    The display field uses the DISPLAY tuple to control if an
+    item is on the menu or not. Also used for the queryset in the view.
     """
     title = models.CharField(max_length=100, blank=False, unique=True)
     description = models.TextField(max_length=200, blank=False)
@@ -83,6 +86,9 @@ class Dessert(models.Model):
     The title must be unique to prevent the same item being
     added multiple times. The price field uses a decimal field
     to ensure a valid price format can be added.
+
+    The display field uses the DISPLAY tuple to control if an
+    item is on the menu or not. Also used for the queryset in the view.
     """
     title = models.CharField(max_length=100, blank=False, unique=True)
     description = models.TextField(max_length=200, blank=False)
@@ -113,6 +119,9 @@ class Drink(models.Model):
     The title must be unique to prevent the same item being
     added multiple times. The price field uses a decimal field
     to ensure a valid price format can be added.
+
+    The display field uses the DISPLAY tuple to control if an
+    item is on the menu or not. Also used for the queryset in the view.
     """
     title = models.CharField(max_length=100, blank=False, unique=True)
     description = models.TextField(max_length=200)
