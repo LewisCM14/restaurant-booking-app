@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'booking',
+    'menu',
 ]
 
 SITE_ID = 1
