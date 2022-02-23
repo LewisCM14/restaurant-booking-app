@@ -1,11 +1,15 @@
 """ This module contains the views for the menu app. """
 
-from django.shortcuts import render
+from django.views import generic
+from .models import Starter
 
 
-def menu(request):
+class Starters(generic.ListView):
     """
-    Renders the menu page in the browser.
-    """
+    Class based view using generic for the Starter model
+    found in models.py on the menu app.
 
-    return render(request, 'menu.html', {})
+    Renders on the starters.html template.
+    """
+    model = Starter
+    template_name = 'starters.html'
