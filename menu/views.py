@@ -12,7 +12,7 @@ class StarterList(generic.ListView):
     Renders on the starters.html template.
     """
     model = Starter
-    # queryset = Starter.objects.filter(display=1).order_by('title')
+    queryset = Starter.objects.filter(display=1).order_by('title')
     template_name = 'starters.html'
 
 
@@ -24,6 +24,7 @@ class MainList(generic.ListView):
     Renders on the mains.html template.
     """
     model = Main
+    queryset = Main.objects.filter(display=1).order_by('title')
     template_name = 'mains.html'
 
 
@@ -35,6 +36,7 @@ class DessertList(generic.ListView):
     Renders on the dessert.html template.
     """
     model = Dessert
+    queryset = Dessert.objects.filter(display=1).order_by('title')
     template_name = 'desserts.html'
 
 
@@ -46,4 +48,5 @@ class DrinkList(generic.ListView):
     Renders on the drinks.html template.
     """
     model = Drink
+    queryset = Drink.objects.filter(display=1).order_by('title')
     template_name = 'drinks.html'
