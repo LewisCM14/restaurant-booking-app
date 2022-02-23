@@ -4,7 +4,7 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 
 
-class MenuStarter(models.Model):
+class Starter(models.Model):
     """
     The model for the starters on the menu app.
 
