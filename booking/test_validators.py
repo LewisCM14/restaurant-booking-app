@@ -1,5 +1,6 @@
 """ This module tests the functions in validators.py in the booking app. """
 
+import datetime
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 from . import validators
@@ -16,10 +17,29 @@ class TestValidators(TestCase):
 
     #     """
 
-    # def test_future_date_validates(self):
-    #     """
+    def test_future_date_validates(self):
+        """
+        Using the datetime libray, stores todays date in a variable.
+        Then adds one day to this variable to collect tomorrows date.
+        Removes one day from the today variable to collect yesterdays date.
 
-    #     """
+        Using the 'future' variable asserts no errors are raised when
+        passed to the validate_future_date method.
+
+        Using the 'today' and 'yesterday' variables asserts ValidationErrors
+        are raised when passed to the validate_future_date method
+        """
+        today = datetime.date.today()
+        future = today + datetime.timedelta(days=1)
+        yesterday = today - datetime.timedelta(days=1)
+
+        self.assertIsNone(validators.validate_future_date(future))
+
+        with self.assertRaises(ValidationError):
+            validators.validate_future_date(today)
+
+        with self.assertRaises(ValidationError):
+            validators.validate_future_date(yesterday)
 
     # def test_open_day_validates(self):
     #     """
