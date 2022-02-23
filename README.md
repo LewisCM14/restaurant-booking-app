@@ -429,6 +429,8 @@ ___
 
     * I used this [post](https://stackoverflow.com/questions/21938028/how-can-i-get-a-favicon-to-show-up-in-my-django-app) on StackOverflow to guide me in linking up the favicon on my project.
 
+    * I watched this [video](https://www.youtube.com/watch?v=iJKIxrJ40ss) to expand my knowledge on GitHub branches. I then read this [post](https://devconnected.com/how-to-switch-branch-on-git/) to learn how to switch between branches using git from inside my IDE.
+
 - **Media**
 
     * The hero image used on the index page is a free to use stock photo found [here](https://unsplash.com/photos/-YHSwy6uqvk) on [unsplash](https://unsplash.com/). The photo was taken by [Lily Banse](https://unsplash.com/@lvnatikk).
