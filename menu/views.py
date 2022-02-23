@@ -4,14 +4,15 @@ from django.views import generic
 from .models import Starter, Main, Dessert, Drink
 
 
-class Starters(generic.ListView):
+class StarterList(generic.ListView):
     """
-    Class based view using generic for the Starte model
+    Class based view using generic for the Starter model
     found in models.py on the menu app.
 
     Renders on the starters.html template.
     """
     model = Starter
+    # queryset = Starter.objects.filter(display=1).order_by('title')
     template_name = 'starters.html'
 
 

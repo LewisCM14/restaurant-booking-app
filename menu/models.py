@@ -3,6 +3,9 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 
+# A tuple for controlling if an item is on the menu or not.
+DISPLAY = ((0, "Off"), (1, "On"))
+
 
 class Starter(models.Model):
     """
@@ -15,11 +18,15 @@ class Starter(models.Model):
     The title must be unique to prevent the same item being
     added multiple times. The price field uses a decimal field
     to ensure a valid price format can be added.
+
+    The display field uses the DISPLAY tuple to control if an
+    item is on the menu or not. Also used for the queryset in the view.
     """
     title = models.CharField(max_length=100, blank=False, unique=True)
     description = models.TextField(max_length=200, blank=False)
     price = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
     image = CloudinaryField('image')
+    display = models.IntegerField(choices=DISPLAY)
 
     class Meta:
         """
