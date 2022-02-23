@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mb-3">
+<div class="container-fluid mb-3">
     <div class="row">
         <div class="col-lg-12 text-center">
             <h4 class="page-heading">Starters</h4>
@@ -13,9 +13,7 @@
                             {% for starter in starter_list %}
                             <!-- Main container for the starter card. -->
                             <div class="col-md-4">
-                                <div class="card mb-4" style="width: 18rem;">
-                                    <!-- Displays the image of the starter. -->
-                                    <img src="{{ starter.image.url }}" class="card-img-top">
+                                <div class="card mb-4">
                                     <!-- Contains the info displayed on the card for each starter. -->
                                     <div class="card-body text-center">
                                         <!-- Displays the title of the starter as the card heading. -->
