@@ -122,10 +122,19 @@ class Drink(models.Model):
 
     The display field uses the DISPLAY tuple to control if an
     item is on the menu or not. Also used for the queryset in the view.
+
+    The type field uses the TYPE tuple to provided the approved options.
+    This field is then used for dictating what section of the drinks menu
+    an item is displayed under.
     """
+
+    # A tuple for setting the type of the drink.
+    TYPE = ((0, "Softdrink"), (1, "Hotdrink"), (2, "Alcohol"), (3, "Wine"), (4, "Spirit"))
+
     title = models.CharField(max_length=100, blank=False, unique=True)
     description = models.TextField(max_length=200)
     price = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
+    type = models.IntegerField(choices=TYPE)
     display = models.IntegerField(choices=DISPLAY)
 
     class Meta:
