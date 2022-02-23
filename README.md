@@ -374,6 +374,9 @@ ___
     * **[coverage](https://coverage.readthedocs.io/en/6.3/).**
         * Used to access the coverage of my automated tests for the python code i've wrote.
     
+    * **[summernote](https://github.com/summernote/django-summernote).**
+        * Used as the WYSIWYG editor from inside the admin panel on the menu app.
+    
 - **Programs**
 
     * **Slack.**
