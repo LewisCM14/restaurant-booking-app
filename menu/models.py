@@ -57,6 +57,7 @@ class Main(models.Model):
     description = models.TextField(max_length=200, blank=False)
     price = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
     image = CloudinaryField('image')
+    display = models.IntegerField(choices=DISPLAY)
 
     class Meta:
         """
@@ -87,6 +88,7 @@ class Dessert(models.Model):
     description = models.TextField(max_length=200, blank=False)
     price = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
     image = CloudinaryField('image')
+    display = models.IntegerField(choices=DISPLAY)
 
     class Meta:
         """
@@ -115,6 +117,7 @@ class Drink(models.Model):
     title = models.CharField(max_length=100, blank=False, unique=True)
     description = models.TextField(max_length=200)
     price = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
+    display = models.IntegerField(choices=DISPLAY)
 
     class Meta:
         """
