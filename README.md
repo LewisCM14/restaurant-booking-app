@@ -341,6 +341,8 @@ ___
     
     * STEP SIX - Press Enter to create your local clone.
 
+    *If GitPod is your chosen IDE from the link above the Gitpod button can be clicked to open up the repository code on your local machine* 
+
 [Return to Table of Contents](#contents)
 ___
 ## Technologies Used <a name ='tech'></a>
