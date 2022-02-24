@@ -374,6 +374,9 @@ ___
     * **[coverage](https://coverage.readthedocs.io/en/6.3/).**
         * Used to access the coverage of my automated tests for the python code i've wrote.
     
+    * **[summernote](https://github.com/summernote/django-summernote).**
+        * Used as the WYSIWYG editor from inside the admin panel on the menu app.
+    
 - **Programs**
 
     * **Slack.**
@@ -428,6 +431,8 @@ ___
     * I used this [post](https://stackoverflow.com/questions/11293380/django-catching-integrity-error-and-showing-a-customized-message-using-template) on StackOverflow for help handling the IntegrityError raised when the unique_booking constraint fails in the Booking model.
 
     * I used this [post](https://stackoverflow.com/questions/21938028/how-can-i-get-a-favicon-to-show-up-in-my-django-app) on StackOverflow to guide me in linking up the favicon on my project.
+
+    * I watched this [video](https://www.youtube.com/watch?v=iJKIxrJ40ss) to expand my knowledge on GitHub branches. I then read this [post](https://devconnected.com/how-to-switch-branch-on-git/) to learn how to switch between branches using git from inside my IDE.
 
 - **Media**
 
