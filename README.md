@@ -89,6 +89,14 @@ ___
 
     *Developing the hero image on the landing page to make use of a carousel highlighting the restaurants dishes is another future feature to also implement, i feel this would be a more elegant and professional way of advertising the business at a glance.*
 
+- **Automated Emails**
+
+    *User receives automated emails whenever their booking is accepted.*
+
+- **Images for the Menu Items**
+
+    *Images relating to the menu items displayed to the user. For this feature i feel professionally taken images conforming to a set resolution would be required to achieve the best results.**
+
 [Return to Table of Contents](#contents)
 ___
 ### Testing <a name ='testing'></a> 
