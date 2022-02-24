@@ -36,7 +36,7 @@ ___
 
 - **Imagery**
 
-    *There is limited use of imagery within the project as i felt a minimalist approach was an elegant solution that reflected the establishment best. The hero image and the interactive map are the only doses ov color on the site, although there is future features that plan to expand on this. 
+    *There is limited use of imagery within the project as i felt a minimalist approach was an elegant solution that reflected the establishment growing into a contemporary venue. The hero image and the interactive map are the only doses ov color on the site, although there is future features that plan to expand on this. 
 
 - **Layout**
 
@@ -46,13 +46,28 @@ ___
 ___
 ### Development <a name='development'></a>
 
-- **User Stories & Product Backlog**
+*The project was developed using an agile methodology, with epics broken down into user stories with well defined acceptance criteria and tasks. These issues where then worked on in incremental steps. The sprint times for my iterations was roughly two weeks, dependant on my commitments outside of the project. The story points applied to my issues follow the fibonacci scale, with the 'Must Have' issues for each iteration kept at 60% of the total timebox.*
+
+- **Product Backlog**
+    * The product backlog for the project can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/1)
 
 - **Iteration 1**
+    * The iteration 1 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/2?closed=1)
+    * Iteration 1 board can be found [here](https://github.com/LewisCM14/restaurant-booking-app/projects/1)
 
 - **Iteration 2**
+    * The iteration 2 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/3?closed=1)
+    * Iternation 2 board can be found [here](https://github.com/LewisCM14/restaurant-booking-app/projects/2)
 
 - **Iteration 3**
+    * The iteration 3 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/4?closed=1)
+    * Iteration 3 board can be found here [here](https://github.com/LewisCM14/restaurant-booking-app/projects/3)
+
+- **Iternation 4**
+    * The Iternation 4 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/5?closed=1)
+    * Iteration 4 board can be found here [here](https://github.com/LewisCM14/restaurant-booking-app/projects/4)
+    
+    *Although the issue for automated emails was started in iteration 3, once iteration 4 began i felt it was outside of the scope for this project and placed back in the product backlog for a later date.*
 
 [Return to Table of Contents](#contents)
 ___
