@@ -78,7 +78,7 @@ ___
     
     ![booking database schema](static/images/booking_schema.png)
 
-* The schema for the databases located with the menu models can be seen below. The title field is taken in as the main display name for each item in the menu. With the description field a text field that utilizes the summernotes WYSIWYG editor. The price is a decimal field for correct display. the image field, intended for a future feature, is a cloudinary field and the display field, which is used for logic in the view is a integer field that utilizes a tuple set within the model file.
+* The schema for the databases located with the menu models can be seen below. The title field is taken in as the main display name for each item in the menu. With the description field a text field that utilizes the summernotes WYSIWYG editor. The price is a decimal field for correct display. the image field, intended for a future feature, is a cloudinary field and the display field, which is used for logic in the view is a integer field that utilizes a tuple set within the model file. There is a separate database for each category of the menu, these include: Starter, Main and Dessert.
 
     ![menu database schema](static/images/menu_schema.png)
 
@@ -87,18 +87,68 @@ ___
 ### Existing Features <a name='existingfeatures'></a>
 
 - **Landing Page**
+    * The landing page features a hero image with a brief description of the restaurant, it's facilities and accessibility level. The landing page is fully responsive built using bootstrap and allows for users with admin privileges to alter the hero image through the admin panel. This feature is designed to help implementation of a future hero image carousel feature.
+    
+        ![landing page image](static/images/landing_page.png)
 
 - **Navigation**
+    * The navigation bar is fully responsive, utilizing a hamburger data toggler past the large breakpoint. It also responds to the authorization status of the user. If a user is not signed in and attempts to navigate to the 'make a booking' section they are directed to the account sign in page. The reservations and logout tab are only visible to authorized users, with the users first and last name displayed to them from the nav bar once singed in. The restaurant name is always displayed to the left hand side at any break point. A dropdown link is used on the menu tab for navigation between the different menu catagories. The nav bar is present across all pages of the website, as it provides main source of navigation between content. 
+
+        ![navigation bar with no user](static/images/header.png)
+        ![navigation bar with user](static/images/header_sign.png)
 
 - **Footer**
+    * The footer contains key contact details and opening hours regarding the restaurant. Built to be fully responsive, it utilizes the MapBox API to contain an interactive map centered on the restaurants location. It also contains the social media links for the venue.
+        
+        * [Business Details](https://github.com/LewisCM14/restaurant-booking-app/issues/7)
+        ---
+        ![footer image](static/images/footer.png)
 
 - **User Creation**
+    * User creation uses the allauth package to collect the necessary information needed by the company for account creation. Once an account is created the email and password set are used as the login credentials.
+        
+        * [Account Registration](https://github.com/LewisCM14/restaurant-booking-app/issues/1)
+        ---
+        ![user sign up form](static/images/signup.png)
 
 - **Booking Form**
+    * The booking form collects all the information needed for the venue to make a decision on if they can accommodate a reservation request. The booking lead and email are taken from the user model, with the input fields including: mobile, date, time, special requirements and amount of guests. Extensive validation and user feedback is preformed on these fields (as listed below). All fields bar the special requirements field are required, this field being optional. For the date and time fields the input is handled by inbuilt django widgets. Upon making a request to amend a reservation this same form is pre-populated with the existing reservations details and upon a valid request the instance is updated within the database. Double bookings are prevented via a unique constraint on the user, date and time fields from within the model, with user feedback handled at the top of the form in the instance of a double booking.
+        
+        * Mobile - Regex Validation.
+        * Date - Validation to ensure it's a future date and a day the venue is open.
+        * Time - Validation to ensure the requested time is within opening hours.
+        * Special Requirements - Validation to ensure there is a character limit of 200.
+        * Guests - Validation to ensure it's a minimum of one guests and does not exceed eight guests.
+        * Amend Reservation - Ensures the user attempting to alter the reservation is the owner.
+        ---
+        * [Special Requirements](https://github.com/LewisCM14/restaurant-booking-app/issues/8)
+        * [Double Bookings](https://github.com/LewisCM14/restaurant-booking-app/issues/6)
+        * [View all Bookings](https://github.com/LewisCM14/restaurant-booking-app/issues/5)
+        * [Create a Booking](https://github.com/LewisCM14/restaurant-booking-app/issues/2)
+        ---
+        ![the booking form](static/images/bookingform.png)
+        ![the date widget](static/images/date_widget.png)
+        ![the time widget](static/images/time_widget.png)
 
 - **Reservation List**
+    * The reservation tab lists all reservations attached to a specific user, if there are no reservations to display a button prompting the user to navigate to the 'make a booking' section is displayed. All the information for a specific reservation is displayed within a card, the status of the reservation is also highlighted here and is altered dependant upon the reservation being accepted or declined. Buttons to allow for amendments or cancellations are displayed within the card. Information provided in the special requirements field can be seen displayed in a modal. For canceling reservations the user is prompted via a modal again to ensure they definitely want to cancel. Validation checks are ran on the cancel and amend buttons to ensure the user making those requests is the owner of the reservation.
+
+        * [Manage Bookings Issue](https://github.com/LewisCM14/restaurant-booking-app/issues/11)
+        * [Alter/Cancel a Booking](https://github.com/LewisCM14/restaurant-booking-app/issues/4)
+        * [View a Booking](https://github.com/LewisCM14/restaurant-booking-app/issues/3)
+        ---
+        ![the reservations list](static/images/reservation.png)
+        ![the special requirements modal](static/images/notes_modal.png)
+        ![the cancel modal](static/images/cancel_res_modal.png)
 
 - **Menu**
+    * The different catagories for the menu section of the site can be navigated to via the dropdown from the nav bar or between the buttons provided on the page for each individual section. The menu app is designed to meet the ever changing requirements of a modern business and allows for a user with admin privileges to adjust the menu as required. Each item is displayed as a card which details the: title, description and price. From within the admin panel the display property of the items can be checked on or off to handle different requirements according to specific days. Validation on the title of the item is preformed to prevent the same item being listed multiple times. The price field is also a decimal field which allows for a number up to 999 to be entered. There is also an option to upload a picture for each individual item, this field is intended for use with a future feature.
+
+        * [View the Restaurant Menu](https://github.com/LewisCM14/restaurant-booking-app/issues/9)
+        ---
+        ![the starter menu](static/images/starter.png)
+        ![the mains menu](static/images/main.png)
+        ![the desserts menu](static/images/dessert.png)
 
 [Return to Table of Contents](#contents)
 ___
