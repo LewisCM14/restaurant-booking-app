@@ -25,7 +25,7 @@ class Starter(models.Model):
     title = models.CharField(max_length=100, blank=False, unique=True)
     description = models.TextField(max_length=200, blank=False)
     price = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
-    image = CloudinaryField('image')
+    image = CloudinaryField('image', blank=True)
     display = models.IntegerField(choices=DISPLAY)
 
     class Meta:
@@ -59,7 +59,7 @@ class Main(models.Model):
     title = models.CharField(max_length=100, blank=False, unique=True)
     description = models.TextField(max_length=200, blank=False)
     price = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
-    image = CloudinaryField('image')
+    image = CloudinaryField('image', blank=True)
     display = models.IntegerField(choices=DISPLAY)
 
     class Meta:
@@ -93,7 +93,7 @@ class Dessert(models.Model):
     title = models.CharField(max_length=100, blank=False, unique=True)
     description = models.TextField(max_length=200, blank=False)
     price = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
-    image = CloudinaryField('image')
+    image = CloudinaryField('image', blank=True)
     display = models.IntegerField(choices=DISPLAY)
 
     class Meta:
