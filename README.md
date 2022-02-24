@@ -117,6 +117,13 @@ ___
 ___
 ### Unfixed Bugs <a name ='bugs'></a>
 
+* MapBox Fails to Render.
+
+    * Although the key for the deployed version of the project has URL restrictions set as per the MapBox [guidlines](https://docs.mapbox.com/accounts/guides/tokens/#url-restrictions) it sometimes fails to render within the browser and a new token must be made and the config vars within the app updated. I have reached out to MapBox customer service for advice on the issue. Upon failure to render 403 errors are logged within the console on devtools. Below the restrictions set and how the map should look rendered can be seen.
+
+        ![url restrictions for token](static/images/url_restrict.png)
+        ![map rendered correctly](static/images/map.png)
+
 [Return to Table of Contents](#contents)
 ___
 ### Deployment <a name ='deployment'></a>
