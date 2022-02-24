@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Starter, Main, Dessert, Drink
+from .models import Starter, Main, Dessert
 
 
 @admin.register(Starter)
@@ -31,17 +31,6 @@ class MainAdmin(SummernoteModelAdmin):
 class DessertAdmin(SummernoteModelAdmin):
     """
     The Admin panel for the desserts on the menu model.
-    Makes the 'description' field a summernotes WYSIWYG.
-    Orders the items alphabetically by there title.
-    """
-    summernote_fields = ('description')
-    list_display = ('title',)
-
-
-@admin.register(Drink)
-class DrinksAdmin(SummernoteModelAdmin):
-    """
-    The Admin panel for the drinks on the menu model.
     Makes the 'description' field a summernotes WYSIWYG.
     Orders the items alphabetically by there title.
     """

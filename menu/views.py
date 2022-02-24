@@ -1,7 +1,7 @@
 """ This module contains the views for the menu app. """
 
 from django.views import generic
-from .models import Starter, Main, Dessert, Drink
+from .models import Starter, Main, Dessert
 
 
 class StarterList(generic.ListView):
@@ -38,15 +38,3 @@ class DessertList(generic.ListView):
     model = Dessert
     queryset = Dessert.objects.filter(display=1).order_by('title')
     template_name = 'desserts.html'
-
-
-class DrinkList(generic.ListView):
-    """
-    Class based view using generic for the Drinks model
-    found in models.py on the menu app.
-
-    Renders on the drinks.html template.
-    """
-    model = Drink
-    queryset = Drink.objects.filter(display=1).order_by('title')
-    template_name = 'drinks.html'
