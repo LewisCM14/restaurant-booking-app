@@ -19,7 +19,7 @@ class BookingAdmin(admin.ModelAdmin):
     search_fields = ('lead',)
     actions = ['accept_booking', 'decline_booking']
 
-    def accept_booking(self, request, queryset):
+    def accept_booking(self, _request, queryset):
         """
         Allows bookings to be accepted from the dropdown menu in admin.
         """
@@ -27,7 +27,7 @@ class BookingAdmin(admin.ModelAdmin):
             reservation.status = 1
             reservation.save()
 
-    def decline_booking(self, request, queryset):
+    def decline_booking(self, _request, queryset):
         """
         Allows bookings to be declined from the dropdown menu in admin.
         """
