@@ -19,10 +19,35 @@ ___
 ___
 ### User Experience (UX) <a name='userexperience'></a>
 
-* reason for site
-* target audience
-* purpose owner/user goals needs addressed
-* data required, security features
+**Site Goal**
+    * The main goal of the site is to allow registered users to make reservations at The White Horse restaurant. Whilst also highlighting key information about the venue through the use of a contact details and menu section, with navigation to external sources i.e. social media relating to the company.
+
+    * Site users must be able to view, amend and cancel their reservations, with the site owner able to view all reservations. The site owner must also have the ability to accept or decline reservations as per business requirements.
+
+**Target Audience**
+    * There is a potentially large target audience for the site, as it may include anyone who wishes to eat at The White Horse. However, the venue is well established and predominantly caters for local middle aged clientèle from a respectable area located in British countryside region. This usual clientèle is the main target audience for the site.  
+
+**Owner Goals**
+    * The goals of the site owner are to transition to a digital model in order to keep up with the ever changing business requirements of the hospitality industry. This is to include the ability for clients to make and maintain reservations and the owner to view, accept and decline these reservations. The owner has also requested for complete control over the items on the menu as they use locally sourced produce where possible and availability of items can alter rapidly.
+
+**How These Goals are Addressed**
+    * The ability to create, view, amend and cancel reservations is addressed through the use of account creation and a booking form with various methods of validation which allows for efficient business running.
+
+    * Contact details and social media links are provided in the footer of the site, as per industry standard.
+
+    * The ability to accept or decline bookings is handled through the use of a site admin panel, as is the ability for the site owner to view all bookings.
+
+    * Equally the goal of complete control over the menu section of the site is handled via the admin panel and a WYSIWYG editor.
+
+    * The site is designed with a minimalist approach, utilizing a black and white color scheme, as to reflect the venues name 'The White Horse'. I felt this approach and color scheme best reflected the sites target audience and their expectations of the site.
+
+**Data Required**
+    * Only the bare minimum data required is stored on the site, this includes the users first and last name and a contact email. These fields are required for user authorization and making reservations. When making a booking a mobile must be provided in order for the venue to contact the booking lead if required. Aside from that the other data collected includes date, time amount of guests and an optional field for any special requirements. None of this data poses a security risk.
+
+**Security Features**
+    * User authorization is handled via the allauth package and a sign-in/sign-out feature. Validation to ensure a site user can only view, amend and cancel their own reservations is employed. The singed in status of the user is always highlighted as well.
+
+    * The csrf token is used on the booking form.
 
 [Return to Table of Contents](#contents)
 ___
