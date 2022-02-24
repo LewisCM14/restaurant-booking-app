@@ -36,9 +36,11 @@ ___
 
 - **Imagery**
 
+    *There is limited use of imagery within the project as i felt a minimalist approach was an elegant solution that reflected the establishment best. The hero image and the interactive map are the only doses ov color on the site, although there is future features that plan to expand on this. 
+
 - **Layout**
 
-    *The app is built using a multi-page layout, with the navigation bar and footer, which contains key contact and business details, present on every page.*
+    *The app is built using a multi-page layout, with the navigation bar and footer, which contains key contact and business details, present on every page. The menu section is broken down into sections which can be navigated to from the dropdown menu in the navbar or from the buttons on each sections page.*
 
 [Return to Table of Contents](#contents)
 ___
