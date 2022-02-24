@@ -54,18 +54,22 @@ ___
 - **Iteration 1**
     * The iteration 1 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/2?closed=1)
     * Iteration 1 board can be found [here](https://github.com/LewisCM14/restaurant-booking-app/projects/1)
+    ![image of the iteration 1 board](static/images/iteration1.png)
 
 - **Iteration 2**
     * The iteration 2 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/3?closed=1)
     * Iternation 2 board can be found [here](https://github.com/LewisCM14/restaurant-booking-app/projects/2)
+    ![image of the iteration 2 board](static/images/iteration2.png)
 
 - **Iteration 3**
     * The iteration 3 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/4?closed=1)
     * Iteration 3 board can be found here [here](https://github.com/LewisCM14/restaurant-booking-app/projects/3)
+    ![image of the iteration 3 board](static/images/iteration3.png)
 
 - **Iternation 4**
     * The Iternation 4 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/5?closed=1)
     * Iteration 4 board can be found here [here](https://github.com/LewisCM14/restaurant-booking-app/projects/4)
+    ![image of the iteration 4 board](static/images/iteration4.png)
     
     *Although the issue for automated emails was started in iteration 3, once iteration 4 began i felt it was outside of the scope for this project and placed back in the product backlog for a later date.*
 
@@ -236,7 +240,7 @@ ___
 ___
 ### Unfixed Bugs <a name ='bugs'></a>
 
-* MapBox Fails to Render.
+* **MapBox Fails to Render.**
 
     * Although the key for the deployed version of the project has URL restrictions set as per the MapBox [guidlines](https://docs.mapbox.com/accounts/guides/tokens/#url-restrictions) it sometimes fails to render within the browser and a new token must be made and the config vars within the app updated. I have reached out to MapBox customer service for advice on the issue. Upon failure to render 403 errors are logged within the console on devtools. Below the restrictions set and how the map should look rendered can be seen.
 
