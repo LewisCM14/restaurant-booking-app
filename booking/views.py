@@ -4,7 +4,6 @@ import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views import generic
 from django.db import IntegrityError
-from django.contrib.auth.models import User
 from .models import Booking, Image
 from .forms import BookingForm
 
@@ -12,7 +11,7 @@ from .forms import BookingForm
 def index(request):
     """
     Renders the index page in the browser.
-    Collects the image used for the hero space from the DB,
+    Collects the image used for the hero space from the Image model,
     stores it within context to be used in index.html.
     """
     hero = Image.objects.get(name='hero')
@@ -49,7 +48,7 @@ def booking(request):
     If it fails the error message is returned as context
     along with the POST data and displayed to the user.
 
-    The logic for these actions is employed via a if/else loop.
+    The logic for these actions is employed via an if/else loop.
     """
     if request.user.is_authenticated:
 
@@ -168,6 +167,7 @@ def amend_reservation(request, reservation_id):
     If it passes the existing reservation is updated with the new information
     provided in the POST request and has it's status set to 'pending' or 0
     before it is saved to the database.
+
     The user is then redirected to the reservations page.
     """
     if request.user.is_authenticated:
