@@ -1,4 +1,4 @@
-""" This module contains the database model for the booking app. """
+""" This module contains the database models for the booking app. """
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -6,7 +6,7 @@ from django.core.validators import RegexValidator
 from cloudinary.models import CloudinaryField
 
 
-# A tuple to hold the status key for the booking
+# A tuple to hold the status key for the Booking model.
 STATUS = ((0, "pending"), (1, "accepted"), (2, "declined"))
 
 
@@ -20,6 +20,9 @@ class Booking(models.Model):
     Plus any special requirement notes.
 
     Defaults the booking status to 'pending' using the above tuple.
+
+    Validation for the mobile field is handled with Django's inbuilt
+    RegexValidator.
     """
     # Foreign Key from the User model
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -49,6 +52,9 @@ class Booking(models.Model):
         Uses Django's inbuilt UniqueConstraint method to ensure
         a user cannot make a duplicate booking for the same
         date & time as one they already have stored in the Booking database.
+
+        If a double booking is made, the errorr raised is handled in the
+        relevant views in the booking directory under views.py.
         """
         ordering = ['-date']
 
@@ -59,14 +65,15 @@ class Booking(models.Model):
 
     def __str__(self):
         """
-        Returns the booking date and time to be used as booking title.
+        Returns the booking date and time to be used as the booking title.
+        Defining this method is reccomended by Django.
         """
         return f'{self.date} {self.time}'
 
 
 class Image(models.Model):
     """
-    The model for all images used in the Booking app.
+    The model for all images used in the restobook project.
 
     Stores the name of the image for ease of coding.
     Also allows admins to store the URL of where the image is hosted
