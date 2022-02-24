@@ -98,7 +98,9 @@ ___
 - **Validator Testing**
 
     - HTML
-        - When passing the html templates relating to the menu app through the [W3C Validator tool](https://validator.w3.org/#validate_by_uri) via URL minor errors can be found,however when tested via direct input these issues are not raised. An issue relating to the Jinja templating language is raised via direct input but in this instance it can be ignored. Overall i decided that the the issues the validator tool was raising for: starters.html, mains.html and desserts.html did not require attention. All other html passed validation. 
+        - When passing the html templates relating to the menu app through the [W3C Validator tool](https://validator.w3.org/#validate_by_uri) via URL minor errors can be found,however when tested via direct input these issues are not raised. An issue relating to the Jinja templating language is raised via direct input but in this instance it can be ignored. Overall i decided that the the issues the validator tool was raising for: starters.html, mains.html and desserts.html did not require attention. All other html passed validation. The error raised via URL input can be seen below.
+
+        ![html validator error](static/images/html_error.png)
 
     - CSS
         - No errors were found when passing through the [W3C Validator tool](https://jigsaw.w3.org/css-validator/)
@@ -112,6 +114,16 @@ ___
 - **Lighthouse**
 
 - **Automated Tests**
+
+    * Using the coverage package, i have generated reports for the booking and menu app. Automated test coverage for these two apps exceeded 90% which i deemed sufficient. Within the python files marked as starting with 'test' notes regarding how each individual test works and the logic behind why it achieves its goal can be found.
+        
+        ![menu coverage](static/images/menu_coverage.png)
+        ![booking coverage](static/images/cov_booking.png)
+
+        The areas of code within the booking app that are not covered via my automated tests can be seen below. I felt testing these areas manually was sufficient, as they all preform as intended. With the code not covered within the booking and amend_booking views having validators and automated testing surrounding these already preformed on it.
+        
+        ![missing validator coverage](static/images/booking_validators_missing.png)
+        ![missing booking view coverage](static/images/booking_view_missing.png)
 
 [Return to Table of Contents](#contents)
 ___
