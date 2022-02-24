@@ -95,8 +95,9 @@ ___
 
 - **Bugs found in Development**
 
-    * [test_get_reservations method](https://github.com/LewisCM14/restaurant-booking-app/commit/93e8457c7c3c084fd03156ccd75e7e0d833fb7ff) required user authorization after adjustments to the view logic.
-
+    * Commit [test_get_reservations method](https://github.com/LewisCM14/restaurant-booking-app/commit/93e8457c7c3c084fd03156ccd75e7e0d833fb7ff). 
+       * Required user authorization after adjustments to the view logic.
+    ---
     * The steps i took to resolve an issue with my hero image not rendering on my deployed site can be found below. This bug was due to me overlooking the need to setup the database and add the image on the deployed server.
 
         [1](https://github.com/LewisCM14/restaurant-booking-app/commit/15519a2696d58d73265eeb74614721021c11556d)
@@ -104,19 +105,22 @@ ___
         [3](https://github.com/LewisCM14/restaurant-booking-app/commit/cabfd820fd7669d9c180cd763246729edcbd0464)
         [4](https://github.com/LewisCM14/restaurant-booking-app/commit/ade049d61731090343028ae32ea7a6e137f580b8)
         [5](https://github.com/LewisCM14/restaurant-booking-app/commit/a4ba0a2063a582dd549154c20cea5a41a0f88a5e)
-
-    * [reset booking database](https://github.com/LewisCM14/restaurant-booking-app/commit/87be28439bc26c411f032e2ca37cdc9ce3c32888) this was required after migrations regarding an arrival field was made that broke the functionality of the database.
-
-    * [update reservation status in amend_reservation view](https://github.com/LewisCM14/restaurant-booking-app/commit/b22497a4f3113841826d384cbed32bb7d1f62fc4) whilst writing automated tests i noticed that amended bookings which had been accepted didn't have their status reverted back to pending once updated. This was an oversight on my part for not considering this when creating the view.
-
-    * [adjust redirect path in amend_reservations view](https://github.com/LewisCM14/restaurant-booking-app/commit/60b68846cf2ea42bf61a9f7cd9dd564e7200050d) this bug was due to me not considering that the user would be logged into an account so the login page wasn't an appropriate location to navigate to.
+    ---
+    * Commit [reset booking database](https://github.com/LewisCM14/restaurant-booking-app/commit/87be28439bc26c411f032e2ca37cdc9ce3c32888) 
+        * This was required after migrations regarding an arrival field was made that broke the functionality of the database.
+    ---
+    * Commit [update reservation status in amend_reservation view](https://github.com/LewisCM14/restaurant-booking-app/commit/b22497a4f3113841826d384cbed32bb7d1f62fc4) 
+        * Whilst writing automated tests i noticed that amended bookings which had been accepted didn't have their status reverted back to pending once updated. This was an oversight on my part for not considering this when creating the view.
+    ---
+    * Commit [adjust redirect path in amend_reservations view](https://github.com/LewisCM14/restaurant-booking-app/commit/60b68846cf2ea42bf61a9f7cd9dd564e7200050d) 
+        * This bug was due to me not considering that the user would be logged into an account so the login page wasn't an appropriate location to navigate to.
 
 - **Validator Testing**
 
     - HTML
         - When passing the html templates relating to the menu app through the [W3C Validator tool](https://validator.w3.org/#validate_by_uri) via URL minor errors can be found,however when tested via direct input these issues are not raised. An issue relating to the Jinja templating language is raised via direct input but in this instance it can be ignored. Overall i decided that the the issues the validator tool was raising for: starters.html, mains.html and desserts.html did not require attention. All other html passed validation. The error raised via URL input can be seen below.
 
-        ![html validator error](static/images/html_error.png)
+            ![html validator error](static/images/html_error.png)
 
     - CSS
         - No errors were found when passing through the [W3C Validator tool](https://jigsaw.w3.org/css-validator/)
