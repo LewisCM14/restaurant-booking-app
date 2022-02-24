@@ -6,9 +6,11 @@ from django import forms
 
 class CustomSignupForm(SignupForm):
     """
-    Extends from allauth base signup form.
+    Extends from the allauth base signup form.
 
     Adds the custom sign up fields first and last name.
+    These fields are collected for use when the user makes
+    reservations.
     """
 
     first_name = forms.CharField(
