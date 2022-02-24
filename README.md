@@ -74,6 +74,14 @@ ___
 
 ### Database Schema <a name='database'></a>
 
+* The final schema for the Booking model database can be seen below. Although it went through various iterations in development the final schema takes in the user from the user model, which is used for logic in the view. The lead and email fields are also taken from the user model. With the fields required to make a booking also stored in the database. These include: mobile, date, time, notes and guests. The status field is also stored here, this field relates to admin functionality and is set off a tuple provided in the model file. Please note the lead field is populated with the first_name and last_name fields from the user model.
+    
+    ![booking database schema](static/images/booking_schema.png)
+
+* The schema for the databases located with the menu models can be seen below. The title field is taken in as the main display name for each item in the menu. With the description field a text field that utilizes the summernotes WYSIWYG editor. The price is a decimal field for correct display. the image field, intended for a future feature, is a cloudinary field and the display field, which is used for logic in the view is a integer field that utilizes a tuple set within the model file.
+
+    ![menu database schema](static/images/menu_schema.png)
+
 [Return to Table of Contents](#contents)
 ___
 ### Existing Features <a name='existingfeatures'></a>
