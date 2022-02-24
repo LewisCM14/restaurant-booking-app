@@ -8,7 +8,11 @@ from . import validators
 
 class BookingForm(forms.ModelForm):
     """
-    Creates the BookingForm class that inherits from the base form.
+    Creates the BookingForm class that inherits from Django' base form.
+    Provides the labels and placeholder text for each field.
+    Provides the widgets and handles validation where required.
+    The custom validator logic can be found in the booking directory
+    in validators.py.
     """
 
     mobile = forms.CharField(
