@@ -98,16 +98,16 @@ ___
 - **Validator Testing**
 
     - HTML
-        - No errors were found when passing through the [W3C Validator tool](https://validator.w3.org/#validate_by_uri)
+        - When passing the html templates relating to the menu app through the [W3C Validator tool](https://validator.w3.org/#validate_by_uri) via URL minor errors can be found,however when tested via direct input these issues are not raised. An issue relating to the Jinja templating language is raised via direct input but in this instance it can be ignored. Overall i decided that the the issues the validator tool was raising for: starters.html, mains.html and desserts.html did not require attention. All other html passed validation. 
 
     - CSS
         - No errors were found when passing through the [W3C Validator tool](https://jigsaw.w3.org/css-validator/)
 
     - JAVASCRIPT
-        - No errors were found when passing through [JSHint](https://jshint.com/)
+        - No custom Javascript is used in the project, so validator testing was not required.
 
     - Python
-        - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/)
+        - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/). However pylint issues are raised within my IDE. These issues refer to my models having no 'Object' member. These issues are not raised when passing through the PEP8 validator so in this instance i chose to leave them.
 
 - **Lighthouse**
 
