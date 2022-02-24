@@ -12,8 +12,9 @@ class Starter(models.Model):
     The model for the starters on the menu app.
 
     Stores the title of each item plus a brief description
-    and the price. An image for the item is stored as a
-    cloudinary field.
+    and the price. An image for the item can be stored as a
+    cloudinary field. This is currently intended for future
+    features.
 
     The title must be unique to prevent the same item being
     added multiple times. The price field uses a decimal field
@@ -37,6 +38,7 @@ class Starter(models.Model):
     def __str__(self):
         """
         Returns the starter items title as a string.
+        Defining this method is reccomended by Django.
         """
         return f'{self.title}'
 
@@ -46,8 +48,9 @@ class Main(models.Model):
     The model for the mains on the menu app.
 
     Stores the title of each item plus a brief description
-    and the price. An image for the item is stored as a
-    cloudinary field.
+    and the price. An image for the item can be stored as a
+    cloudinary field. This is currently intended for future
+    features.
 
     The title must be unique to prevent the same item being
     added multiple times. The price field uses a decimal field
@@ -71,6 +74,7 @@ class Main(models.Model):
     def __str__(self):
         """
         Returns the mains item title as a string.
+        Defining this method is reccomended by Django.
         """
         return f'{self.title}'
 
@@ -80,8 +84,9 @@ class Dessert(models.Model):
     The model for the desserts on the menu app.
 
     Stores the title of each item plus a brief description
-    and the price. An image for the item is stored as a
-    cloudinary field.
+    and the price. An image for the item can be stored as a
+    cloudinary field. This is currently intended for future
+    features.
 
     The title must be unique to prevent the same item being
     added multiple times. The price field uses a decimal field
@@ -105,5 +110,6 @@ class Dessert(models.Model):
     def __str__(self):
         """
         Returns the dessert items title as a string.
+        Defining this method is reccomended by Django.
         """
         return f'{self.title}'

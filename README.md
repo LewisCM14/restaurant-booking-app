@@ -1,6 +1,6 @@
 # Restaurant Booking App
 
-A booking app built using Django for a fictitious restaurant, built to demonstrate a full stack product with CRUD functionality. 
+A application built using Django for The White Horse restaurant in Shepshed. Allows for users to register and make reservation requests. These requests can then be viewed, amended and deleted by the user as required. Representatives of the venue are also able to accept or decline these requests and view all reservations in order to make business decisions. Key contact details and the restaurants menu are also provided within the application, as well as links to the companies social media accounts.
 ___
 ## Table of Contents <a name='contents'></a>
 
@@ -19,10 +19,35 @@ ___
 ___
 ### User Experience (UX) <a name='userexperience'></a>
 
-* reason for site
-* target audience
-* purpose owner/user goals needs addressed
-* data required, security features
+**Site Goal**
+    * The main goal of the site is to allow registered users to make reservations at The White Horse restaurant. Whilst also highlighting key information about the venue through the use of a contact details and menu section, with navigation to external sources i.e. social media relating to the company.
+
+    * Site users must be able to view, amend and cancel their reservations, with the site owner able to view all reservations. The site owner must also have the ability to accept or decline reservations as per business requirements.
+
+**Target Audience**
+    * There is a potentially large target audience for the site, as it may include anyone who wishes to eat at The White Horse. However, the venue is well established and predominantly caters for local middle aged clientèle from a respectable area located in British countryside region. This usual clientèle is the main target audience for the site.  
+
+**Owner Goals**
+    * The goals of the site owner are to transition to a digital model in order to keep up with the ever changing business requirements of the hospitality industry. This is to include the ability for clients to make and maintain reservations and the owner to view, accept and decline these reservations. The owner has also requested for complete control over the items on the menu as they use locally sourced produce where possible and availability of items can alter rapidly.
+
+**How These Goals are Addressed**
+    * The ability to create, view, amend and cancel reservations is addressed through the use of account creation and a booking form with various methods of validation which allows for efficient business running.
+
+    * Contact details and social media links are provided in the footer of the site, as per industry standard.
+
+    * The ability to accept or decline bookings is handled through the use of a site admin panel, as is the ability for the site owner to view all bookings.
+
+    * Equally the goal of complete control over the menu section of the site is handled via the admin panel and a WYSIWYG editor.
+
+    * The site is designed with a minimalist approach, utilizing a black and white color scheme, as to reflect the venues name 'The White Horse'. I felt this approach and color scheme best reflected the sites target audience and their expectations of the site.
+
+**Data Required**
+    * Only the bare minimum data required is stored on the site, this includes the users first and last name and a contact email. These fields are required for user authorization and making reservations. When making a booking a mobile must be provided in order for the venue to contact the booking lead if required. Aside from that the other data collected includes date, time amount of guests and an optional field for any special requirements. None of this data poses a security risk.
+
+**Security Features**
+    * User authorization is handled via the allauth package and a sign-in/sign-out feature. Validation to ensure a site user can only view, amend and cancel their own reservations is employed. The singed in status of the user is always highlighted as well.
+
+    * The csrf token is used on the booking form.
 
 [Return to Table of Contents](#contents)
 ___
@@ -36,44 +61,123 @@ ___
 
 - **Imagery**
 
+    *There is limited use of imagery within the project as i felt a minimalist approach was an elegant solution that reflected the establishment growing into a contemporary venue. The hero image and the interactive map are the only doses ov color on the site, although there is future features that plan to expand on this. 
+
 - **Layout**
 
-    *The app is built using a multi-page layout, with the navigation bar and footer, which contains key contact and business details, present on every page.*
+    *The app is built using a multi-page layout, with the navigation bar and footer, which contains key contact and business details, present on every page. The menu section is broken down into sections which can be navigated to from the dropdown menu in the navbar or from the buttons on each sections page.*
 
 [Return to Table of Contents](#contents)
 ___
 ### Development <a name='development'></a>
 
-- **User Stories & Product Backlog**
+*The project was developed using an agile methodology, with epics broken down into user stories with well defined acceptance criteria and tasks. These issues where then worked on in incremental steps. The sprint times for my iterations was roughly two weeks, dependant on my commitments outside of the project. The story points applied to my issues follow the fibonacci scale, with the 'Must Have' issues for each iteration kept at 60% of the total timebox.*
+
+- **Product Backlog**
+    * The product backlog for the project can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/1)
 
 - **Iteration 1**
+    * The iteration 1 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/2?closed=1)
+    * Iteration 1 board can be found [here](https://github.com/LewisCM14/restaurant-booking-app/projects/1)
+    ![image of the iteration 1 board](static/images/iteration1.png)
 
 - **Iteration 2**
+    * The iteration 2 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/3?closed=1)
+    * Iternation 2 board can be found [here](https://github.com/LewisCM14/restaurant-booking-app/projects/2)
+    ![image of the iteration 2 board](static/images/iteration2.png)
 
 - **Iteration 3**
+    * The iteration 3 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/4?closed=1)
+    * Iteration 3 board can be found here [here](https://github.com/LewisCM14/restaurant-booking-app/projects/3)
+    ![image of the iteration 3 board](static/images/iteration3.png)
+
+- **Iternation 4**
+    * The Iternation 4 milestone can be found [here](https://github.com/LewisCM14/restaurant-booking-app/milestone/5?closed=1)
+    * Iteration 4 board can be found here [here](https://github.com/LewisCM14/restaurant-booking-app/projects/4)
+    ![image of the iteration 4 board](static/images/iteration4.png)
+    
+    *Although the issue for automated emails was started in iteration 3, once iteration 4 began i felt it was outside of the scope for this project and placed back in the product backlog for a later date.*
 
 [Return to Table of Contents](#contents)
 ___
 
 ### Database Schema <a name='database'></a>
 
+* The final schema for the Booking model database can be seen below. Although it went through various iterations in development the final schema takes in the user from the user model, which is used for logic in the view. The lead and email fields are also taken from the user model. With the fields required to make a booking also stored in the database. These include: mobile, date, time, notes and guests. The status field is also stored here, this field relates to admin functionality and is set off a tuple provided in the model file. Please note the lead field is populated with the first_name and last_name fields from the user model.
+    
+    ![image of the booking database schema](static/images/booking_schema.png)
+
+* The schema for the databases located with the menu models can be seen below. The title field is taken in as the main display name for each item in the menu. With the description field a text field that utilizes the summernotes WYSIWYG editor. The price is a decimal field for correct display. the image field, intended for a future feature, is a cloudinary field and the display field, which is used for logic in the view is a integer field that utilizes a tuple set within the model file. There is a separate database for each category of the menu, these include: Starter, Main and Dessert.
+
+    ![image of the menu database schema](static/images/menu_schema.png)
+
 [Return to Table of Contents](#contents)
 ___
 ### Existing Features <a name='existingfeatures'></a>
 
 - **Landing Page**
+    * The landing page features a hero image with a brief description of the restaurant, it's facilities and accessibility level. The landing page is fully responsive built using bootstrap and allows for users with admin privileges to alter the hero image through the admin panel. This feature is designed to help implementation of a future hero image carousel feature.
+    
+        ![landing page image](static/images/landing_page.png)
 
 - **Navigation**
+    * The navigation bar is fully responsive, utilizing a hamburger data toggler past the large breakpoint. It also responds to the authorization status of the user. If a user is not signed in and attempts to navigate to the 'make a booking' section they are directed to the account sign in page. The reservations and logout tab are only visible to authorized users, with the users first and last name displayed to them from the nav bar once singed in. The restaurant name is always displayed to the left hand side at any break point. A dropdown link is used on the menu tab for navigation between the different menu catagories. The nav bar is present across all pages of the website, as it provides main source of navigation between content. 
+
+        ![image of the navigation bar with no user](static/images/header.png)
+        ![image of the navigation bar with a user](static/images/header_sign.png)
 
 - **Footer**
+    * The footer contains key contact details and opening hours regarding the restaurant. Built to be fully responsive, it utilizes the MapBox API to contain an interactive map centered on the restaurants location. It also contains the social media links for the venue.
+        
+        * [Business Details](https://github.com/LewisCM14/restaurant-booking-app/issues/7)
+        ---
+        ![footer image](static/images/footer.png)
 
 - **User Creation**
+    * User creation uses the allauth package to collect the necessary information needed by the company for account creation. Once an account is created the email and password set are used as the login credentials.
+        
+        * [Account Registration](https://github.com/LewisCM14/restaurant-booking-app/issues/1)
+        ---
+        ![image of the user sign up form](static/images/signup.png)
 
 - **Booking Form**
+    * The booking form collects all the information needed for the venue to make a decision on if they can accommodate a reservation request. The booking lead and email are taken from the user model, with the input fields including: mobile, date, time, special requirements and amount of guests. Extensive validation and user feedback is preformed on these fields (as listed below). All fields bar the special requirements field are required, this field being optional. For the date and time fields the input is handled by inbuilt django widgets. Upon making a request to amend a reservation this same form is pre-populated with the existing reservations details and upon a valid request the instance is updated within the database. Double bookings are prevented via a unique constraint on the user, date and time fields from within the model, with user feedback handled at the top of the form in the instance of a double booking.
+        
+        * Mobile - Regex Validation.
+        * Date - Validation to ensure it's a future date and a day the venue is open.
+        * Time - Validation to ensure the requested time is within opening hours.
+        * Special Requirements - Validation to ensure there is a character limit of 200.
+        * Guests - Validation to ensure it's a minimum of one guests and does not exceed eight guests.
+        * Amend Reservation - Ensures the user attempting to alter the reservation is the owner.
+        ---
+        * [Special Requirements](https://github.com/LewisCM14/restaurant-booking-app/issues/8)
+        * [Double Bookings](https://github.com/LewisCM14/restaurant-booking-app/issues/6)
+        * [View all Bookings](https://github.com/LewisCM14/restaurant-booking-app/issues/5)
+        * [Create a Booking](https://github.com/LewisCM14/restaurant-booking-app/issues/2)
+        ---
+        ![image of the booking form](static/images/bookingform.png)
+        ![image of the date widget](static/images/date_widget.png)
+        ![image of the time widget](static/images/time_widget.png)
 
 - **Reservation List**
+    * The reservation tab lists all reservations attached to a specific user, if there are no reservations to display a button prompting the user to navigate to the 'make a booking' section is displayed. All the information for a specific reservation is displayed within a card, the status of the reservation is also highlighted here and is altered dependant upon the reservation being accepted or declined. Buttons to allow for amendments or cancellations are displayed within the card. Information provided in the special requirements field can be seen displayed in a modal. For canceling reservations the user is prompted via a modal again to ensure they definitely want to cancel. Validation checks are ran on the cancel and amend buttons to ensure the user making those requests is the owner of the reservation.
+
+        * [Manage Bookings Issue](https://github.com/LewisCM14/restaurant-booking-app/issues/11)
+        * [Alter/Cancel a Booking](https://github.com/LewisCM14/restaurant-booking-app/issues/4)
+        * [View a Booking](https://github.com/LewisCM14/restaurant-booking-app/issues/3)
+        ---
+        ![image of the reservations list](static/images/reservation.png)
+        ![image of the special requirements modal](static/images/notes_modal.png)
+        ![image of the cancel modal](static/images/cancel_res_modal.png)
 
 - **Menu**
+    * The different catagories for the menu section of the site can be navigated to via the dropdown from the nav bar or between the buttons provided on the page for each individual section. The menu app is designed to meet the ever changing requirements of a modern business and allows for a user with admin privileges to adjust the menu as required. Each item is displayed as a card which details the: title, description and price. From within the admin panel the display property of the items can be checked on or off to handle different requirements according to specific days. Validation on the title of the item is preformed to prevent the same item being listed multiple times. The price field is also a decimal field which allows for a number up to 999 to be entered. There is also an option to upload a picture for each individual item, this field is intended for use with a future feature.
+
+        * [View the Restaurant Menu](https://github.com/LewisCM14/restaurant-booking-app/issues/9)
+        ---
+        ![image of the starter menu](static/images/starter.png)
+        ![image of the mains menu](static/images/main.png)
+        ![image of the desserts menu](static/images/dessert.png)
 
 [Return to Table of Contents](#contents)
 ___
@@ -89,40 +193,84 @@ ___
 
     *Developing the hero image on the landing page to make use of a carousel highlighting the restaurants dishes is another future feature to also implement, i feel this would be a more elegant and professional way of advertising the business at a glance.*
 
+- **Automated Emails**
+
+    *User receives automated emails whenever their booking is accepted.*
+
+- **Images for the Menu Items**
+
+    *Images relating to the menu items displayed to the user. For this feature i feel professionally taken images conforming to a set resolution would be required to achieve the best results.**
+
 [Return to Table of Contents](#contents)
 ___
 ### Testing <a name ='testing'></a> 
 
 - **Bugs found in Development**
 
+    * Commit [test_get_reservations method](https://github.com/LewisCM14/restaurant-booking-app/commit/93e8457c7c3c084fd03156ccd75e7e0d833fb7ff). 
+       * Required user authorization after adjustments to the view logic.
+    ---
+    * The steps i took to resolve an issue with my hero image not rendering on my deployed site can be found below. This bug was due to me overlooking the need to setup the database and add the image on the deployed server.
+
+        [1](https://github.com/LewisCM14/restaurant-booking-app/commit/15519a2696d58d73265eeb74614721021c11556d)
+        [2](https://github.com/LewisCM14/restaurant-booking-app/commit/c91e3fab1bf0446df9645c9257b6b35941459669)
+        [3](https://github.com/LewisCM14/restaurant-booking-app/commit/cabfd820fd7669d9c180cd763246729edcbd0464)
+        [4](https://github.com/LewisCM14/restaurant-booking-app/commit/ade049d61731090343028ae32ea7a6e137f580b8)
+        [5](https://github.com/LewisCM14/restaurant-booking-app/commit/a4ba0a2063a582dd549154c20cea5a41a0f88a5e)
+    ---
+    * Commit [reset booking database](https://github.com/LewisCM14/restaurant-booking-app/commit/87be28439bc26c411f032e2ca37cdc9ce3c32888) 
+        * This was required after migrations regarding an arrival field was made that broke the functionality of the database.
+    ---
+    * Commit [update reservation status in amend_reservation view](https://github.com/LewisCM14/restaurant-booking-app/commit/b22497a4f3113841826d384cbed32bb7d1f62fc4) 
+        * Whilst writing automated tests i noticed that amended bookings which had been accepted didn't have their status reverted back to pending once updated. This was an oversight on my part for not considering this when creating the view.
+    ---
+    * Commit [adjust redirect path in amend_reservations view](https://github.com/LewisCM14/restaurant-booking-app/commit/60b68846cf2ea42bf61a9f7cd9dd564e7200050d) 
+        * This bug was due to me not considering that the user would be logged into an account so the login page wasn't an appropriate location to navigate to.
+
 - **Validator Testing**
 
     - HTML
-        - No errors were found when passing through the [W3C Validator tool](https://validator.w3.org/#validate_by_uri)
+        - When passing the html templates relating to the menu app through the [W3C Validator tool](https://validator.w3.org/#validate_by_uri) via URL minor errors can be found,however when tested via direct input these issues are not raised. An issue relating to the Jinja templating language is raised via direct input but in this instance it can be ignored. Overall i decided that the the issues the validator tool was raising for: starters.html, mains.html and desserts.html did not require attention. All other html passed validation. The error raised via URL input can be seen below.
+
+            ![image of the html validator error](static/images/html_error.png)
 
     - CSS
         - No errors were found when passing through the [W3C Validator tool](https://jigsaw.w3.org/css-validator/)
 
     - JAVASCRIPT
-        - No errors were found when passing through [JSHint](https://jshint.com/)
+        - No custom Javascript is used in the project, so validator testing was not required.
 
     - Python
-        - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/)
+        - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/). However pylint issues are raised within my IDE. These issues refer to my models having no 'Object' member. These issues are not raised when passing through the PEP8 validator so in this instance i chose to leave them.
 
 - **Lighthouse**
 
 - **Automated Tests**
 
+    * Using the coverage package, i have generated reports for the booking and menu app. Automated test coverage for these two apps exceeded 90% which i deemed sufficient. Within the python files marked as starting with 'test' notes regarding how each individual test works and the logic behind why it achieves its goal can be found.
+        
+        ![image of the menu apps automated test coverage](static/images/menu_coverage.png)
+        ![image of the booking apps automated test coverage](static/images/cov_booking.png)
+
+        The areas of code within the booking app that are not covered via my automated tests can be seen below. I felt testing these areas manually was sufficient, as they all preform as intended. With the code not covered within the booking and amend_booking views having validators and automated testing surrounding these already preformed on it.
+        
+        ![image of the missing validator coverage](static/images/booking_validators_missing.png)
+        ![image of the missing booking views coverage](static/images/booking_view_missing.png)
+
+- **Manual Testing**
+
+    * Using devtools on google chrome the application has been tested on various devices to ensure it is fully responsive. I currently haven't found any major errors with the UI display, although there is room for improvement for the display of the opening hours sections on a galaxy fold device. I have also tested the validation errors raised on the BookingForm and from within the Booking model by inputting values to force them and they all seem to preform as intended. To test the user authorization requirements on certain urls i have attempted to navigate to them via direct input, this was especially useful when developing the logic in the views.py file on the booking app, they all seem to preform as intended and afford a good level of security for users. From an alternate user accounts i haven't been able to alter another's reservation or even view them.
+
 [Return to Table of Contents](#contents)
 ___
 ### Unfixed Bugs <a name ='bugs'></a>
 
-* MapBox Fails to Render.
+* **MapBox Fails to Render.**
 
     * Although the key for the deployed version of the project has URL restrictions set as per the MapBox [guidlines](https://docs.mapbox.com/accounts/guides/tokens/#url-restrictions) it sometimes fails to render within the browser and a new token must be made and the config vars within the app updated. I have reached out to MapBox customer service for advice on the issue. Upon failure to render 403 errors are logged within the console on devtools. Below the restrictions set and how the map should look rendered can be seen.
 
-        ![url restrictions for token](static/images/url_restrict.png)
-        ![map rendered correctly](static/images/map.png)
+        ![the url restrictions for mapbox token](static/images/url_restrict.png)
+        ![image of the map rendered correctly](static/images/map.png)
 
 [Return to Table of Contents](#contents)
 ___
@@ -308,6 +456,8 @@ ___
             $ git clone https://github.com/LewisCM14/restaurant-booking-app.git
     
     * STEP SIX - Press Enter to create your local clone.
+
+    *If GitPod is your chosen IDE from the link above the Gitpod button can be clicked to open up the repository code on your local machine* 
 
 [Return to Table of Contents](#contents)
 ___

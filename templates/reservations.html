@@ -57,7 +57,7 @@
                                 <!-- Triggers 'cancel' modal. -->
                                 <button data-bs-toggle='modal' data-bs-target='#cancel' class="btn btn-dark">Cancel</button>
                                 <!-- Redirects to the amend reservation page. -->
-                                <a href="/amend/{{ reservation.id }}"><button class="btn btn-dark">Amend</button></a>
+                                <a class="btn btn-dark" href="/amend/{{ reservation.id }}">Amend</a>
                             </div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                                <a href="/cancel/{{ reservation.id }}"><button class="btn btn-danger">Cancel</button></a>
+                                <a class="btn btn-danger" href="/cancel/{{ reservation.id }}">Cancel</a>
                             </div>
                         </div>
                     </div>

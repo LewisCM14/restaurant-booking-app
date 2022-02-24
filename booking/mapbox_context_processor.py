@@ -3,7 +3,7 @@
 from django.conf import settings
 
 
-def mapbox_renderer(request):
+def mapbox_renderer(_request):
     """
     Returns the MAPBOX_TOKEN from settings.py into a vairable,
     this variable is used in the base.html template.

@@ -9,12 +9,12 @@ from .admin import BookingAdmin
 class TestAdmin(TestCase):
     """
     Contains the tests for the admin methods.
-    Located in the booking app in admin.py.
+    Located in the booking app directory in admin.py.
     """
     def test_admin_methods(self):
         """
         Sets up a User instance for use when testing.
-        Stored in test_user, then uses them to create two reservations
+        Stored in test_user, then uses this user to create two reservations
         using the Booking model.
 
         Asserts both reservations default to pending.

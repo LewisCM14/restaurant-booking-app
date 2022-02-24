@@ -13,9 +13,9 @@ class TestViews(TestCase):
 
     def setUp(self):
         """
-        Sets up an instance within the Booking model database
-        for use when testing. Creates a User stored in test_user.
-        Then creates an instance using the Booking model with this user.
+        Creates a User stored in test_user.
+        Then creates a booking instance,
+        using the Booking model with this user.
 
         Then creates a second User.
         This user is for testing the redirect responses of certain views.
@@ -52,11 +52,13 @@ class TestViews(TestCase):
         Image.objects.create(
             image='ycvivnzimwll8gsswsqj',
             name='hero',
-            url='https://res.cloudinary.com/lewiscm/image/upload/v1644361126/q3d3inlmmrfdk8onwc3t.jpg',
+            url='https://res.cloudinary.com/lewiscm/image/upload/v1644361126/q3d3inlmmrfdk8onwc3t.jpg', # noqa
         )
 
     def login(self):
         """
+        Helper Method.
+
         Logs into the user stored in the test_user variable.
         Created in the setUp method.
         Called in the below tests to pass user authentication conditions.
@@ -120,7 +122,7 @@ class TestViews(TestCase):
         There is only 1 reservation in the database, which is why the URL is,
         /amend/1
 
-        Then uses assert Template Used to ensure the amend_booking.html page,
+        Then uses assert TemplateUsed to ensure the amend_booking.html page,
         plus the base.html it is extended from, is being used.
         """
         self.login()
@@ -204,6 +206,9 @@ class TestViews(TestCase):
         passing user authentication conditions on the view.
         Uses Django's in-built HTTP client, to get /cancel/1 in the URL.
         Asserts response is equal to status code 302, a redirect response.
+
+        The URL is '/cancel/1' as their is only one instance in the database,
+        the one created in the setUp method.
 
         This response removes the reservation created in the setUp method.
         Then asserts the response redirects to the /reservations URL.

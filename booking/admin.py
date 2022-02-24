@@ -19,17 +19,21 @@ class BookingAdmin(admin.ModelAdmin):
     search_fields = ('lead',)
     actions = ['accept_booking', 'decline_booking']
 
-    def accept_booking(self, request, queryset):
+    def accept_booking(self, _request, queryset):
         """
         Allows bookings to be accepted from the dropdown menu in admin.
+        2 is defined as declined in the STATUS tuple found in models.py on the
+        booking directory.
         """
         for reservation in queryset:
             reservation.status = 1
             reservation.save()
 
-    def decline_booking(self, request, queryset):
+    def decline_booking(self, _request, queryset):
         """
         Allows bookings to be declined from the dropdown menu in admin.
+        2 is defined as declined in the STATUS tuple found in models.py on the
+        booking directory.
         """
         for reservation in queryset:
             reservation.status = 2
@@ -39,6 +43,7 @@ class BookingAdmin(admin.ModelAdmin):
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
     """
-    The Admin panel for the Images model.
+    The Admin panel for the Image model. found in the booking
+    directory under models.py
     """
     list_display = ('name',)
