@@ -232,7 +232,7 @@ ___
     ---
     * Commit [adjust redirect path in amend_reservations view](https://github.com/LewisCM14/restaurant-booking-app/commit/60b68846cf2ea42bf61a9f7cd9dd564e7200050d) 
         * This bug was due to me not considering that the user would be logged into an account so the login page wasn't an appropriate location to navigate to.
-
+    ---
 - **Validator Testing**
 
     - HTML
@@ -248,8 +248,10 @@ ___
 
     - Python
         - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/). However pylint issues are raised within my IDE. These issues refer to my models having no 'Object' member. These issues are not raised when passing through the PEP8 validator so in this instance i chose to leave them.
-
+    ---
 - **Lighthouse**
+    
+    ---
 
 - **Automated Tests**
 
@@ -262,7 +264,7 @@ ___
         
         ![image of the missing validator coverage](static/images/booking_validators_missing.png)
         ![image of the missing booking views coverage](static/images/booking_view_missing.png)
-
+    ---
 - **Manual Testing**
 
     * Using devtools on google chrome the application has been tested on various devices to ensure it is fully responsive. I currently haven't found any major errors with the UI display, although there is room for improvement for the display of the opening hours sections on a galaxy fold device. I have also tested the validation errors raised on the BookingForm and from within the Booking model by inputting values to force them and they all seem to preform as intended. To test the user authorization requirements on certain urls i have attempted to navigate to them via direct input, this was especially useful when developing the logic in the views.py file on the booking app, they all seem to preform as intended and afford a good level of security for users. From an alternate user accounts i haven't been able to alter another's reservation or even view them.
