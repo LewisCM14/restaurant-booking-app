@@ -22,7 +22,8 @@ def validate_future_date(value):
     """
     A custom validation function.
     Intended for use on date field of the BookingForm.
-    Ensures the input value is a future date.
+    Using the datetime method datetime.date.today
+    ensures the input value is a future date.
     If validation is failed the custom error message is returned.
 
     If value is equal to current day provdes an alternate error message.
@@ -43,8 +44,8 @@ def validate_future_date(value):
 def validate_open_day(value):
     """
     A custom validation function.
-    Intended for use on date field of the BookingForm.
-    Uses the Weekday method of the datetime library
+    Intended for use on the date field of the BookingForm.
+    Uses the Weekday method of the datetime library.
     Ensures the input value is not a Monday or a Sunday.
     If validation is failed the custom error message is returned.
     """
