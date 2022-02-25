@@ -19,7 +19,7 @@
                                         <!-- Displays the title of the item as the card heading. -->
                                         <h5 class="card-title text-uppercase">{{ main.title }}</h5>
                                         <!-- Displays the item description, with the summernotes required safe tag. -->
-                                        <p class="card-text">{{ main.description | safe }}</p>
+                                        {{ main.description | safe }}
                                         <!-- Displays the price of the item. -->
                                         <h6 class="text-uppercase">£{{ main.price }}</h6>
                                     </div>
