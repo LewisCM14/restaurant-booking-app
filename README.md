@@ -301,6 +301,8 @@ ___
 
     * Using devtools on google chrome the application has been tested on various devices to ensure it is fully responsive. I currently haven't found any major errors with the UI display, although there is room for improvement for the display of the opening hours sections on a galaxy fold device. I have also tested the validation errors raised on the BookingForm and from within the Booking model by inputting values to force them and they all seem to preform as intended. To test the user authorization requirements on certain urls i have attempted to navigate to them via direct input, this was especially useful when developing the logic in the views.py file on the booking app, they all seem to preform as intended and afford a good level of security for users. From an alternate user accounts i haven't been able to alter another's reservation or even view them.
 
+    * Outside of devtools i have ran the site on several browsers including: brave, chrome, firefox and internet explorer. It appears to function as intended on these browsers. I have also ran it on my own personal pc, laptop and iphone, preforming as intended on each.
+
 [Return to Table of Contents](#contents)
 ___
 ### Unfixed Bugs <a name ='bugs'></a>
