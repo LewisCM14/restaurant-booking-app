@@ -106,16 +106,6 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-# Email
-
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'whitehorseshepshed@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_KEY')
-DEFAULT_FROM_EMAIL = 'whitehorseshepshed@gmail.com'
-
 # Server
 
 WSGI_APPLICATION = 'restobook.wsgi.application'
@@ -193,4 +183,4 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'optional'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
