@@ -55,6 +55,8 @@ ___
 
 * The csrf token is used on the booking form.
 
+* URL restrictions have also been placed on all API calls.
+
 [Return to Table of Contents](#contents)
 ___
 ### Design <a name='design'></a>
@@ -255,7 +257,12 @@ ___
         - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/). However pylint issues are raised within my IDE. These issues refer to my models having no 'Object' member. This relates to the Django framework. These issues are not raised when passing through the PEP8 validator so in this instance i chose to leave them.
     ---
 - **Lighthouse**
+
+    *Using devtools lighthouse feature i managed to score 100% for accessibility, best practices and SEO across mobile and desktop. With my performance score having a small discrepancy across desktop and mobile depending if a user was logged in or not, but still scoring above 80%. I felt this was a sufficient result for the project.*
     
+    ![image of lighthouse results for desktop](static/images/lh_desktop.png)
+    ![image of lighthouse results for mobile](static/images/lh_mobile.png)
+
     ---
 
 - **Automated Tests**
