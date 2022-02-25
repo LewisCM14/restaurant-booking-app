@@ -106,7 +106,15 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+# Email
+
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'whitehorseshepshed.com'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_KEY')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'whitehorseshepshed@gmail.com'
 
 WSGI_APPLICATION = 'restobook.wsgi.application'
 

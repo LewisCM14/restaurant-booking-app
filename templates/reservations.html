@@ -1,24 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Handles the display if the user has NO reservations. -->
-{% if not reservations %}
-<div class="container mb-3">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <h4 class="page-heading">Reservations</h4>
-            <p>It looks like you have no upcoming reservations.</p>
-            <a href="{% url 'booking' %}"><button class="btn btn-dark">Make a Booking</button></a>
-        </div>
-    </div>
-</div>
-{% else %}
-<!-- Handles the display if the user HAS reservations. -->
+
 <!-- The container for each individual reservation card. -->
 <div class="container-fluid mb-3">
     <div class="row">
         <div class="col-12 mt-3 left">
             <h4 class="page-heading text-center">Reservations</h4>
+            <p class="text-center">All upcoming reservations can be found here.</p>
             <div class="row">
                 <!-- Iterates over the reservations variable within the ReservationList on views. -->
                 {% for reservation in reservations %}
@@ -108,7 +97,8 @@
                     {% endfor %}
                 </div>
         </div>
+        <a href="{% url 'booking' %}" class="text-center"><button class="btn btn-dark">Make a Booking</button></a>
     </div>
 </div>
-{% endif %}
+
 {% endblock %}

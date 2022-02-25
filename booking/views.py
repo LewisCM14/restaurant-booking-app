@@ -98,20 +98,23 @@ class ReservationList(generic.ListView):
     """
     model = Booking
 
-    def sort(self, reservations):
+    def sort(self, bookings):
         """
-        Takes the reservations variable created in the get method.
-        Each individual reservation from this vairable is iterated over,
-        all instances are checked to ensure the date field is a
-        future date, done with the datetime today method.
-        Instances that have passed are deleted from the Booking database.
+        A helper method for the ReservationsList class.
 
-        The remaining reservations are returned back to the get method.
+        Takes the bookings variable created in the get method.
+        Each individual booking from this vairable is iterated over,
+        all instances are checked to ensure the date field is a
+        future date, done with the datetime.date.today method
+        from the datetime package. Instances that have passed are marked false.
+
+        The remaining reservations are marked true
+        and returned back to the get method.
         """
-        for reservation in reservations:
-            if reservation.date < datetime.date.today():
-                reservation.delete()
-                return reservations
+        if bookings.date >= datetime.date.today():
+            return True
+        else:
+            return False
 
     def get(self, request, *args, **kwargs):
         """
@@ -121,12 +124,13 @@ class ReservationList(generic.ListView):
         If passes uses the inbuilt get method to filter reservations,
         by ones with the authorized users ID. Then calls the sort method.
 
-        Only upcoming reservations are dispayed, ordered by date asscending.
+        Only upcoming reservations are dispayed.
         Renders to the 'reservations.html' template.
         """
         if request.user.is_authenticated:
-            reservations = Booking.objects.filter(user=request.user)
-            self.sort(reservations)
+            bookings = Booking.objects.filter(user=request.user)
+            reservations = filter(self.sort, bookings)
+
             return render(
                 request, 'reservations.html',
                 {

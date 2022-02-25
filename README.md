@@ -233,12 +233,13 @@ ___
     * Commit [adjust redirect path in amend_reservations view](https://github.com/LewisCM14/restaurant-booking-app/commit/60b68846cf2ea42bf61a9f7cd9dd564e7200050d) 
         * This bug was due to me not considering that the user would be logged into an account so the login page wasn't an appropriate location to navigate to.
     ---
+    * Commit [remove p tag from menu templates](https://github.com/LewisCM14/restaurant-booking-app/commit/f45e6e9428bfbdffaceaba63166bb50816e4ad22)
+        * This bug was due to the WYSIWYG editor adding the required html and me not needing to specify it.
+    ---
 - **Validator Testing**
 
     - HTML
-        - When passing the html templates relating to the menu app through the [W3C Validator tool](https://validator.w3.org/#validate_by_uri) via URL minor errors can be found,however when tested via direct input these issues are not raised. An issue relating to the Jinja templating language is raised via direct input but in this instance it can be ignored. Overall i decided that the the issues the validator tool was raising for: starters.html, mains.html and desserts.html did not require attention. All other html passed validation. The error raised via URL input can be seen below.
-
-            ![image of the html validator error](static/images/html_error.png)
+        - No errors were found when passing through the [W3C Validator tool](https://validator.w3.org/nu/)
 
     - CSS
         - No errors were found when passing through the [W3C Validator tool](https://jigsaw.w3.org/css-validator/)
@@ -247,7 +248,7 @@ ___
         - No custom Javascript is used in the project, so validator testing was not required.
 
     - Python
-        - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/). However pylint issues are raised within my IDE. These issues refer to my models having no 'Object' member. These issues are not raised when passing through the PEP8 validator so in this instance i chose to leave them.
+        - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/). However pylint issues are raised within my IDE. These issues refer to my models having no 'Object' member. This relates to the Django framework. These issues are not raised when passing through the PEP8 validator so in this instance i chose to leave them.
     ---
 - **Lighthouse**
     
@@ -265,6 +266,33 @@ ___
         ![image of the missing validator coverage](static/images/booking_validators_missing.png)
         ![image of the missing booking views coverage](static/images/booking_view_missing.png)
     ---
+- **Running the Automated Tests**
+
+    * Within the terminal on the IDE run the below command, this runs the automated tests.
+        
+            coverage run --source=booking manage.py test
+    
+    * Once the tests are complete, run the below command to generate the report.
+        
+            coverage report
+    
+    * To then view the report in detail run the below command, which will either create or update the *htmlcov* directory.
+        
+            coverage html
+    
+    * To view this report in detail use the below command to launch a basic html server and navigate to the *htmlcov* directory in the browser.
+        
+            python3 -m http.server
+    
+    * To view the tests for the menu app, follow the steps listed above but start from the initial command below.
+        
+            coverage run --source=menu manage.py test
+    
+    * If you do not wish to view the coverage report but simply want to verify all the test's pass, preform the below command and the results will be printed back to you in the terminal.
+
+            python3 manage.py test
+    ---
+
 - **Manual Testing**
 
     * Using devtools on google chrome the application has been tested on various devices to ensure it is fully responsive. I currently haven't found any major errors with the UI display, although there is room for improvement for the display of the opening hours sections on a galaxy fold device. I have also tested the validation errors raised on the BookingForm and from within the Booking model by inputting values to force them and they all seem to preform as intended. To test the user authorization requirements on certain urls i have attempted to navigate to them via direct input, this was especially useful when developing the logic in the views.py file on the booking app, they all seem to preform as intended and afford a good level of security for users. From an alternate user accounts i haven't been able to alter another's reservation or even view them.
