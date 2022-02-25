@@ -1,6 +1,7 @@
 # Restaurant Booking App
 
 A application built using Django for The White Horse restaurant in Shepshed. Allows for users to register and make reservation requests. These requests can then be viewed, amended and deleted by the user as required. Representatives of the venue are also able to accept or decline these requests and view all reservations in order to make business decisions. Key contact details and the restaurants menu are also provided within the application, as well as links to the companies social media accounts.
+
 ![image of lighthouse results for desktop](static/images/readme_hero.png)
 ___
 ## Table of Contents <a name='contents'></a>
