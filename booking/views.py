@@ -111,10 +111,10 @@ class ReservationList(generic.ListView):
         The remaining reservations are marked true
         and returned back to the get method.
         """
-        if bookings.date < datetime.date.today():
-            return False
-        else:
+        if bookings.date >= datetime.date.today():
             return True
+        else:
+            return False
 
     def get(self, request, *args, **kwargs):
         """
