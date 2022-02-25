@@ -12,5 +12,5 @@ def mapbox_renderer(_request):
     without being returned as context in every view.
     """
     return {
-       'mapbox_token': settings.MAPBOX_TOKEN
+       'google_maps': settings.GOOGLE_MAPS
     }

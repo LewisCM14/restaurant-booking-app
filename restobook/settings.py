@@ -26,7 +26,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # API Keys
-MAPBOX_TOKEN = os.environ.get('MAPBOX_TOKEN')
+GOOGLE_MAPS = os.environ.get('GOOGLE_MAPS')
 
 # Development Variables
 development = os.environ.get('DEVELOPMENT', False)
@@ -124,7 +124,6 @@ else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
