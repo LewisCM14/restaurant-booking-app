@@ -207,6 +207,10 @@ ___
 
     *Images relating to the menu items displayed to the user. For this feature i feel professionally taken images conforming to a set resolution would be required to achieve the best results.**
 
+- **Password Reset**
+
+    *Build a feature which gives users the ability to reset the password on their account.*
+
 [Return to Table of Contents](#contents)
 ___
 ### Testing <a name ='testing'></a> 
