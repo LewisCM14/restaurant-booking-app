@@ -305,12 +305,9 @@ ___
 ___
 ### Unfixed Bugs <a name ='bugs'></a>
 
-* **MapBox Fails to Render.**
+* **Errors in Devtools Console for Google Maps.**
 
-    * Although the key for the deployed version of the project has URL restrictions set as per the MapBox [guidlines](https://docs.mapbox.com/accounts/guides/tokens/#url-restrictions) it sometimes fails to render within the browser and a new token must be made and the config vars within the app updated. I have reached out to MapBox customer service for advice on the issue. Upon failure to render 403 errors are logged within the console on devtools. Below the restrictions set and how the map should look rendered can be seen.
-
-        ![the url restrictions for mapbox token](static/images/url_restrict.png)
-        ![image of the map rendered correctly](static/images/map.png)
+    * Please be aware that if you run a form of adblock software on your browser, when inspected with devtools, a **net::ERR_BLOCKED_BY_CLIENT** error will be printed to the console. Although on the browsers i have tested this on it doesn't appear to effect functionality of the site, to prevent these errors add the site to your 'whitelist' on the adblock software you use.
 
 [Return to Table of Contents](#contents)
 ___
