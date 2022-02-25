@@ -68,9 +68,11 @@ ___
 
 - **Typography**
 
+    *The chosen font for the project is Roboto Condensed. I chose this font as it provided a clean and elegant look that i felt best represented the target audience. I chose to leave the font choice till last on this project as i wanted to experiment with various fonts and combinations once it was built in its entirety so i could get a complete overlook on how it would all fit together.* 
+
 - **Imagery**
 
-    *There is limited use of imagery within the project as i felt a minimalist approach was an elegant solution that reflected the establishment growing into a contemporary venue. The hero image and the interactive map are the only doses ov color on the site, although there is future features that plan to expand on this. 
+    *There is limited use of imagery within the project as i felt a minimalist approach was an elegant solution that reflected the establishment growing into a contemporary venue. The hero image and the interactive map are the only doses ov color on the site, although there is future features that plan to expand on this.*
 
 - **Layout**
 
