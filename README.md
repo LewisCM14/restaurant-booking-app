@@ -233,12 +233,13 @@ ___
     * Commit [adjust redirect path in amend_reservations view](https://github.com/LewisCM14/restaurant-booking-app/commit/60b68846cf2ea42bf61a9f7cd9dd564e7200050d) 
         * This bug was due to me not considering that the user would be logged into an account so the login page wasn't an appropriate location to navigate to.
     ---
+    * Commit [remove p tag from menu templates](https://github.com/LewisCM14/restaurant-booking-app/commit/f45e6e9428bfbdffaceaba63166bb50816e4ad22)
+        * This bug was due to the WYSIWYG editor adding the required html and me not needing to specify it.
+    ---
 - **Validator Testing**
 
     - HTML
-        - When passing the html templates relating to the menu app through the [W3C Validator tool](https://validator.w3.org/#validate_by_uri) via URL minor errors can be found,however when tested via direct input these issues are not raised. An issue relating to the Jinja templating language is raised via direct input but in this instance it can be ignored. Overall i decided that the the issues the validator tool was raising for: starters.html, mains.html and desserts.html did not require attention. All other html passed validation. The error raised via URL input can be seen below.
-
-            ![image of the html validator error](static/images/html_error.png)
+        - No errors were found when passing through the [W3C Validator tool](https://validator.w3.org/nu/)
 
     - CSS
         - No errors were found when passing through the [W3C Validator tool](https://jigsaw.w3.org/css-validator/)
