@@ -10,11 +10,11 @@
 <div class="container mb-3">
   <div class="row">
     <div class="col-lg-12 text-center">
-      
+
       <h4 class="signin_heading">{% trans "Sign In" %}</h4>
 
       <p>{% blocktrans %}If you have not created an account yet, then please
-      <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
@@ -28,4 +28,5 @@
     </div>
   </div>
 </div>
+
 {% endblock %}
