@@ -198,23 +198,25 @@ ___
 
 - **Write a Review**
 
-    *An option for a user to write a review, which is then displayed on the site for other users to see. Due to the nature of the business this could potentially be handled through Trip Advisor or Yelp.*
+    *An option for a user to write a review, which is then displayed on the site for other users to see. Due to the nature of the business this could potentially be handled through Trip Advisor or Yelp. Due to this there is currently no issue for this in the product backlog.*
 
 - **Hero Image Carousel**
 
-    *Developing the hero image on the landing page to make use of a carousel highlighting the restaurants dishes is another future feature to also implement, i feel this would be a more elegant and professional way of advertising the business at a glance.*
+    *Developing the hero image on the landing page to make use of a carousel highlighting the restaurants dishes is another future feature to also implement, i feel this would be a more elegant and professional way of advertising the business at a glance. However this is just my own personal design preference so there is currently no issue for this.*
 
 - **Automated Emails**
 
     *User receives automated emails whenever their booking is accepted.*
+    [Automated Emails](https://github.com/LewisCM14/restaurant-booking-app/issues/10)
 
 - **Images for the Menu Items**
 
-    *Images relating to the menu items displayed to the user. For this feature i feel professionally taken images conforming to a set resolution would be required to achieve the best results.**
+    *Images relating to the menu items displayed to the user. For this feature i feel professionally taken images conforming to a set resolution would be required to achieve the best results. Due to this there is currently no issue for this in the product backlog.**
 
 - **Password Reset**
 
     *Build a feature which gives users the ability to reset the password on their account.*
+    [Password Reset](https://github.com/LewisCM14/restaurant-booking-app/issues/23)
 
 [Return to Table of Contents](#contents)
 ___
